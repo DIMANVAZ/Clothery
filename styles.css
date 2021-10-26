@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.cart{
+    border: 4px solid green;
+    display: inline-block;
+    display: none;
+}
+.cart-image{
+    border: 2px solid yellow;
+}
+.cart-amountOfIn{
+    border: 1px solid deepskyblue;
+}
+
+
+
+
+
+
+
+
+
+
+.colorDiv{
+    height:50px;
+    width:50px;
+}
