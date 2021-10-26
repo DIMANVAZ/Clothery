@@ -1,12 +1,12 @@
 /*export*/ class Cart{
-    cartBox = [{name:"any", count:1}];
+    cartBox = []; //товары по типу {name:"any", count:1}
 
     //добавить +1 товар: если есть такое имя - накрутим его счётчик, а если нету - добавим
     addToCart(item){
         let added = false;
         this.cartBox.find(nextEl => {
             if(nextEl.name === item.name){
-                console.log('we increase count');
+                    console.log(`we increase count of ${nextEl.name}`);
                 nextEl.count++;
                 added = true;
             }
@@ -14,15 +14,15 @@
         if(!added){
             item.count = 1;
             this.cartBox.push(item);
-            console.log('added new')
+                console.log(`added new: ${item.name}`)
         }
     };
 
     //убавить на 1 позицию данного товара
     removeOne(item){
         this.cartBox.find(nextEl => {
-            if(nextEl.name === item.name && nextEl.count >=1){
-                console.log('we decrease count');
+            if(nextEl.name === item.name && nextEl.count >= 1){
+                    console.log(`we decrease count of ${nextEl.name}`);
                 nextEl.count--;
             }
         })
@@ -31,7 +31,7 @@
     //полностью удалить позицию вообще
     fullyRemove(item){
         this.cartBox = this.cartBox.filter(elem => elem.name !== item.name);
-        console.log(`we fully removed ${item.name}`)
+            console.log(`we fully removed ${item.name}`)
     };
 
     //сложить счётчики у всех товаров в корзине
@@ -44,19 +44,5 @@
 }
 
 let c = new Cart();
-c.addToCart({name:"any"});
-console.log(c.cartBox)
-c.addToCart({name:"duh"});
-console.log(c.cartBox)
-c.addToCart({name:"duh"});
-console.log(c.cartBox)
-c.fullyRemove({name:"duh"})
-console.log(c.cartBox)
-c.removeOne({name:"any"})
-console.log(c.cartBox)
-c.removeOne({name:"any"})
-console.log(c.cartBox)
-c.removeOne({name:"any"})
-console.log(c.cartBox)
 
 console.log(c.totalItems())
