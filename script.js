@@ -1,4 +1,4 @@
-//let items = [];
+import {Cart} from "./Cart.js"
 let itemsBox = document.querySelector('.items')
 
 let storeId = 58958138;
