@@ -22,7 +22,7 @@
             <h2>{{item.name.slice(8)}}</h2>
             <h3>Код товара: {{item.id}}</h3>
 
-            <p>Цена:{{item.price}}</p>
+            <p>Цена:{{item.defaultDisplayedPriceFormatted}}</p>
             <p v-html="item.description"></p>
 
             <img :src="items[i].thumbnailUrl" alt="medium Product Photo">
