@@ -1,13 +1,15 @@
 /*export*/ class Cart{
-    cartBox = []; //товары по типу {name:"any", count:1}
+    cartBox = []; //товары по типу {name:"any", count:1, price:111}
 
-    //добавить +1 товар: если есть такое имя - накрутим его счётчик, а если нету - добавим
+    //добавить +1 товар типа {name:"dd",price:999}
+    //если есть такое имя - накрутим его счётчик, а если нету - добавим
     addToCart(item){
         let added = false;
         this.cartBox.find(nextEl => {
             if(nextEl.name === item.name){
                     console.log(`we increase count of ${nextEl.name}`);
                 nextEl.count++;
+                nextEl.price = nextEl.price * nextEl.count;
                 added = true;
             }
         })
@@ -40,9 +42,31 @@
             sum += item.count;
             return sum
         },0)
+    };
+
+    //сложить цены у всех товаров в корзине
+    totalPrice(){
+        return this.cartBox.reduce((sum,item) =>{
+            sum += item.price;
+            return sum
+        },0)
+    };
+
+    //генератор промокода
+    promoCodeGen(){
+        let pCode = "";
+        this.cartBox.forEach(el => pCode += (el.name[0]+el.count));
+        pCode += this.totalPrice();
+        return pCode;
     }
+
 }
 
 let c = new Cart();
-
+c.addToCart({name:"носки", price:333})
+c.addToCart({name:"носки", price:333})
+c.addToCart({name:"трусы", price:4944})
 console.log(c.totalItems())
+console.log(c.totalPrice())
+console.log(c.cartBox)
+console.log(c.promoCodeGen())

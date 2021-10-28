@@ -3,6 +3,16 @@
     padding: 0;
 }
 
+:root{
+    --asphalt:#466880;
+    --whiteGold:#F1E3C7;
+    --okhra:#D3B58F;
+    --rose:#F38C9B;
+    --footer:#A69F91;
+    --dark:#0F121A;
+}
+
+
 .cart{
     border: 4px solid green;
     display: inline-block;
