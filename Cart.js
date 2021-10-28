@@ -1,9 +1,9 @@
-/*export*/ class Cart{
+export class Cart{
     cartBox = []; //товары по типу {name:"any", count:1, price:111}
 
     //добавить +1 товар типа {name:"dd",price:999}
     //если есть такое имя - накрутим его счётчик, а если нету - добавим
-    addToCart(item){
+    addToCart(item = {name:"проверка", price:999}){
         let added = false;
         this.cartBox.find(nextEl => {
             if(nextEl.name === item.name){
@@ -62,6 +62,7 @@
 
 }
 
+/*
 let c = new Cart();
 c.addToCart({name:"носки", price:333})
 c.addToCart({name:"носки", price:333})
@@ -69,4 +70,4 @@ c.addToCart({name:"трусы", price:4944})
 console.log(c.totalItems())
 console.log(c.totalPrice())
 console.log(c.cartBox)
-console.log(c.promoCodeGen())
+console.log(c.promoCodeGen())*/

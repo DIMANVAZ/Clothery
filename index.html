@@ -12,11 +12,6 @@
 
     </div>
 
-    <div class="cart">
-        <p class="cart-amountOfIn">7</p>
-        <img class="cart-image" src="pics/cart.png" alt="cart image" >
-    </div>
-
     <div id="app">
         <div v-for="(item,i) in items">
             <h2>{{item.name.slice(8)}}</h2>
@@ -37,7 +32,16 @@
             </div>
 
             <div class="colorDiv" :style="{backgroundColor:getMainColor(item)}"></div>
+
+            <button @click="cart.addToCart({name:item.name.slice(8), price:item.price})">Добавить в корзину</button>
+
         </div>
+
+        <div class="cart">
+            <img class="cart-image" src="pics/wallet-bag%20(2).jpg" alt="cart image" >
+            <p class="cart-inner-text" v-if="cart.totalItems()>0">{{cart.totalItems()}}</p>
+        </div>
+
     </div>
 
     <script src="script.js" type="module"></script>
