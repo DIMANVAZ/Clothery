@@ -42,11 +42,18 @@
     /*border: 1px solid red;*/
 }
 
-.villanelle{
+/*.villanelle{
     background-image: url("/pics/vk-vert-small.jpg");
     background-position: 0 0;
     background-repeat: no-repeat;
     background-size: 100% auto;
+}*/
+.villanelle{
+    border:3px solid red;
+}
+
+.title-image{
+    border:3px solid blue;
 }
 
 .header{
@@ -69,10 +76,18 @@
     display:inline-block;
 }
 
+.title-button:hover{
+    opacity: 100;
+    display:inline-block;
+}
+
 .men{
     background-color: var(--dark);
     color:var(--whiteGold);
     padding: 5px 5px 5px 20px;
+}
+.men:hover{
+    box-shadow: 0 0 5px 5px var(--whiteGold);
 }
 
 .women{
@@ -80,7 +95,9 @@
     color:var(--dark);
     padding: 5px 60px 5px 5px;
 }
-
+.women:hover{
+    box-shadow: 0 0 5px 5px var(--dark);
+}
 
 
 
