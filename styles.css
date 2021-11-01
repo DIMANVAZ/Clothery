@@ -49,26 +49,44 @@
     background-size: 100% auto;
 }*/
 .villanelle{
+    /*position: relative;*/
+    display:flex;
+    flex-direction:column;
     border:3px solid red;
+    width:100%;
 }
 
 .title-image{
     border:3px solid blue;
+    width: 100%;
+    height:auto;
+    object-fit: contain;
+
 }
 
-.header{
-    text-align: center;
+header{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width:100%;
+    z-index:2;
     background-color:var(--okhra);
     opacity:83%;
     height:80px;
+    /*height:10vh;*/
     border-bottom: 1px solid var(--dark);
+    font-size:1.2rem;
 }
 
 .title-buttons{
     display: flex;
-    position: relative;
-    top:60px;
     justify-content: center;
+    position: absolute;
+    width:100%;
+    top:20%;
+    z-index:2;
+    font-size:1.2rem;
 }
 
 .title-button{
@@ -84,7 +102,8 @@
 .men{
     background-color: var(--dark);
     color:var(--whiteGold);
-    padding: 5px 5px 5px 20px;
+    /*padding: 5px 5px 5px 30px;*/
+    padding: 2% 2% 2% 13%;
 }
 .men:hover{
     box-shadow: 0 0 5px 5px var(--whiteGold);
@@ -93,17 +112,26 @@
 .women{
     background-color: var(--rose);
     color:var(--dark);
-    padding: 5px 60px 5px 5px;
+    /*padding: 5px 60px 5px 5px;*/
+    padding: 2% 16% 2% 2%;
 }
 .women:hover{
     box-shadow: 0 0 5px 5px var(--dark);
 }
 
+b{
+    padding-left:1%;
+}
+footer{
+    padding-left:1%;
+    background-color: var(--footer);
+    color: var(--dark);
+    border-top: 1px solid var(--dark);
+}
 
-
-
-
-
+footer li{
+    list-style-type: none;
+}
 
 .colorDiv{
     height:50px;
