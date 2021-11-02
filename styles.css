@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
 }
 
 :root{
@@ -12,6 +11,10 @@
     --rose:#F38C9B;
     --footer:#A69F91;
     --dark:#0F121A;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
 }
 
 .cart{
@@ -42,22 +45,8 @@
     /*border: 1px solid red;*/
 }
 
-/*.villanelle{
-    background-image: url("/pics/vk-vert-small.jpg");
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-}*/
-.villanelle{
-    /*position: relative;*/
-    display:flex;
-    flex-direction:column;
-    border:3px solid red;
-    width:100%;
-}
-
 .title-image{
-    border:3px solid blue;
+    /*border:3px solid blue;*/
     width: 100%;
     height:auto;
     object-fit: contain;
