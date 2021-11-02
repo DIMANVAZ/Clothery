@@ -7,10 +7,11 @@
 :root{
     --asphalt:#466880;
     --whiteGold:#F1E3C7;
-    --okhra:#D3B58F;
+    --sand:#D3B58F;
     --rose:#F38C9B;
     --footer:#A69F91;
     --dark:#0F121A;
+
 }
 
 body{
@@ -20,13 +21,14 @@ body{
 .cart{
     /*border: 1px solid green;*/
     position: relative;
-    width: 40px;
+    width: 60px;
     /*display: none;*/
 }
 .cart-image{
     /*border: 2px solid yellow;*/
     width: 100%;
     display: block;
+    font-size: 1.2rem;
 }
 
 .cart-inner-text{
@@ -40,7 +42,7 @@ body{
     justify-content: center;
     z-index: 1;
     text-align: center;
-    color:var(--okhra);
+    color:red;
     font-weight:550;
     /*border: 1px solid red;*/
 }
@@ -55,12 +57,12 @@ body{
 
 header{
     display:flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     position: absolute;
     width:100%;
     z-index:2;
-    background-color:var(--okhra);
+    background-color:white;
     opacity:83%;
     height:80px;
     /*height:10vh;*/
@@ -108,9 +110,6 @@ header{
     box-shadow: 0 0 5px 5px var(--dark);
 }
 
-b{
-    padding-left:1%;
-}
 footer{
     padding-left:1%;
     background-color: var(--footer);
