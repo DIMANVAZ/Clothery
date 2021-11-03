@@ -5,6 +5,9 @@
 }
 
 :root{
+    --manTshirt:#C9CEEF;
+    --womanDress:#C08A62;
+
     --asphalt:#466880;
     --whiteGold:#F1E3C7;
     --sand:#D3B58F;
@@ -31,16 +34,24 @@ body{
 }
 .area.left {
     left: 0;
-    background-color: yellow;
+    background-color: var(--manTshirt);
     opacity: 50%;
 }
+.area.left:hover {
+    opacity: 0%;
+}
+
 .area.right {
     right: 0;
-    background-color: blue;
+    background-color: var(--womanDress);
     opacity: 50%;
 }
-.opacity100{
+.area.right:hover {
+    opacity: 0%;
+}
 
+.test{
+    border:6px solid black;
 }
 
 img{

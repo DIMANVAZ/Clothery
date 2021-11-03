@@ -38,12 +38,13 @@ let u2 = 'https://app.ecwid.com/api/v3/58958138/products?limit=3&token=public_7B
 
 const areaLeft = document.querySelector(".area.left");
 const areaRight = document.querySelector(".area.right");
+const bothAreas = document.querySelectorAll(".area")
 
-areaLeft.onclick = function(){
-    areaRight.classList.toggle('opacity100')
-    alert('L')
-}
-
+bothAreas.forEach(el =>{
+    el.onclick = function(){
+        console.log(event.target.classList)
+    }
+})
 
 
 fetch(u2).then(resp => resp.json()).then(jsoned => console.log(jsoned))
