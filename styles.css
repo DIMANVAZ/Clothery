@@ -7,21 +7,19 @@
 :root{
     --manTshirt:#C9CEEF;
     --womanDress:#C08A62;
+    --glassGreen:#44A68A;
+    --tileBottom:#F9F8F6;
+    --goldLamp:#FCEDB2;
+    --womanHair:#280F08;
 
-    --asphalt:#466880;
-    --whiteGold:#F1E3C7;
-    --sand:#D3B58F;
-    --rose:#F38C9B;
-    --footer:#A69F91;
     --dark:#0F121A;
-
 }
 
 body{
     font-family: 'Open Sans', sans-serif;
 }
 
-/*---------------половинки--------------------------------------------------------------------------*/
+/*------------------------половинки-----------------------------------------------------------------*/
 .pic-and-areas {
     position: relative;
     display: inline-block;
@@ -37,26 +35,25 @@ body{
     display:flex;
     flex-direction: column;
     align-items: center;
+    opacity: 40%;
+    transition-duration:0.5s;
 }
 .area.left {
     left: 0;
     background-color: var(--manTshirt);
-    opacity: 60%;
 }
-.area.left:hover {
-    transition-duration:0.5s;
-    opacity: 0%;
-}
+    .area.left:hover {
+        transition-duration:0.5s;
+        opacity: 0%;
+    }
 .area.right {
     right: 0;
     background-color: var(--womanDress);
-    opacity: 60%;
-    transition-duration:0.5s;
 }
-.area.right:hover {
-    transition-duration:0.5s;
-    opacity: 0%;
-}
+    .area.right:hover {
+        transition-duration:0.5s;
+        opacity: 0%;
+    }
 /*---------------конец половинок--------------------------------------------------------------------------*/
 
 .test{
@@ -123,30 +120,33 @@ header{
     opacity: 100;
     display:inline-block;
 }
-
+.men,.women{
+    position: sticky; /*relative;*/
+    top:20%;
+    padding:2%;
+}
 .men{
-    background-color: var(--dark);
-    color:var(--whiteGold);
-    position: relative;
+    background-color: var(--glassGreen);
+    color:var(--manTshirt);
 }
-.men:hover{
-    box-shadow: 0 0 5px 5px var(--whiteGold);
-}
+    .men:hover{
+        box-shadow: 0 0 5px 5px var(--glassGreen);
+    }
 
 .women{
-    background-color: var(--rose);
-    color:var(--dark);
-    position: relative;
+    background-color: var(--goldLamp);
+    color:var(--womanHair);
 }
-.women:hover{
-    box-shadow: 0 0 5px 5px var(--dark);
-}
+    .women:hover{
+        box-shadow: 0 0 5px 5px var(--goldLamp);
+    }
 
 /*-----------конец кнопок------------------------------------------------------------*/
 
+/*----------подвал------------------------------------*/
 footer{
     padding-left:1%;
-    background-color: var(--footer);
+    background-color: var(--tileBottom);
     color: var(--dark);
     border-top: 1px solid var(--dark);
 }
@@ -159,3 +159,4 @@ footer li{
     height:50px;
     width:50px;
 }
+/*----------конец подвала------------------------------------*/
