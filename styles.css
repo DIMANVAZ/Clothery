@@ -18,6 +18,35 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
+.pic-and-areas {
+    position: relative;
+    display: inline-block;
+    border: 1px solid red;
+}
+.pic-and-areas > .area {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+}
+.area.left {
+    left: 0;
+    background-color: yellow;
+    opacity: 50%;
+}
+.area.right {
+    right: 0;
+    background-color: blue;
+    opacity: 50%;
+}
+.opacity100{
+
+}
+
+img{
+    width:100%;
+}
+
 .cart{
     /*border: 1px solid green;*/
     position: relative;
@@ -47,19 +76,18 @@ body{
     /*border: 1px solid red;*/
 }
 
-.title-image{
-    /*border:3px solid blue;*/
-    width: 100%;
-    height:auto;
-    object-fit: contain;
-
-}
+/*.title-image{*/
+/*    !*border:3px solid blue;*!*/
+/*    width: 100%;*/
+/*    height:auto;*/
+/*    object-fit: contain;*/
+/*}*/
 
 header{
     display:flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
+    position: relative;
     width:100%;
     z-index:2;
     background-color:white;

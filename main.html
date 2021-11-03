@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Clothery</title>
     <script src="https://unpkg.com/vue@next"></script>
-    <link rel="stylesheet" href="https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css">
+<!--    <link rel="stylesheet" href="https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css">-->
     <link rel="stylesheet" href="./styles.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body >
-    <div class="" id="app">
+    <div id="app">
         <header class="header">
             <p style="margin-left:30px; flex-grow: 2">Clothery</p>
             <p style="padding: 0 1%">Коллекции</p>
@@ -23,11 +23,16 @@
                 <p class="cart-inner-text" v-if="cart.totalItems()>0">({{cart.totalItems()}})</p>
             </div>
         </header>
-        <div class="title-buttons">
-            <div class="title-button men">МУЖСКАЯ</div>
-            <div class="title-button women">ЖЕНСКАЯ</div>
+<!--        <div class="title-buttons">-->
+<!--            <div class="title-button men">МУЖСКАЯ</div>-->
+<!--            <div class="title-button women">ЖЕНСКАЯ</div>-->
+<!--        </div>-->
+        <div class="pic-and-areas">
+            <img src="./pics/summer.jpg" alt="man and woman" class="title-image">
+            <div class="area left"></div>
+            <div class="area right"></div>
         </div>
-        <img src="./pics/summer.jpg" alt="man and woman" class="title-image">
+
         <footer class="footer">
             <ul>
                 <li>📞 8-800-713-33-33</li>
@@ -36,6 +41,7 @@
             </ul>
         </footer>
     </div>
+
     <script src="script.js" type="module"></script>
 </body>
 </html>

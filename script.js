@@ -6,9 +6,6 @@ let storeId = 58958138;
 let token = 'public_7BxbJGWyDaZfSQqjVS5Ftr4jzXkS43UD';
 let requestURL = 'https://app.ecwid.com/api/v3/'+storeId+'/products?limit=3&token='+token;
 
-let u2 = 'https://app.ecwid.com/api/v3/58958138/products?limit=3&token=public_7BxbJGWyDaZfSQqjVS5Ftr4jzXkS43UD'
-
-
 const app = Vue.createApp({
     data(){
         return{
@@ -34,7 +31,20 @@ const app = Vue.createApp({
     computed:{
 
     },
-    }).mount('#app');
+}).mount('#app');
+
+
+let u2 = 'https://app.ecwid.com/api/v3/58958138/products?limit=3&token=public_7BxbJGWyDaZfSQqjVS5Ftr4jzXkS43UD'
+
+const areaLeft = document.querySelector(".area.left");
+const areaRight = document.querySelector(".area.right");
+
+areaLeft.onclick = function(){
+    areaRight.classList.toggle('opacity100')
+    alert('L')
+}
+
+
 
 fetch(u2).then(resp => resp.json()).then(jsoned => console.log(jsoned))
 
