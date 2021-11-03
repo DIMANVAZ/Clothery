@@ -21,6 +21,7 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
+/*---------------половинки--------------------------------------------------------------------------*/
 .pic-and-areas {
     position: relative;
     display: inline-block;
@@ -32,23 +33,31 @@ body{
     width: 50%;
     height: 100%;
 }
+.area{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
 .area.left {
     left: 0;
     background-color: var(--manTshirt);
-    opacity: 50%;
+    opacity: 60%;
 }
 .area.left:hover {
+    transition-duration:0.5s;
     opacity: 0%;
 }
-
 .area.right {
     right: 0;
     background-color: var(--womanDress);
-    opacity: 50%;
+    opacity: 60%;
+    transition-duration:0.5s;
 }
 .area.right:hover {
+    transition-duration:0.5s;
     opacity: 0%;
 }
+/*---------------конец половинок--------------------------------------------------------------------------*/
 
 .test{
     border:6px solid black;
@@ -58,6 +67,7 @@ img{
     width:100%;
 }
 
+/*--------------------------------корзина----------------------------------------------------------*/
 .cart{
     /*border: 1px solid green;*/
     position: relative;
@@ -70,7 +80,6 @@ img{
     display: block;
     font-size: 1.2rem;
 }
-
 .cart-inner-text{
     position: absolute;
     left: 0;
@@ -86,13 +95,7 @@ img{
     font-weight:550;
     /*border: 1px solid red;*/
 }
-
-/*.title-image{*/
-/*    !*border:3px solid blue;*!*/
-/*    width: 100%;*/
-/*    height:auto;*/
-/*    object-fit: contain;*/
-/*}*/
+/*--------------------------------конец корзины----------------------------------------------------*/
 
 header{
     display:flex;
@@ -109,17 +112,9 @@ header{
     font-size:1.2rem;
 }
 
-.title-buttons{
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    width:100%;
-    top:20%;
-    z-index:2;
-    font-size:1.2rem;
-}
-
+/*----------------------------кнопки-----------------------------------------------------*/
 .title-button{
+    position:relative;
     opacity: 83%;
     display:inline-block;
 }
@@ -132,8 +127,7 @@ header{
 .men{
     background-color: var(--dark);
     color:var(--whiteGold);
-    /*padding: 5px 5px 5px 30px;*/
-    padding: 2% 2% 2% 13%;
+    position: relative;
 }
 .men:hover{
     box-shadow: 0 0 5px 5px var(--whiteGold);
@@ -142,12 +136,13 @@ header{
 .women{
     background-color: var(--rose);
     color:var(--dark);
-    /*padding: 5px 60px 5px 5px;*/
-    padding: 2% 16% 2% 2%;
+    position: relative;
 }
 .women:hover{
     box-shadow: 0 0 5px 5px var(--dark);
 }
+
+/*-----------конец кнопок------------------------------------------------------------*/
 
 footer{
     padding-left:1%;
