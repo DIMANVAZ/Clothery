@@ -5,47 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Clothery</title>
     <script src="https://unpkg.com/vue@next"></script>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<!--    <link rel="stylesheet" href="https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css">-->
+    <link rel="stylesheet" href="./styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-
-    <div class="items">
-
-    </div>
-
+<body >
     <div id="app">
-        <div v-for="(item,i) in items">
-            <h2>{{item.name.slice(8)}}</h2>
-            <h3>Код товара: {{item.id}}</h3>
 
-            <p>Цена:{{item.defaultDisplayedPriceFormatted}}</p>
-            <p v-html="item.description"></p>
+        <header class="header">
+            <p style="margin-left:30px; flex-grow: 2">Clothery</p>
+            <p style="padding: 0 1%">Коллекции</p>
+            <p style="padding: 0 1%">О нас</p>
+            <p style="padding: 0 1%">Контакты</p>
+            <div class="cart">
+                <svg height="96" width="96" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="M68 24v-4C68 8.954 59.046 0 48 0S28 8.954 28 20v4H12v60c0 6.63 5.37 12 12 12h48c6.63 0 12-5.37 12-12V24H68zm-32-4c0-6.627 5.373-12 12-12s12 5.373 12 12v4H36v-4zm40 64c0 2.21-1.79 4-4 4H24c-2.21 0-4-1.79-4-4V32h56v52z"/></svg>
+                <img class="cart-image" src="pics/bag_icon.svg" alt="cart image" >
+                <p class="cart-inner-text" v-if="cart.totalItems()>0">({{cart.totalItems()}})</p>
+            </div>
+        </header>
 
-            <img :src="items[i].thumbnailUrl" alt="medium Product Photo">
+        <div class="pic-and-areas">
+            <img src="./pics/main-mobNtabs.jpg" alt="man and woman" class="title-image">
 
-            <div v-for="(pic,i) in item.media.images" >
-                <img :src="pic.image160pxUrl" alt="medium Product Photo" style="border:1px solid blue">
+            <div class="area left">
+                <div class="title-button men">МУЖСКАЯ</div>
             </div>
 
-            Доступные размеры:
-            <div v-for="size in item.options[0].choices">
-                <p>{{size.text}}</p>
+            <div class="area right">
+                <div class="title-button women">ЖЕНСКАЯ</div>
             </div>
-
-            <div class="colorDiv" :style="{backgroundColor:getMainColor(item)}"></div>
-
-            <button @click="cart.addToCart({name:item.name.slice(8), price:item.price})">Добавить в корзину</button>
-
         </div>
 
-        <div class="cart">
-            <img class="cart-image" src="pics/bag_icon.svg" alt="cart image" >
-            <p class="cart-inner-text" v-if="cart.totalItems()>0">({{cart.totalItems()}})</p>
-        </div>
-
+        <footer class="footer">
+            <ul>
+                <li>📞 8-800-713-33-33</li>
+                <li>Москва, ул. Ямская, 33, ТЦ Рим</li>
+                <li>🖂 sales@clothery.com</li>
+            </ul>
+        </footer>
     </div>
 
     <script src="script.js" type="module"></script>

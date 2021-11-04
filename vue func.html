@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clothery</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="items">
+
+    </div>
+
+    <div id="app">
+        <div v-for="(item,i) in items">
+            <h2>{{item.name.slice(8)}}</h2>
+            <h3>Код товара: {{item.id}}</h3>
+
+            <p>Цена:{{item.defaultDisplayedPriceFormatted}}</p>
+            <p v-html="item.description"></p>
+
+            <img :src="items[i].thumbnailUrl" alt="medium Product Photo">
+
+            <div v-for="(pic,i) in item.media.images" >
+                <img :src="pic.image160pxUrl" alt="medium Product Photo" style="border:1px solid blue">
+            </div>
+
+            Доступные размеры:
+            <div v-for="size in item.options[0].choices">
+                <p>{{size.text}}</p>
+            </div>
+
+            <div class="colorDiv" :style="{backgroundColor:getMainColor(item)}"></div>
+
+            <button @click="cart.addToCart({name:item.name.slice(8), price:item.price})">Добавить в корзину</button>
+
+        </div>
+
+        <div class="cart">
+            <img class="cart-image" src="pics/bag_icon.svg" alt="cart image" >
+            <p class="cart-inner-text" v-if="cart.totalItems()>0">({{cart.totalItems()}})</p>
+        </div>
+
+    </div>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>
