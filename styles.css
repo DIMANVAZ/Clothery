@@ -19,6 +19,18 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
+@media screen and (min-width: 1000px) {
+    .header-menu-icon{
+        display:none;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .header-menu-word{
+        display:none;
+    }
+}
+
 /*------------------------половинки-----------------------------------------------------------------*/
 .pic-and-areas {
     position: relative;
@@ -64,28 +76,46 @@ img{
     width:100%;
 }
 
+/*==========================header и всё в нём============================================*/
+header{
+    border: 1px solid green;
+    display:flex;
+    position: relative;
+    width:100%;
+    z-index:2;
+    background-color:white;
+    opacity:83%;
+    height:85px;
+    border-bottom: 1px solid var(--dark);
+    font-size:1.2rem;
+}
 
+.header-menu-icon{
+    height:60px;
+}
+path{
+    border:1px solid black;
+}
+.header-menu-icon:hover{
+    fill:red;
+}
 
-/*--------------------------------корзина----------------------------------------------------------*/
+/*--------------------------------корзина-----------------------------*/
 .cart{
     /*border: 1px solid green;*/
     position: relative;
     width: 60px;
     /*display: none;*/
 }
-.cart-image{
+.cart-icon{
     /*border: 2px solid yellow;*/
-    width: 100%;
+    /*width: 100%;*/
+    height:100%;
     display: block;
     font-size: 1.2rem;
 }
-    .cart-image:hover{
-    }
-
-svg:hover{
-    fill:red;
+.cart-icon:hover{
 }
-
 .cart-inner-text{
     position: absolute;
     left: 0;
@@ -101,22 +131,9 @@ svg:hover{
     font-weight:550;
     /*border: 1px solid red;*/
 }
-/*--------------------------------конец корзины----------------------------------------------------*/
 
-header{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    width:100%;
-    z-index:2;
-    background-color:white;
-    opacity:83%;
-    height:80px;
-    /*height:10vh;*/
-    border-bottom: 1px solid var(--dark);
-    font-size:1.2rem;
-}
+/*--------------------------------конец корзины-----------------------*/
+/*=========================конец====header===============================================*/
 
 /*----------------------------кнопки-----------------------------------------------------*/
 .title-button{
