@@ -13,12 +13,14 @@
 </head>
 <body >
     <div id="app">
+
         <header class="header">
             <p style="margin-left:30px; flex-grow: 2">Clothery</p>
             <p style="padding: 0 1%">Коллекции</p>
             <p style="padding: 0 1%">О нас</p>
             <p style="padding: 0 1%">Контакты</p>
             <div class="cart">
+                <svg height="96" width="96" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="M68 24v-4C68 8.954 59.046 0 48 0S28 8.954 28 20v4H12v60c0 6.63 5.37 12 12 12h48c6.63 0 12-5.37 12-12V24H68zm-32-4c0-6.627 5.373-12 12-12s12 5.373 12 12v4H36v-4zm40 64c0 2.21-1.79 4-4 4H24c-2.21 0-4-1.79-4-4V32h56v52z"/></svg>
                 <img class="cart-image" src="pics/bag_icon.svg" alt="cart image" >
                 <p class="cart-inner-text" v-if="cart.totalItems()>0">({{cart.totalItems()}})</p>
             </div>
@@ -26,9 +28,11 @@
 
         <div class="pic-and-areas">
             <img src="./pics/main-mobNtabs.jpg" alt="man and woman" class="title-image">
+
             <div class="area left">
                 <div class="title-button men">МУЖСКАЯ</div>
             </div>
+
             <div class="area right">
                 <div class="title-button women">ЖЕНСКАЯ</div>
             </div>

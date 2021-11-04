@@ -64,6 +64,8 @@ img{
     width:100%;
 }
 
+
+
 /*--------------------------------корзина----------------------------------------------------------*/
 .cart{
     /*border: 1px solid green;*/
@@ -77,6 +79,13 @@ img{
     display: block;
     font-size: 1.2rem;
 }
+    .cart-image:hover{
+    }
+
+svg:hover{
+    fill:red;
+}
+
 .cart-inner-text{
     position: absolute;
     left: 0;
@@ -112,8 +121,10 @@ header{
 /*----------------------------кнопки-----------------------------------------------------*/
 .title-button{
     position:relative;
-    opacity: 83%;
+    /*opacity: 100%;*/
     display:inline-block;
+    width:30%;
+    text-align:center;
 }
 
 .title-button:hover{
@@ -124,6 +135,7 @@ header{
     position: sticky; /*relative;*/
     top:20%;
     padding:2%;
+    font-size: 1.2rem;
 }
 .men{
     background-color: var(--glassGreen);
