@@ -92,12 +92,13 @@ header{
 
 .header-menu-icon{
     height:80%;
-    max-height:80px;
+    padding-top:20px;
 }
 
 .header-menu-icon:hover{
     fill:red;
 }
+
 
 /*--------------------------------корзина-----------------------------*/
 .cart{
