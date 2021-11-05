@@ -110,11 +110,11 @@ nav{
 .nav-icon{
     /*height:50%; !*от высоты блока NAV*!*/
     max-width:100%;
-    height:60%; /*от высоты блока NAV*!*/
+    height:55%; /*от высоты блока NAV*!*/
 }
 
 .nav-item,.header-nav-cart{
-    padding:0 5px;
+
 }
 
 .main-container img.for-mobs{
@@ -142,6 +142,7 @@ nav{
 /*-----------корзина----------------------------------*/
 .header-nav-cart{
     height:60%; /*от высоты блока NAV*/
+
 }
 .cart-icon{
     height:100%; /*от высоты блока .header-nav-cart*/
