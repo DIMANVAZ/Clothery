@@ -33,16 +33,9 @@ const app = Vue.createApp({
     },
 }).mount('#app');
 
-const areaLeft = document.querySelector(".area.left");
-const areaRight = document.querySelector(".area.right");
-const bothAreas = document.querySelectorAll(".area")
-
-bothAreas.forEach(el =>{
-    el.onclick = function(){
-        console.log(event.target.classList)
-    }
+document.querySelectorAll('.nav-icon').forEach(htmlEl => {
+    console.log(htmlEl.width)
 })
-
 
 fetch(requestURL).then(resp => resp.json()).then(jsoned => console.log(jsoned))
 

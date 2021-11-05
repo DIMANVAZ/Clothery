@@ -84,22 +84,29 @@ body{
 /*===========header и всё в нём=======================*/
 header{
     border: 1px solid green;
-    display:flex;
-        flex-direction:row;
-    position: relative;
-    width:100%;
-    /*height:85px;*/
     border-bottom: 1px solid var(--divide-line);
-    font-size:1.2rem;
-}
-.nav{
+    position: relative;
     display:flex;
         flex-direction:row;
+        align-items:center;
+        justify-content:space-around;
+    width:100%;
+    height:85px;
+}
+nav{
+    border: 1px solid magenta;
+    display:flex;
+        flex-direction:row;
+        align-items:center;
+    height:100%;
 }
 .nav-icon{
-
+    height:50%; /*от высоты блока NAV*/
 }
 
+.nav-item,.header-nav-cart{
+    padding:0 5px;
+}
 
 
 .brand-logo{
@@ -111,15 +118,13 @@ header{
     font-family:"Whipsmart";
     src:url(./fonts/Whipsmart.ttf) format('truetype');
 }
+
 /*-----------корзина----------------------------------*/
-.cart{
-    /*border: 1px solid green;*/
-    position: relative;
-    width: 60px;
-    /*display: none;*/
+.header-nav-cart{
+    height:50%; /*от высоты блока NAV*/
 }
 .cart-icon{
-
+    height:100%; /*от высоты блока .header-nav-cart*/
 }
     .cart-icon:hover{
     }
