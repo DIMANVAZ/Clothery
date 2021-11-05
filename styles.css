@@ -179,13 +179,9 @@ nav{
 
 /*-----------подвал-----------------------------------*/
 footer{
-    padding-left:1%;
     background-color: ghostwhite;
     border-top: 1px solid var(--divide-line);
-}
-
-footer li{
-    list-style-type: none;
+    text-align: center;
 }
 
 /*----------конец подвала------------------------------*/
