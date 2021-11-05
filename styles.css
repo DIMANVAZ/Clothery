@@ -17,6 +17,13 @@
 
 body{
     font-family: 'Open Sans', sans-serif;
+    border:3px solid lightseagreen;
+}
+html{
+    border:3px solid purple;
+}
+#app{
+    border:3px solid saddlebrown;
 }
 
 /*-----------мобилки: <= 767, Таб 768-1200, ПеКа >= 1201--------*/
