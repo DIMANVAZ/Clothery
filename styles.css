@@ -20,7 +20,7 @@
 }
 
 body{
-    font-family: "Whipsmart", serif;
+    font-family: "Open Sans", serif;
     /*border:2px solid lightseagreen;*/
 }
 html{
@@ -180,7 +180,6 @@ nav{
 
 /*-----------подвал-----------------------------------*/
 footer{
-    font-family: Whipsmart, serif;
     background-color: ghostwhite;
     border-top: 1px solid var(--divide-line);
     text-align: center;
