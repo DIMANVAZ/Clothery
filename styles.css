@@ -19,14 +19,22 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
-@media screen and (min-width: 1000px) {
-    .header-menu-icon{
+/*мобилки: <= 767, Таб 768-1200, ПеКа >= 1201*/
+/*для ПеКА*/
+@media screen and (min-width: 1201px) {
+    .for-mobs,.for-tabs{
         display:none;
     }
 }
-
-@media screen and (max-width: 1000px) {
-    .header-menu-word{
+/*для планш*/
+@media screen and (max-width: 1200px) and (min-width:768px){
+    .for-mobs,.for-PC{
+        display:none;
+    }
+}
+/*для мобилок*/
+@media screen and (max-width: 767px){
+    .for-tabs,.for-PC{
         display:none;
     }
 }
@@ -47,7 +55,7 @@ body{
     display:flex;
     flex-direction: column;
     align-items: center;
-    opacity: 40%;
+    opacity: 60%;
     transition-duration:0.5s;
 }
 .area.left {
@@ -95,9 +103,9 @@ header{
     padding-top:20px;
 }
 
-.header-menu-icon:hover{
-    fill:red;
-}
+    .header-menu-icon:hover{
+        fill:red;
+    }
 
 /*--------------------------------корзина-----------------------------*/
 .cart{

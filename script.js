@@ -33,9 +33,6 @@ const app = Vue.createApp({
     },
 }).mount('#app');
 
-
-let u2 = 'https://app.ecwid.com/api/v3/58958138/products?limit=3&token=public_7BxbJGWyDaZfSQqjVS5Ftr4jzXkS43UD'
-
 const areaLeft = document.querySelector(".area.left");
 const areaRight = document.querySelector(".area.right");
 const bothAreas = document.querySelectorAll(".area")
@@ -47,6 +44,6 @@ bothAreas.forEach(el =>{
 })
 
 
-fetch(u2).then(resp => resp.json()).then(jsoned => console.log(jsoned))
+fetch(requestURL).then(resp => resp.json()).then(jsoned => console.log(jsoned))
 
 
