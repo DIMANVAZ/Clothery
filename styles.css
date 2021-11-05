@@ -184,7 +184,10 @@ footer{
     border-top: 1px solid var(--divide-line);
     text-align: center;
 }
-
+.footer-icon{
+    height:80%;
+    fill:red;
+}
 
 /*----------конец подвала------------------------------*/
 
