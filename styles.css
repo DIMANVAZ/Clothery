@@ -14,9 +14,13 @@
     --divide-line:#24699E;
     --highlight:#48BEEE;
 }
+@font-face {
+    font-family:"Whipsmart";
+    src:url(./fonts/Whipsmart.ttf) format('truetype');
+}
 
 body{
-    font-family: Whipsmart, serif;
+    font-family: "Whipsmart", serif;
     /*border:2px solid lightseagreen;*/
 }
 html{
@@ -136,10 +140,7 @@ nav{
     font-weight:600;
     padding:0 20px 0 20px;
 }
-@font-face {
-    font-family:"Whipsmart";
-    src:url(./fonts/Whipsmart.ttf) format('truetype');
-}
+
 
 /*-----------корзина----------------------------------*/
 .header-nav-cart{ /*---эту штуку крутить в 1 очередь при работе с иконкой корзины---------*/
