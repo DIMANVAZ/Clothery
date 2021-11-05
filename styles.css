@@ -94,7 +94,7 @@ html{
 
 /*===========header и всё в нём=======================*/
 header{
-    border: 1px solid green;
+    /*border: 1px solid green;*/
     border-bottom: 1px solid var(--divide-line);
     position: relative;
     display:flex;
@@ -105,7 +105,7 @@ header{
     height:75px;
 }
 nav{
-    border: 1px solid magenta;
+    /*border: 1px solid magenta;*/
     display:flex;
         flex-direction:row;
         align-items:center;
