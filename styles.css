@@ -108,7 +108,9 @@ nav{
     height:100%;
 }
 .nav-icon{
-    height:50%; /*от высоты блока NAV*/
+    /*height:50%; !*от высоты блока NAV*!*/
+    max-width:100%;
+    height:60%; /*от высоты блока NAV*!*/
 }
 
 .nav-item,.header-nav-cart{
@@ -126,9 +128,11 @@ nav{
 }
 
 .brand-logo{
+    flex-grow: 2;
     font-size:2rem;
     font-family: Whipsmart, serif;
     font-weight:600;
+    padding:0 20px 0 20px;
 }
 @font-face {
     font-family:"Whipsmart";
@@ -137,7 +141,7 @@ nav{
 
 /*-----------корзина----------------------------------*/
 .header-nav-cart{
-    height:50%; /*от высоты блока NAV*/
+    height:60%; /*от высоты блока NAV*/
 }
 .cart-icon{
     height:100%; /*от высоты блока .header-nav-cart*/
