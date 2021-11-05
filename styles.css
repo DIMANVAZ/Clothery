@@ -183,6 +183,9 @@ footer{
     border-top: 1px solid var(--divide-line);
     text-align: center;
 }
+.email{
+    color:red;
+}
 
 /*----------конец подвала------------------------------*/
 
