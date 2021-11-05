@@ -5,7 +5,13 @@
 }
 
 :root{
-    --manTshirt:#C9CEEF;
+    --mob-L:#9196B4;
+    --mob-R:#BA8461;
+    --tab-L:#24699E;
+    --tab-R:#BA7D6A;
+    --PC-L:#48BEEE;
+    --PC-R:#C3AFB0;
+
     --womanDress:#C08A62;
     --glassGreen:#44A68A;
     --tileBottom:#F9F8F6;
@@ -19,11 +25,17 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
-/*мобилки: <= 767, Таб 768-1200, ПеКа >= 1201*/
+/*------------------мобилки: <= 767, Таб 768-1200, ПеКа >= 1201---------------------------*/
 /*для ПеКА*/
 @media screen and (min-width: 1201px) {
     .for-mobs,.for-tabs{
         display:none;
+    }
+    #brand-L{
+        text-shadow: 0 0 10px var(--PC-L);
+    }
+    #brand-R{
+        text-shadow: 0 0 10px var(--PC-R);
     }
 }
 /*для планш*/
@@ -31,20 +43,39 @@ body{
     .for-mobs,.for-PC{
         display:none;
     }
+    #brand-L{
+        text-shadow: 0 0 10px var(--tab-L);
+    }
+    #brand-R{
+        text-shadow: 0 0 10px var(--tab-R);
+    }
 }
 /*для мобилок*/
 @media screen and (max-width: 767px){
-    .for-tabs,.for-PC{
+    .for-tabs,.for-PC,.not-for-mobs{
         display:none;
+    }
+    #brand-L{
+        text-shadow: 0 0 10px var(--mob-L);
+    }
+    #brand-R{
+        text-shadow: 0 0 10px var(--mob-R);
     }
 }
 
 /*------------------------половинки-----------------------------------------------------------------*/
 .pic-and-areas {
     position: relative;
-    display: inline-block;
+    /*display: inline-block;*/
+    display: flex;
+    flex-direction:row;
     border: 1px solid red;
+    max-width:100vw;
 }
+.pic-and-areas img{
+    padding:5px;
+}
+
 .pic-and-areas > .area {
     position: absolute;
     top: 0;
@@ -60,11 +91,11 @@ body{
 }
 .area.left {
     left: 0;
-    background-color: var(--manTshirt);
+    background-color: var(--mob-L);
 }
     .area.left:hover {
         transition-duration:0.5s;
-        opacity: 0%;
+        opacity: 0;
     }
 .area.right {
     right: 0;
@@ -72,17 +103,9 @@ body{
 }
     .area.right:hover {
         transition-duration:0.5s;
-        opacity: 0%;
+        opacity: 0;
     }
 /*---------------конец половинок--------------------------------------------------------------------------*/
-
-.test{
-    border:6px solid black;
-}
-
-img{
-    width:100%;
-}
 
 /*==========================header и всё в нём============================================*/
 header{
@@ -107,6 +130,15 @@ header{
         fill:red;
     }
 
+.brand-logo{
+    font-size:2rem;
+    font-family: Whipsmart, serif;
+    font-weight:600;
+}
+@font-face {
+    font-family:"Whipsmart";
+    src:url(./fonts/Whipsmart.ttf) format('truetype');
+}
 /*--------------------------------корзина-----------------------------*/
 .cart{
     /*border: 1px solid green;*/
@@ -159,7 +191,7 @@ header{
 }
 .men{
     background-color: var(--glassGreen);
-    color:var(--manTshirt);
+    color:var(--mob-L);
 }
     .men:hover{
         box-shadow: 0 0 5px 5px var(--glassGreen);
