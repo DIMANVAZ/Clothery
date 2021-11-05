@@ -17,13 +17,13 @@
 
 body{
     font-family: 'Open Sans', sans-serif;
-    border:3px solid lightseagreen;
+    border:2px solid lightseagreen;
 }
 html{
-    border:3px solid purple;
+    border:2px solid purple;
 }
 #app{
-    border:3px solid saddlebrown;
+    border:2px solid saddlebrown;
 }
 
 /*-----------мобилки: <= 767, Таб 768-1200, ПеКа >= 1201--------*/
@@ -115,6 +115,15 @@ nav{
     padding:0 5px;
 }
 
+.main-container img.for-mobs{
+    width:100%;
+}
+.main-container img.for-tabs{
+    width:50%;
+}
+.main-container img.for-PC{
+    width:50%;
+}
 
 .brand-logo{
     font-size:2rem;
