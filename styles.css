@@ -11,21 +11,15 @@
     --tab-R:#BA7D6A;
     --PC-L:#48BEEE;
     --PC-R:#C3AFB0;
-
-    --womanDress:#C08A62;
-    --glassGreen:#44A68A;
-    --tileBottom:#F9F8F6;
-    --goldLamp:#FCEDB2;
-    --womanHair:#280F08;
-
-    --dark:#0F121A;
+    --divide-line:#24699E;
+    --highlight:#48BEEE;
 }
 
 body{
     font-family: 'Open Sans', sans-serif;
 }
 
-/*------------------мобилки: <= 767, Таб 768-1200, ПеКа >= 1201---------------------------*/
+/*-----------мобилки: <= 767, Таб 768-1200, ПеКа >= 1201--------*/
 /*для ПеКА*/
 @media screen and (min-width: 1201px) {
     .for-mobs,.for-tabs{
@@ -36,6 +30,14 @@ body{
     }
     #brand-R{
         text-shadow: 0 0 10px var(--PC-R);
+    }
+    .nav-icon:hover{
+        fill:var(--PC-R);
+        transition:0.2s;
+    }
+    .nav-item:hover{
+        color:var(--PC-R);
+        transition:0.2s;
     }
 }
 /*для планш*/
@@ -49,6 +51,14 @@ body{
     #brand-R{
         text-shadow: 0 0 10px var(--tab-R);
     }
+    .nav-icon:hover{
+        fill:var(--tab-R);
+        transition:0.2s;
+    }
+    .nav-item:hover{
+        color:var(--tab-R);
+        transition:0.2s;
+    }
 }
 /*для мобилок*/
 @media screen and (max-width: 767px){
@@ -61,74 +71,36 @@ body{
     #brand-R{
         text-shadow: 0 0 10px var(--mob-R);
     }
-}
-
-/*------------------------половинки-----------------------------------------------------------------*/
-.pic-and-areas {
-    position: relative;
-    /*display: inline-block;*/
-    display: flex;
-    flex-direction:row;
-    border: 1px solid red;
-    max-width:100vw;
-}
-.pic-and-areas img{
-    padding:5px;
-}
-
-.pic-and-areas > .area {
-    position: absolute;
-    top: 0;
-    width: 50%;
-    height: 100%;
-}
-.area{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    opacity: 60%;
-    transition-duration:0.5s;
-}
-.area.left {
-    left: 0;
-    background-color: var(--mob-L);
-}
-    .area.left:hover {
-        transition-duration:0.5s;
-        opacity: 0;
+    .nav-icon:hover{
+        fill:var(--mob-R);
+        transition:0.2s;
     }
-.area.right {
-    right: 0;
-    background-color: var(--womanDress);
 }
-    .area.right:hover {
-        transition-duration:0.5s;
-        opacity: 0;
-    }
-/*---------------конец половинок--------------------------------------------------------------------------*/
 
-/*==========================header и всё в нём============================================*/
+/*-----------половинки--------------------------------*/
+
+/*-----------конец половинок--------------------------*/
+
+/*===========header и всё в нём=======================*/
 header{
     border: 1px solid green;
     display:flex;
+        flex-direction:row;
     position: relative;
     width:100%;
-    z-index:2;
-    background-color:white;
-    opacity:83%;
-    height:85px;
-    border-bottom: 1px solid var(--dark);
+    /*height:85px;*/
+    border-bottom: 1px solid var(--divide-line);
     font-size:1.2rem;
 }
+.nav{
+    display:flex;
+        flex-direction:row;
+}
+.nav-icon{
 
-.header-menu-icon{
-    height:80%;
-    padding-top:20px;
 }
 
-    .header-menu-icon:hover{
-        fill:red;
-    }
+
 
 .brand-logo{
     font-size:2rem;
@@ -139,7 +111,7 @@ header{
     font-family:"Whipsmart";
     src:url(./fonts/Whipsmart.ttf) format('truetype');
 }
-/*--------------------------------корзина-----------------------------*/
+/*-----------корзина----------------------------------*/
 .cart{
     /*border: 1px solid green;*/
     position: relative;
@@ -149,9 +121,10 @@ header{
 .cart-icon{
 
 }
-.cart-icon:hover{
-}
-.cart-inner-text{
+    .cart-icon:hover{
+    }
+
+.cart-counter{
     position: absolute;
     left: 0;
     top: 47%;
@@ -167,60 +140,29 @@ header{
     /*border: 1px solid red;*/
 }
 
-/*--------------------------------конец корзины-----------------------*/
-/*=========================конец====header===============================================*/
+/*-----------конец корзины----------------------------*/
+/*===========конец header=============================*/
 
-/*----------------------------кнопки-----------------------------------------------------*/
-.title-button{
-    position:relative;
-    /*opacity: 100%;*/
-    display:inline-block;
-    width:30%;
-    text-align:center;
-}
 
-.title-button:hover{
-    opacity: 100;
-    display:inline-block;
-}
-.men,.women{
-    position: sticky; /*relative;*/
-    top:20%;
-    padding:2%;
-    font-size: 1.2rem;
-}
-.men{
-    background-color: var(--glassGreen);
-    color:var(--mob-L);
-}
-    .men:hover{
-        box-shadow: 0 0 5px 5px var(--glassGreen);
-    }
+/*-----------кнопки-----------------------------------*/
 
-.women{
-    background-color: var(--goldLamp);
-    color:var(--womanHair);
-}
-    .women:hover{
-        box-shadow: 0 0 5px 5px var(--goldLamp);
-    }
+/*-----------конец кнопок-----------------------------*/
 
-/*-----------конец кнопок------------------------------------------------------------*/
 
-/*----------подвал------------------------------------*/
+/*-----------подвал-----------------------------------*/
 footer{
     padding-left:1%;
-    background-color: var(--tileBottom);
-    color: var(--dark);
-    border-top: 1px solid var(--dark);
+    background-color: ghostwhite;
+    border-top: 1px solid var(--divide-line);
 }
 
 footer li{
     list-style-type: none;
 }
 
+/*----------конец подвала------------------------------*/
+
 .colorDiv{
     height:50px;
     width:50px;
 }
-/*----------конец подвала------------------------------------*/
