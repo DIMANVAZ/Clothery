@@ -6,6 +6,25 @@ let storeId = 58958138;
 let token = 'public_7BxbJGWyDaZfSQqjVS5Ftr4jzXkS43UD';
 let requestURL = 'https://app.ecwid.com/api/v3/'+storeId+'/products?limit=3&token='+token;
 
+const Home = { template: '<div>Home</div>' };
+const About = { template: '<div>About</div>' };
+const Cart = {template: '<div>Cart</div>'};
+const Collections = {template: '<div>Collections</div>'};
+const Contacts = {template: '<div>Contacts</div>'};
+
+const routes = [
+    { path: '/', component: Home },
+    { path: '/about', component: About },
+    { path: '/cart', component: Cart },
+    { path: '/collections', component: Collections },
+    { path: '/contacts', component: Contacts },
+];
+
+const router = VueRouter.createRouter({
+    history: VueRouter.createWebHashHistory(),
+    routes, // short for `routes: routes`
+})
+
 const app = Vue.createApp({
     data(){
         return{
@@ -31,11 +50,10 @@ const app = Vue.createApp({
     computed:{
 
     },
-}).mount('#app');
-
-document.querySelectorAll('.nav-icon').forEach(htmlEl => {
-    console.log(htmlEl.width)
 })
+    app.use(router)
+    app.mount('#app');
+
 
 fetch(requestURL).then(resp => resp.json()).then(jsoned => console.log(jsoned))
 
