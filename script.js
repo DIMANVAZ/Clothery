@@ -8,14 +8,14 @@ let requestURL = 'https://app.ecwid.com/api/v3/'+storeId+'/products?limit=3&toke
 
 const Home = { template: '<div>Home</div>' };
 const About = { template: '<div>About</div>' };
-const Cart = {template: '<div>Cart</div>'};
+            import {CartRoute} from "./CartRoute.js";
 const Collections = {template: '<div>Collections</div>'};
 const Contacts = {template: '<div>Contacts</div>'};
 
 const routes = [
     { path: '/', component: Home },
     { path: '/about', component: About },
-    { path: '/cart', component: Cart },
+    { path: '/cart', component: CartRoute},
     { path: '/collections', component: Collections },
     { path: '/contacts', component: Contacts },
 ];
@@ -48,10 +48,9 @@ const app = Vue.createApp({
         },
     },
     computed:{
-
     },
 })
-    app.use(router)
+    app.use(router);
     app.mount('#app');
 
 

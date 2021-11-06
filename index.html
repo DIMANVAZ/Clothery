@@ -6,6 +6,7 @@
     <title>Clothery</title>
         <script src="https://unpkg.com/vue@3.2.20/dist/vue.global.js"></script>
         <script src="https://unpkg.com/vue-router@4"></script>
+
     <link rel="stylesheet" href="./styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,9 +14,11 @@
 </head>
 <body>
     <div id="app">
+
             <router-link to="/">Go to Home</router-link>
             <router-link to="/about">Go to About</router-link>
-
+            <router-link to="/cart">Корзина</router-link>
+        <router-view></router-view> <!--а вот сюда монтируются дивЫ роутера-->
         <header class="header">
             <p class="header-menu-word brand-logo">
                 <span id="brand-L">Clot</span><span id="brand-R">hery</span>
@@ -87,7 +90,7 @@
             </ul>
         </footer>
 
-            <router-view></router-view> <!--а вот сюда монтируются дивЫ-->
+
     </div>
 
     <script src="script.js" type="module"></script>
