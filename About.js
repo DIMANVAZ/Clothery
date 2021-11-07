@@ -10,7 +10,7 @@ export const About = {
                 <img src="./pics/Morignoni%20Desenciano.jpg" alt="portrait of young tailor Morignoni Desenciano ">
                 <figcaption> Портрет Маринони Дезенцано, Лондон, 1525г.</figcaption>
             </figure>
-            <figure>
+            <figure id="king">
                 <img src="./pics/Henry%208%20compressed.jpeg" alt="portrait of King Henry VIII">
                 <figcaption> Портрет Короля Генриха VIII, Лондон, 1528г.</figcaption>
             </figure>            
@@ -25,5 +25,6 @@ export const About = {
         Успешно выполнив его, в 1933 году он даёт мастерской название Clothery (по аналогии с привычными англичанам 
         "grocery"(бакалея) или "bakery"(булочная)) и открывает при ней магазин готовой одежды. 
         </p>
+
     </div>`
 }

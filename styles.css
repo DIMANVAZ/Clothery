@@ -218,27 +218,14 @@ footer{
 }
 
 /*=====================about раздел========================*/
-.About{
-
+.About .figures {
+    max-width:100%;
+}
+.About figure{
+    max-width:100%;
 }
 .About img{
-    width:100%;
-    height:auto;
-        /*object-fit: contain;*/
-}
-
-.About figure{
-    padding:10px;
-    display:inline-block;
-    /*width:50%; !* см в медиазапросах*!*/
-    min-width:300px;
-}
-
-.About .figures {
-    display:flex;
-    flex-direction:row;
-    flex-wrap: wrap;
-
+    max-width:100%;
 }
 
 .About figcaption{
@@ -247,4 +234,18 @@ footer{
 
 .About p{
     margin: 5px 10px;
+}
+
+/*-----------мобилки: <= 767, Таб 768-1200, ПеКа >= 1201--------*/
+/*для ПеКА*/
+@media screen and (min-width: 1201px) {
+
+}
+/*для планш*/
+@media screen and (max-width: 1200px) and (min-width:768px){
+
+}
+/*для мобилок*/
+@media screen and (max-width: 767px){
+
 }
