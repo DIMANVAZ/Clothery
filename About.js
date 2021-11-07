@@ -1,5 +1,5 @@
 export const About = {
-    template: `<div class="about">
+    template: `<div class="About">
                 <p>
                     Модный дом Clothery был основан в 1932 г. в Милане модельером Чезаре Фелини, 
                     потомком Маринони Дезенцано - придворного портного английского короля Генриха VIII Тюдора.

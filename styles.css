@@ -50,7 +50,7 @@ html{
         color:var(--PC-R);
         transition:0.2s;
     }
-    .about img{
+    .About img{
         width:50%;
         height:auto;
     }
@@ -75,7 +75,7 @@ html{
         color:var(--tab-R);
         transition:0.2s;
     }
-    .about img{
+    .About img{
         width:50%;
         height:auto;
     }
@@ -95,7 +95,7 @@ html{
         fill:var(--mob-R);
         transition:0.2s;
     }
-    .about img{
+    .About img{
         width:100%;
         height:auto;
     }
@@ -219,15 +219,15 @@ footer{
     width:50px;
 }
 
-/*=====================about========================*/
-.about{
+/*=====================about раздел========================*/
+.About{
     padding:10px;
 }
-.about img{
+.About img{
     /*ширина и высота - в медиа запросах*/
     margin-top:10px;
 }
 
-.about figcaption{
+.About figcaption{
     font-style:italic;
 }
