@@ -6,9 +6,8 @@ let storeId = 58958138;
 let token = 'public_7BxbJGWyDaZfSQqjVS5Ftr4jzXkS43UD';
 let requestURL = 'https://app.ecwid.com/api/v3/'+storeId+'/products?limit=3&token='+token;
 
-// const Home = { template: '<div>Home</div>' };
             import {Home} from "./Home.js"
-const About = { template: '<div>About</div>' };
+            import {About} from "./About.js"
             import {CartRoute} from "./CartRoute.js";
 const Collections = {template: '<div>Collections</div>'};
 const Contacts = {template: '<div>Contacts</div>'};

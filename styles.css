@@ -50,6 +50,11 @@ html{
         color:var(--PC-R);
         transition:0.2s;
     }
+    .about img{
+        width:50%;
+        height:auto;
+    }
+
 }
 /*для планш*/
 @media screen and (max-width: 1200px) and (min-width:768px){
@@ -70,6 +75,10 @@ html{
         color:var(--tab-R);
         transition:0.2s;
     }
+    .about img{
+        width:50%;
+        height:auto;
+    }
 }
 /*для мобилок*/
 @media screen and (max-width: 767px){
@@ -85,6 +94,10 @@ html{
     .nav-icon:hover{
         fill:var(--mob-R);
         transition:0.2s;
+    }
+    .about img{
+        width:100%;
+        height:auto;
     }
 }
 
@@ -204,4 +217,17 @@ footer{
 .colorDiv{
     height:50px;
     width:50px;
+}
+
+/*=====================about========================*/
+.about{
+    padding:10px;
+}
+.about img{
+    /*ширина и высота - в медиа запросах*/
+    margin-top:10px;
+}
+
+.about figcaption{
+    font-style:italic;
 }
