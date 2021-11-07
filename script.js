@@ -1,4 +1,4 @@
-import {Cart} from "./Cart.js"
+import {Cart} from "./Classes/Cart.js"
 let itemsBox = document.querySelector('.items');
 const cart = new Cart();
 
@@ -6,9 +6,9 @@ let storeId = 58958138;
 let token = 'public_7BxbJGWyDaZfSQqjVS5Ftr4jzXkS43UD';
 let requestURL = 'https://app.ecwid.com/api/v3/'+storeId+'/products?limit=3&token='+token;
 
-            import {Home} from "./Home.js"
-            import {About} from "./About.js"
-            import {CartRoute} from "./CartRoute.js";
+            import {Home} from "./Routes/Home.js"
+            import {About} from "./Routes/About.js"
+            import {CartRoute} from "./Routes/CartRoute.js";
 const Collections = {template: '<div>Collections</div>'};
 const Contacts = {template: '<div>Contacts</div>'};
 
