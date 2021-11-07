@@ -11,7 +11,7 @@ export const About = {
                 <figcaption> Портрет Маринони Дезенцано, Лондон, 1525г.</figcaption>
             </figure>
             <figure>
-                <img src="./pics/Henry%208.jpeg" alt="portrait of King Henry VIII">
+                <img src="./pics/Henry%208%20compressed.jpeg" alt="portrait of King Henry VIII">
                 <figcaption> Портрет Короля Генриха VIII, Лондон, 1528г.</figcaption>
             </figure>            
         </div>
