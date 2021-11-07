@@ -50,9 +50,8 @@ html{
         color:var(--PC-R);
         transition:0.2s;
     }
-    .About img{
+    .About figure{
         width:50%;
-        height:auto;
     }
 
 }
@@ -75,10 +74,10 @@ html{
         color:var(--tab-R);
         transition:0.2s;
     }
-    .About img{
+    .About figure{
         width:50%;
-        height:auto;
     }
+
 }
 /*для мобилок*/
 @media screen and (max-width: 767px){
@@ -95,9 +94,8 @@ html{
         fill:var(--mob-R);
         transition:0.2s;
     }
-    .About img{
+    .About figure{
         width:100%;
-        height:auto;
     }
 }
 
@@ -221,16 +219,32 @@ footer{
 
 /*=====================about раздел========================*/
 .About{
-    padding:10px;
+
 }
 .About img{
-    /*ширина и высота - в медиа запросах*/
-    margin-top:10px;
+    width:100%;
+    height:auto;
+        /*object-fit: contain;*/
 }
 
 .About figure{
-    margin-bottom:20px;
+    padding:10px;
+    display:inline-block;
+    /*width:50%; !* см в медиазапросах*!*/
+    min-width:300px;
 }
+
+.About .figures {
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+
+}
+
 .About figcaption{
     font-style:italic;
+}
+
+.About p{
+    margin: 5px 10px;
 }
