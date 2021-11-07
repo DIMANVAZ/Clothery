@@ -19,7 +19,6 @@ const routes = [
     { path: '/collections', component: Collections },
     { path: '/contacts', component: Contacts },
 ];
-
 const router = VueRouter.createRouter({
     history: VueRouter.createWebHashHistory(),
     routes, // short for `routes: routes`
@@ -50,10 +49,11 @@ const app = Vue.createApp({
     computed:{
     },
 })
-    app.use(router);
-    app.mount('#app');
+      app.use(router);
+      app.mount('#app');
 
 
 fetch(requestURL).then(resp => resp.json()).then(jsoned => console.log(jsoned))
+
 
 

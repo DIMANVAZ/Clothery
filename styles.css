@@ -228,6 +228,9 @@ footer{
     margin-top:10px;
 }
 
+.About figure{
+    margin-bottom:20px;
+}
 .About figcaption{
     font-style:italic;
 }
