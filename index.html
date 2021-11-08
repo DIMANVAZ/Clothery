@@ -15,18 +15,14 @@
 <body>
     <div id="app">
 
-            <router-link to="/">Go to Home</router-link>
-            <router-link to="/about">Go to About</router-link>
-            <router-link to="/cart">Корзина</router-link>
-
         <header class="header">
             <p class="header-menu-word brand-logo">
                 <span id="brand-L">Clot</span><span id="brand-R">hery</span>
             </p>
             <nav class="header-nav">
-                <a class="nav-item not-for-mobs collections">Коллекции</a>
-                <a class="nav-item not-for-mobs about">О нас</a>
-                <a class="nav-item not-for-mobs contacts">Контакты</a>
+                <router-link to="/collections" class="nav-item not-for-mobs collections">Коллекции</router-link>
+                <router-link to="/about" class="nav-item not-for-mobs about">О нас</router-link>
+                <router-link to="/contacts" class="nav-item not-for-mobs contacts">Контакты</router-link>
 
                 <svg class="nav-icon for-mobs collections" width="96" height="96" viewBox="0 0 96 96"
                      fill="black" xmlns="http://www.w3.org/2000/svg">
@@ -70,7 +66,7 @@
                     <svg class="footer-icon" width="24" height="31" viewBox="0 0 24 31" fill="black" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3.98246 0.803078L6.06808 0.174417C8.03192 -0.417535 10.1301 0.539115 10.9711 2.40989L12.2695 5.2979C12.9863 6.89248 12.6085 8.76648 11.3299 9.95881L9.06203 12.0736C9.034 12.0998 9.01099 12.1308 8.99414 12.1653C8.75694 12.6501 9.11639 13.9455 10.2466 15.9031C11.5204 18.1094 12.505 18.9825 12.9598 18.847L15.9369 17.9368C17.6083 17.4258 19.4196 18.0352 20.4423 19.4525L22.2862 22.008C23.4832 23.667 23.2679 25.9557 21.7826 27.3624L20.1968 28.8642C19.0767 29.925 17.5082 30.3703 15.9978 30.0562C11.5785 29.1375 7.61908 25.5787 4.08629 19.4597C0.550015 13.3347 -0.550974 8.12205 0.869352 3.83315C1.35175 2.37646 2.51327 1.24593 3.98246 0.803078ZM4.52639 2.60762C3.64488 2.87333 2.94797 3.55165 2.65853 4.42566C1.43471 8.12117 2.42603 12.8146 5.71852 18.5174C9.00786 24.2147 12.5732 27.4193 16.3814 28.211C17.2877 28.3994 18.2287 28.1322 18.9008 27.4957L20.4866 25.9939C21.2864 25.2365 21.4023 24.0041 20.7578 23.1108L18.9139 20.5553C18.3632 19.7921 17.3879 19.464 16.4879 19.7392L13.5045 20.6513C11.8532 21.1435 10.3013 19.7673 8.61435 16.8454C7.18625 14.3719 6.69049 12.5852 7.30115 11.337C7.41916 11.0958 7.58035 10.8782 7.7767 10.6952L10.0445 8.5804C10.733 7.93838 10.9364 6.9293 10.5504 6.07068L9.25213 3.18267C8.79928 2.17533 7.66947 1.66021 6.61202 1.97895L4.52639 2.60762Z" />
                     </svg>
-                    +7-565-190-48-33
+                    +7-495-190-48-33
                 </li>
                 <li>Мы принимаем звонки c 7:00 до 22:00 (Мск)</li>
                 <li>Звонок по России бесплатный</li>

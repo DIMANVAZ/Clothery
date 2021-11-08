@@ -9,8 +9,8 @@ let requestURL = 'https://app.ecwid.com/api/v3/'+storeId+'/products?limit=3&toke
             import {Home} from "./Routes/Home.js"
             import {About} from "./Routes/About.js"
             import {CartRoute} from "./Routes/CartRoute.js";
-const Collections = {template: '<div>Collections</div>'};
-const Contacts = {template: '<div>Contacts</div>'};
+            import {Collections} from "./Routes/Collections.js";
+            import {Contacts} from "./Routes/Contacts.js";
 
 const routes = [
     { path: '/', component: Home },
