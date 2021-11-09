@@ -4,7 +4,7 @@ export const Contacts = {
               "ООО Клоузери Раша", ОГРН 3899 9898 1239 1239, <br>
               юридический и фактический адрес: г.Москва, Хрущёвский Вал, 11Б, БЦ Лакшери Голд Плаза, офис 211<br>
               <figure> 
-                  <img src="/pics/Gen%20dir.jpg" alt="" style="max-width:100%">
+                  <img src="/pics/Gen%20dir.jpg" alt="CEO portrait" style="max-width:100%">
                   <figcaption>Генеральный директор Фишмансон Антон Ааронович</figcaption>
               </figure> <br>
               Отдел продаж и обслуживания физ лиц: <br>
