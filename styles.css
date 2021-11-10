@@ -11,8 +11,8 @@
     --tab-R:#BA7D6A;
     --PC-L:#48BEEE;
     --PC-R:#C3AFB0;
-    --divide-line:#24699E;
-    --highlight:#48BEEE;
+    --divide-line:var(--tab-L);
+    --highlight:var(--PC-L);
 }
 @font-face {
     font-family:"Whipsmart";
@@ -39,6 +39,7 @@ html{
     #brand-L{
         text-shadow: 0 0 10px var(--PC-L);
     }
+
     #brand-R{
         text-shadow: 0 0 10px var(--PC-R);
     }
@@ -87,6 +88,7 @@ html{
     #brand-L{
         text-shadow: 0 0 10px var(--mob-L);
     }
+
     #brand-R{
         text-shadow: 0 0 10px var(--mob-R);
     }
@@ -104,6 +106,11 @@ html{
 /*-----------конец половинок--------------------------*/
 
 /*===========header и всё в нём=======================*/
+a{
+    text-decoration:none;
+    color:black;
+}
+
 header{
     /*border: 1px solid green;*/
     border-bottom: 1px solid var(--divide-line);
@@ -156,8 +163,13 @@ nav{
     font-size:2rem;
     font-family: Whipsmart, serif;
     font-weight:600;
-    padding:0 20px 0 20px;
+    padding:0 0 0 20px;
 }
+    .brand-logo:hover{
+        padding: 0 0 0 10%;
+        transition:0.4s;
+    }
+
 
 
 /*-----------корзина----------------------------------*/

@@ -16,9 +16,11 @@
     <div id="app">
 
         <header class="header">
-            <p class="header-menu-word brand-logo">
-                <span id="brand-L">Clot</span><span id="brand-R">hery</span>
-            </p>
+            <router-link to="/" class="header-menu-word brand-logo">
+                <span id="brand-L">Clot</span>
+                <span id="brand-R">hery</span>
+            </router-link>
+
             <nav class="header-nav">
                 <router-link to="/collections" class="nav-item not-for-mobs collections">Коллекции</router-link>
                 <router-link to="/about" class="nav-item not-for-mobs about">О нас</router-link>
