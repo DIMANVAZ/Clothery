@@ -164,10 +164,10 @@ nav{
     font-family: Whipsmart, serif;
     font-weight:600;
     padding:0 0 0 20px;
+    transition: padding 0.4s ease;
 }
     .brand-logo:hover{
         padding: 0 0 0 10%;
-        transition:0.4s;
     }
 
 

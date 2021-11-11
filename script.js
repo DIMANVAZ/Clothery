@@ -11,6 +11,7 @@ let requestURL = 'https://app.ecwid.com/api/v3/'+storeId+'/products?limit=3&toke
             import {CartRoute} from "./Routes/CartRoute.js";
             import {Collections} from "./Routes/Collections.js";
             import {Contacts} from "./Routes/Contacts.js";
+            import {Item} from "./Routes/Item.js";
 
 const routes = [
     { path: '/', component: Home },
@@ -18,6 +19,7 @@ const routes = [
     { path: '/cart', component: CartRoute},
     { path: '/collections', component: Collections },
     { path: '/contacts', component: Contacts },
+    { path: '/item/:id', name:"item",component: Item },
 ];
 const router = VueRouter.createRouter({
     history: VueRouter.createWebHashHistory(),
@@ -52,7 +54,9 @@ const app = Vue.createApp({
       app.use(router);
       app.mount('#app');
 
-
+document.onclick = function(){
+    console.log(event.target)
+}
 fetch(requestURL).then(resp => resp.json()).then(jsoned => console.log(jsoned))
 
 
