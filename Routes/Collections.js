@@ -7,5 +7,13 @@ export const Collections = {
                 <div v-for="(item,i) in items">
                     <router-link :to="'/item/' + item.id">{{item.name.slice(8)}}</router-link>
                 </div>
-              </div>`
+              </div>`,
+    data(){
+        return{
+            neededItem:[]
+        }
+    },
+    mounted() {
+
+    }
 }
