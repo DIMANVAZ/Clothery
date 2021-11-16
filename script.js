@@ -2,9 +2,9 @@ import {Cart} from "./Classes/Cart.js"
 let itemsBox = document.querySelector('.items');
 const cart = new Cart();
 
-let storeId = 58958138;
-let token = 'public_7BxbJGWyDaZfSQqjVS5Ftr4jzXkS43UD';
-let requestURL = 'https://app.ecwid.com/api/v3/'+storeId+'/products?limit=3&token='+token;
+//---импорт сырого фетчА и его приготовление------
+import {getAPIdata} from "./Classes/GetRemoteData.js";
+let apiRespObj = await getAPIdata().then(response => response.json());
 
             import {Home} from "./Routes/Home.js"
             import {About} from "./Routes/About.js"
@@ -14,12 +14,12 @@ let requestURL = 'https://app.ecwid.com/api/v3/'+storeId+'/products?limit=3&toke
             import {Item} from "./Routes/Item.js";
 
 const routes = [
-    { path: '/', component: Home },
-    { path: '/about', component: About },
-    { path: '/cart', component: CartRoute},
-    { path: '/collections', component: Collections },
-    { path: '/contacts', component: Contacts },
-    { path: '/item/:id', name:"item",component: Item },
+    { path: '/', name:'Home', component: Home },
+    { path: '/about', name:'About',component: About },
+    { path: '/cart', name:'CartRoute',component: CartRoute},
+    { path: '/collections', name:'Collections',component: Collections },
+    { path: '/contacts', name:'Contacts',component: Contacts },
+    { path: '/item/:id', name:"Item",component: Item },
 ];
 const router = VueRouter.createRouter({
     history: VueRouter.createWebHashHistory(),
@@ -29,19 +29,14 @@ const router = VueRouter.createRouter({
 const app = Vue.createApp({
     data(){
         return{
-            items:[],
+            items:apiRespObj.items,
             cart:cart
         }
     },
     created(){
-        this.getItems();
+
     },
     methods:{
-        getItems(){
-            fetch(requestURL)
-                .then(response => response.json())
-                .then(json => this.items = json.items)
-        },
         getMainColor(item){
             let {red,green,blue,alpha} = item.borderInfo.dominatingColor;
             item.mainColor = `rgba(${red},${green},${blue},${alpha})`; //преобладающий цвет на фото
@@ -57,7 +52,7 @@ const app = Vue.createApp({
 document.onclick = function(){
     console.log(event.target)
 }
-fetch(requestURL).then(resp => resp.json()).then(jsoned => console.log(jsoned))
+
 
 
 
