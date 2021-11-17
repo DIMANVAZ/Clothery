@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+[v-cloak]{
+    display: none;
+}
+
 :root{
     --mob-L:#9196B4;
     --mob-R:#BA8461;

@@ -4,7 +4,11 @@ const cart = new Cart();
 
 //---импорт сырого фетчА и его приготовление------
 import {getAPIdata} from "./Classes/GetRemoteData.js";
-let apiRespObj = await getAPIdata().then(response => response.json());
+let apiRespObj = {items:[]};
+try{    //------------перенести это в created(), прочитать про created!
+    apiRespObj = await getAPIdata().then(response => response.json())
+} catch(e){ console.error(`Error from script.js: `,e)}
+
 
             import {Home} from "./Routes/Home.js"
             import {About} from "./Routes/About.js"
@@ -12,6 +16,8 @@ let apiRespObj = await getAPIdata().then(response => response.json());
             import {Collections} from "./Routes/Collections.js";
             import {Contacts} from "./Routes/Contacts.js";
             import {Item} from "./Routes/Item.js";
+
+// console.log('fd',apiRespObj)
 
 const routes = [
     { path: '/', name:'Home', component: Home },
