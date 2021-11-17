@@ -19,7 +19,7 @@ const routes = [
     { path: '/cart', name:'CartRoute',component: CartRoute},
     { path: '/collections', name:'Collections',component: Collections },
     { path: '/contacts', name:'Contacts',component: Contacts },
-    { path: '/item/:id', name:"Item",component: Item },
+    { path: '/item/:xxx', name:"Item",component: Item },
 ];
 const router = VueRouter.createRouter({
     history: VueRouter.createWebHashHistory(),
