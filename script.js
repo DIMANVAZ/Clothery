@@ -45,7 +45,7 @@ const app = Vue.createApp({
                 let respObject = await getAPIdata().then(response => response.json());
                 this.items = respObject.items;
                 console.log('this.items = ',this.items) // Proxy {[]}
-            } catch(e){ console.error(`Error from script.js/created(): `,e)}
+            } catch(e){ console.error(`Error from App.vue/created(): `,e)}
         },
     },
     computed:{
