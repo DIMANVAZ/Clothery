@@ -2,22 +2,13 @@ import {Cart} from "./Classes/Cart.js"
 let itemsBox = document.querySelector('.items');
 const cart = new Cart();
 
-//---импорт сырого фетчА и его приготовление------
 import {getAPIdata} from "./Classes/GetRemoteData.js";
-let apiRespObj = {items:[]};
-try{    //------------перенести это в created(), прочитать про created!
-    apiRespObj = await getAPIdata().then(response => response.json())
-} catch(e){ console.error(`Error from script.js: `,e)}
-
-
-            import {Home} from "./Routes/Home.js"
-            import {About} from "./Routes/About.js"
-            import {CartRoute} from "./Routes/CartRoute.js";
-            import {Collections} from "./Routes/Collections.js";
-            import {Contacts} from "./Routes/Contacts.js";
-            import {Item} from "./Routes/Item.js";
-
-// console.log('fd',apiRespObj)
+import {Home} from "./Routes/Home.js";
+import {About} from "./Routes/About.js";
+import {CartRoute} from "./Routes/CartRoute.js";
+import {Collections} from "./Routes/Collections.js";
+import {Contacts} from "./Routes/Contacts.js";
+import {Item} from "./Routes/Item.js";
 
 const routes = [
     { path: '/', name:'Home', component: Home },
@@ -35,12 +26,12 @@ const router = VueRouter.createRouter({
 const app = Vue.createApp({
     data(){
         return{
-            items:apiRespObj.items,
-            cart:cart
+            items:[],
+            cart:cart,
         }
     },
     created(){
-
+        this.fetcher();
     },
     methods:{
         getMainColor(item){
@@ -48,13 +39,24 @@ const app = Vue.createApp({
             item.mainColor = `rgba(${red},${green},${blue},${alpha})`; //преобладающий цвет на фото
             return item.mainColor
         },
+
+        async fetcher(){//---импорт сырого фетчА и его приготовление------
+            try{
+                let respObject = await getAPIdata().then(response => response.json());
+                this.items = respObject.items;
+                console.log('this.items = ',this.items) // Proxy {[]}
+            } catch(e){ console.error(`Error from script.js/created(): `,e)}
+        },
     },
     computed:{
     },
+    mounted(){
+    }
 })
       app.use(router);
       app.mount('#app');
 
+ //---------- эта штука показывает эвент-таргеты---------------------
 document.onclick = function(){
     console.log(event.target)
 }
