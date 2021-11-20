@@ -2,12 +2,12 @@ export const Item = {
     props:[`items`], //это переданный нам массив объектов items.
                      // Здесь к нему можно обращаться this.items
     template:` 
-       <div> Вы выбрали {{ this.selectedItem.name }} </div>
+                <!-- с оператором ?. норм, режет-->
+       <div> Вы выбрали {{ shortName }} </div> 
               `,
     data(){
         return{
             dataParams:'initially Empty => ',
-            selectedItem: {}
         }
     },
     created(){
@@ -27,11 +27,14 @@ export const Item = {
         this.dataParams += this.$route.params.id;
             console.log(this.$route.params) // {"id": "344134464"} сформированный в Collection через :to = item/item.id
 
-        this.selectedItem = this.selectItem();
-        console.log('len from mounted = ',this.items.length)
-        console.log('this.selectItem from mounted',this.selectItem())
-        console.log('this.selectedItem from mounted = ',this.selectedItem)
-        console.log(this.selectedItem.name) //выводит строку
-        console.log(this.selectedItem.name.slice(8))
+    },
+    computed:{
+        shortName(){
+            console.log(this.selectItem()) //Proxy {id: ...}
+            console.log(this.selectItem().name) // ОБРАЗЕЦ. Черное платье
+            console.log(typeof(this.selectItem().name)) // String
+            console.log(this.selectItem().name.slice(8)) // ERROR
+            return 'quokka'
+        },
     }
 }
