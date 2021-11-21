@@ -114,7 +114,6 @@ a{
     text-decoration:none;
     color:black;
 }
-
 header{
     /*border: 1px solid green;*/
     border-bottom: 1px solid var(--divide-line);
@@ -135,23 +134,19 @@ nav{
         justify-content:space-around;
     height:100%;
 }
-
 .router-svg-box{
     display:flex;
     height:100%;
 }
-
 .nav-icon{
     max-width: 100%;
     height:55%;
     width:auto;
     margin: auto 0;
 }
-
 .nav-item,.header-nav-cart{
 
 }
-
 .main-container img.for-mobs{
     width:100%;
 }
@@ -161,7 +156,6 @@ nav{
 .main-container img.for-PC{
     width:50%;
 }
-
 .brand-logo{
     flex-grow: 2;
     font-size:2rem;
@@ -174,8 +168,6 @@ nav{
         padding: 0 0 0 10%;
     }
 
-
-
 /*-----------корзина----------------------------------*/
 .header-nav-cart{ /*---эту штуку крутить в 1 очередь при работе с иконкой корзины---------*/
     height:60%; /*от высоты блока NAV*/
@@ -186,7 +178,6 @@ nav{
 }
     .cart-icon:hover{
     }
-
 .cart-counter{
     position: absolute;
     left: 0;
@@ -205,12 +196,6 @@ nav{
 
 /*-----------конец корзины----------------------------*/
 /*===========конец header=============================*/
-
-
-/*-----------кнопки-----------------------------------*/
-
-/*-----------конец кнопок-----------------------------*/
-
 
 /*-----------подвал-----------------------------------*/
 footer{
@@ -249,13 +234,24 @@ footer{
 .About img{
     max-width:100%;
 }
-
 .About figcaption{
     font-style:italic;
 }
-
 .About p{
     margin: 5px 10px;
+}
+
+/*=====================Contacts раздел========================*/
+.contacts-component{
+    display:flex;
+    flex-direction:column;
+}
+#key_figures{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:center;
+
 }
 
 /*-----------мобилки: <= 767, Таб 768-1200, ПеКа >= 1201--------*/

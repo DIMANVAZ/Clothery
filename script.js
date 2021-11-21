@@ -1,5 +1,4 @@
 import {Cart} from "./Classes/Cart.js"
-let itemsBox = document.querySelector('.items');
 const cart = new Cart();
 
 import {getAPIdata} from "./Classes/GetRemoteData.js";

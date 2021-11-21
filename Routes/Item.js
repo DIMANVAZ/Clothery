@@ -1,5 +1,5 @@
 export const Item = {
-    props:[`items`], //это переданный нам массив объектов items.
+    props:[`items`,`cart`], //это переданный нам массив объектов items.
                      // Здесь к нему можно обращаться this.items
     template:` 
             <h2>{{item.name.slice(8)}}</h2>
@@ -16,6 +16,7 @@ export const Item = {
                 <p>{{size.text}}</p>
             </div>
  
+            <button @click="cart.addToCart({name:item.name.slice(8), price:item.price})">Добавить в корзину</button>
               `,
     data(){
         return{
