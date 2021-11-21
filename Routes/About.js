@@ -27,11 +27,11 @@ export const About = {
         </p>
         <div class="figures">
             <figure>
-                <img src="./pics/Chesare%20Fellini%201930s.jpg" alt="portrait of tailor Chesare Fellini">
+                <img src="./pics/Chesare_Fellini%201930s.jpg" alt="portrait of tailor Chesare Fellini">
                 <figcaption> Чезаре Феллини в мастерской, 1930-е гг, Лондон</figcaption>
             </figure>      
             <figure>
-                <img src="./pics/British%20Indian%20Army.png" alt="three British Indian Army officers">
+                <img src="./pics/British_Indian%20Army.png" alt="three British Indian Army officers">
                 <figcaption>Выпускники Академии, 1930-е гг, Лондон</figcaption>
             </figure>          
         </div>
