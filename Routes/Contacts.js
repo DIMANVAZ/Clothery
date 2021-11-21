@@ -10,7 +10,7 @@ export const Contacts = {
                     <figcaption>Генеральный директор Фишмансон Савва Ааронович</figcaption>
                 </figure> 
                 <figure> 
-                    <img src="./pics/Customer_service.jpg" alt="CEO portrait" style="max-width:100%">
+                    <img src="./pics/Customer_service.jpg" alt="Customer service portrait" style="max-width:100%">
                     <figcaption>Менеджер по работе с клиентами Либкина Берта Моисеевна</figcaption>
               </figure>
               </div>    

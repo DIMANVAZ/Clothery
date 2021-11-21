@@ -7,11 +7,11 @@ export const About = {
     </p>
         <div class="figures">
            <figure>
-                <img src="./pics/Morignoni%20Desenciano.jpg" alt="portrait of young tailor Morignoni Desenciano ">
+                <img src="./pics/Morignoni_Desenciano.jpg" alt="portrait of young tailor Morignoni Desenciano ">
                 <figcaption> Портрет Маринони Дезенцано, Лондон, 1525г.</figcaption>
             </figure>
             <figure>
-                <img src="./pics/Henry%208%20compressed.jpeg" alt="portrait of King Henry VIII">
+                <img src="./pics/Henry_8_compressed.jpeg" alt="portrait of King Henry VIII">
                 <figcaption> Портрет Короля Генриха VIII, Лондон, 1528г.</figcaption>
             </figure>            
         </div>
@@ -27,11 +27,11 @@ export const About = {
         </p>
         <div class="figures">
             <figure>
-                <img src="./pics/Chesare_Fellini%201930s.jpg" alt="portrait of tailor Chesare Fellini">
+                <img src="./pics/Chesare_Fellini_1930s.jpg" alt="portrait of tailor Chesare Fellini">
                 <figcaption> Чезаре Феллини в мастерской, 1930-е гг, Лондон</figcaption>
             </figure>      
             <figure>
-                <img src="./pics/British_Indian%20Army.png" alt="three British Indian Army officers">
+                <img src="./pics/British_Indian_Army.png" alt="three British Indian Army officers">
                 <figcaption>Выпускники Академии, 1930-е гг, Лондон</figcaption>
             </figure>          
         </div>
