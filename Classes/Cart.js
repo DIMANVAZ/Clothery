@@ -52,6 +52,14 @@ export class Cart{
         },0)
     };
 
+    showAllItems(){
+        let tab = document.createElement(`ul`)
+        this.cartBox.forEach((item) =>{
+            tab.innerHTML += `<li>item.name</li>`
+        })
+        return tab;
+    }
+
     //генератор промокода
     promoCodeGen(){
         let pCode = "";

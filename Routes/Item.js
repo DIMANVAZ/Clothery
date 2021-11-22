@@ -7,16 +7,40 @@ export const Item = {
             <p>Цена:{{item.defaultDisplayedPriceFormatted}}</p>
             <p v-html="item.description"></p>
 
-            <div v-for="(pic,i) in item.media.images" >
-                <img :src="pic.image160pxUrl" alt="medium Product Photo" style="border:1px solid blue">
-            </div>
-
             Доступные размеры:
-            <div v-for="size in item.options[0].choices">
-                <p>{{size.text}}</p>
+            <div v-for="(size,i) in item.options[0].choices">
+                <input type="checkbox" :id="size.text" :name="size.text" :value="size.text" class="size-checkbox">
+                <label for="size">{{ size.text }}</label>
             </div>
  
-            <button @click="cart.addToCart({name:item.name.slice(8), price:item.price})">Добавить в корзину</button>
+            <button @click="cart.addToCart({name:item.name.slice(8), price:item?.price}), this.checkBoxToCart()" class="item-cart-button">Добавить в корзину</button>
+            <br>
+              --------------- все изображения (в px это высота) -------<br>
+
+            1) 160px
+            <div v-for="(pic,i) in item?.media?.images" >
+                <img :src="pic.image160pxUrl" alt="160" style="border:1px solid var(--divide-line)">
+            </div>
+           
+            2) 400px
+            <div v-for="(pic,i) in item?.media?.images" >
+                <img :src="pic.image400pxUrl" alt="400" style="border:1px solid var(--divide-line)">
+            </div>
+            
+            3) 800px
+            <div v-for="(pic,i) in item?.media?.images" >
+                <img :src="pic.image800pxUrl" alt="800px" style="border:1px solid var(--divide-line)">
+            </div>
+            
+            4) 1500px
+            <div v-for="(pic,i) in item?.media?.images" >
+                <img :src="pic.image1500pxUrl" alt="1500px" style="border:1px solid var(--divide-line)">
+            </div>
+            
+            4) orig
+            <div v-for="(pic,i) in item?.media?.images" >
+                <img :src="pic.imageOriginalUrl" alt="medium Product Photo" style="border:1px solid var(--divide-line)">
+            </div>
               `,
     data(){
         return{
@@ -34,6 +58,11 @@ export const Item = {
                 }
             });
             return match;
+        },
+        checkBoxToCart(){
+            let checkedSizes = document.querySelectorAll('.size-checkbox');
+            console.log(checkedSizes)
+            //надо выбрать только галочкой отмеченные...
         }
     },
     mounted(){
@@ -43,11 +72,6 @@ export const Item = {
     },
     computed:{
         item(){
-            console.log('this selectItem(): ', this.selectItem()) //Proxy {id: ...}
-            console.log('this selectItem().name: ',this.selectItem().name) // ОБРАЗЕЦ. Черное платье
-            console.log('typeof(this.selectItem().name): ',typeof(this.selectItem().name)) // String
-            console.log(this.selectItem().name.length) // 23
-            //console.log(this.selectItem().name.slice(8))
             return this.selectItem()
         },
     }

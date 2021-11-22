@@ -255,15 +255,32 @@ footer{
 }
 
 /*-----------мобилки: <= 767, Таб 768-1200, ПеКа >= 1201--------*/
+/*для широких ПеКА*/
+@media screen and (min-width: 1500px) {
+    #key_figures figure{
+        width:50%;
+    }
+    #key_figures figure img{
+
+    }
+
+}
+
 /*для ПеКА*/
 @media screen and (min-width: 1201px) {
-
+    #key_figures figure{
+        width:50%;
+    }
 }
 /*для планш*/
 @media screen and (max-width: 1200px) and (min-width:768px){
-
+    #key_figures figure{
+        width:50%;
+    }
 }
 /*для мобилок*/
 @media screen and (max-width: 767px){
-
+    #key_figures figure{
+        width:100%;
+    }
 }
