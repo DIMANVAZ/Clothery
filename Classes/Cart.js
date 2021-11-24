@@ -53,12 +53,7 @@ export class Cart{
     };
 
     showAllItems(){
-        let tab = document.createElement(`ul`) // посмотреть пример с таймТрекером
-        this.cartBox.forEach((item) =>{
-            //tab.innerHTML += `<li>item.name</li>` // что здесь не так ?!?!?
-            console.log(' showAllItems(): item name = ',item.name)
-        })
-        return tab;
+
     }
 
     //генератор промокода

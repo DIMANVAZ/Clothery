@@ -105,10 +105,6 @@ html{
     }
 }
 
-/*-----------половинки--------------------------------*/
-
-/*-----------конец половинок--------------------------*/
-
 /*===========header и всё в нём=======================*/
 a{
     text-decoration:none;
@@ -178,7 +174,6 @@ nav{
     height:100%; /*от высоты блока .header-nav-cart*/
 /*    border: 1px solid greenyellow;*/
 }
-
 .cart-counter{
     position: absolute;
     left: 0;
@@ -194,8 +189,23 @@ nav{
 /*    border: 1px solid red;*/
 }
 
-/*-----------конец корзины----------------------------*/
 /*===========конец header=============================*/
+
+/*================ ITEM ==============================*/
+.item.checkboxes-fieldset{
+    display: flex;
+    flex-direction:row;
+    border: 1px solid orangered;
+}
+.item.checkboxAndLabel{
+    margin-left:15px;
+}
+.item.size-checkbox{
+   /* margin-left:10px;*/
+}
+.item.checkbox-label{
+    margin-left:5px;
+}
 
 /*-----------подвал-----------------------------------*/
 footer{
@@ -216,7 +226,6 @@ footer{
     font-size:1.2rem;
     height:1.4rem;
 }
-
 /*----------конец подвала------------------------------*/
 
 .colorDiv{

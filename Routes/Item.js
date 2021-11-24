@@ -8,10 +8,12 @@ export const Item = {
             <p v-html="item.description"></p>
 
             Доступные размеры:
-            <div v-for="(size,i) in item.options[0].choices">
-                <input type="checkbox" :id="size.text" :name="size.text" :value="size.text" class="size-checkbox">
-                <label for="size">{{ size.text }}</label>
-            </div>
+            <fieldset class="item checkboxes-fieldset">
+                <div v-for="(size,i) in item.options[0].choices" class="item checkboxAndLabel">
+                    <input type="checkbox" :id="size.text" :name="size.text" :value="size.text" class="item size-checkbox">
+                    <label for="size" class="item checkbox-label">{{ size.text }}</label>
+                </div>
+            </fieldset>
  
             <button @click="cart.addToCart({name:item.name.slice(9), price:item?.price}), this.checkBoxToCart()" class="item-cart-button">Добавить в корзину</button>
             <br>
