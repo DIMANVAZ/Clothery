@@ -171,27 +171,27 @@ nav{
 /*-----------корзина----------------------------------*/
 .header-nav-cart{ /*---эту штуку крутить в 1 очередь при работе с иконкой корзины---------*/
     height:60%; /*от высоты блока NAV*/
-    padding-right: 5px;
+    position: relative;
+/*    border: 1px solid blue;*/
 }
 .cart-icon{
     height:100%; /*от высоты блока .header-nav-cart*/
+/*    border: 1px solid greenyellow;*/
 }
-    .cart-icon:hover{
-    }
+
 .cart-counter{
     position: absolute;
     left: 0;
-    top: 47%;
+    top: 40%;
     width: 100%;
     height: 53%;
     display: flex;
-    /*align-items: center;*/
     justify-content: center;
     z-index: 1;
     text-align: center;
-    color:red;
     font-weight:550;
-    /*border: 1px solid red;*/
+/*    color:red;*/
+/*    border: 1px solid red;*/
 }
 
 /*-----------конец корзины----------------------------*/
