@@ -13,7 +13,7 @@ export const Item = {
                 <label for="size">{{ size.text }}</label>
             </div>
  
-            <button @click="cart.addToCart({name:item.name.slice(8), price:item?.price}), this.checkBoxToCart()" class="item-cart-button">Добавить в корзину</button>
+            <button @click="cart.addToCart({name:item.name.slice(9), price:item?.price}), this.checkBoxToCart()" class="item-cart-button">Добавить в корзину</button>
             <br>
               --------------- все изображения (в px это высота) -------<br>
 
@@ -61,8 +61,10 @@ export const Item = {
         },
         checkBoxToCart(){
             let checkedSizes = document.querySelectorAll('.size-checkbox');
-            console.log(checkedSizes)
-            //надо выбрать только галочкой отмеченные...
+            checkedSizes.forEach(el => {
+                console.log(el?.checked) //выдаст false/true/false, например
+            })
+            //надо выбрать только true и прописать их в передаваемые в корзину данные
         }
     },
     mounted(){

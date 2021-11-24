@@ -53,9 +53,10 @@ export class Cart{
     };
 
     showAllItems(){
-        let tab = document.createElement(`ul`)
+        let tab = document.createElement(`ul`) // посмотреть пример с таймТрекером
         this.cartBox.forEach((item) =>{
-            tab.innerHTML += `<li>item.name</li>`
+            //tab.innerHTML += `<li>item.name</li>` // что здесь не так ?!?!?
+            console.log(' showAllItems(): item name = ',item.name)
         })
         return tab;
     }
@@ -63,8 +64,9 @@ export class Cart{
     //генератор промокода
     promoCodeGen(){
         let pCode = "";
-        this.cartBox.forEach(el => pCode += (el.name[0]+el.count));
+        this.cartBox.forEach(el => pCode += (el.name[0]+el.count+el.name[el.name.length-1]));
         pCode += this.totalPrice();
+            console.log(this.cartBox)
         return pCode;
     }
 
