@@ -1,23 +1,27 @@
 export class Cart{
-    cartBox = []; //товары по типу {name:"any", count:1, price:111}
+    cartBox = []; //объекты {position:{item}, ordered:{}}
 
-    //добавить +1 товар типа {name:"dd",price:999}
-    //если есть такое имя - накрутим его счётчик, а если нету - добавим
-    addToCart(item = {name:"проверка", price:999}){
-        let added = false;
-        this.cartBox.find(nextEl => {
-            if(nextEl.name === item.name){
-                    console.log(`we increase count of ${nextEl.name}`);
-                nextEl.count++;
-                nextEl.price = nextEl.price * nextEl.count;
-                added = true;
-            }
-        })
-        if(!added){
-            item.count = 1;
-            this.cartBox.push(item);
-                console.log(`added new: ${item.name}`)
+    //если есть такое имя - накрутим его счётчик, а если нету - добавим полностью
+    //-----переписать, чтобы принимала объект item целиком и ещё размеры как-нибудь!!!!!!------------------
+
+    addToCart(item = {name:"Тестовый", price:999}, ordered = {S:1, M:2, L:3}){
+        //---почему не добавляется?!?!?!--------------
+        console.log(this.cartBox)
+        let added = false; // флаг - по умолчанию товара нет, т.е. false
+        if(this.cartBox){ //если не пустой
+            this.cartBox.forEach(cartEl => {
+                if (cartEl.position.name === item.name){
+                    console.log('match!', item.name)
+                } else {
+                    this.cartBox.push({position:{item}, ordered:{ordered}});
+                    console.log('pushed = ', item.name)
+                };
+            })
+        } else {
+            this.cartBox.push({position:{item}, ordered:{ordered}});
+            console.log('pushed = ', item.name)
         }
+
     };
 
     //убавить на 1 позицию данного товара

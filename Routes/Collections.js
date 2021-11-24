@@ -18,6 +18,5 @@ export const Collections = {
     created(){
     },
     mounted() {
-
     }
 }

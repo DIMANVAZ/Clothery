@@ -15,7 +15,7 @@ export const Item = {
                 </div>
             </fieldset>
  
-            <button @click="cart.addToCart({name:item.name.slice(9), price:item?.price}), this.checkBoxToCart()" class="item-cart-button">Добавить в корзину</button>
+            <button @click="cart.addToCart(item, this.checkBoxToCart())" class="item-cart-button">Добавить в корзину</button>
             <br>
               --------------- все изображения (в px это высота) -------<br>
 
@@ -52,6 +52,7 @@ export const Item = {
     created(){
     },
     methods:{
+        //выбираем карточку товара из массива, ищем через id в роуте-парамс
         selectItem(){
             let match = {}
             this.items.forEach(item => {
@@ -61,12 +62,17 @@ export const Item = {
             });
             return match;
         },
+        //работа с выбранными чекбоксами
         checkBoxToCart(){
+            let ordered = {}
             let checkedSizes = document.querySelectorAll('.size-checkbox');
-            checkedSizes.forEach(el => {
-                console.log(el?.checked) //выдаст false/true/false, например
+            checkedSizes.forEach(el => { //el здесь это html тег с атрибутами
+                el.checked ?
+                    ordered[el.id] = 1:
+                    ordered.el = 0;
             })
-            //надо выбрать только true и прописать их в передаваемые в корзину данные
+            //console.log('chckbx called')
+            return ordered //массив вида {S:1,M:0,L:1}
         }
     },
     mounted(){
@@ -75,6 +81,7 @@ export const Item = {
 
     },
     computed:{
+        //карточка товара - находим через функцию
         item(){
             return this.selectItem()
         },
