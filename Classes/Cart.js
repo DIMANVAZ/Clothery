@@ -2,26 +2,10 @@ export class Cart{
     cartBox = []; //объекты {position:{item}, ordered:{}}
 
     //если есть такое имя - накрутим его счётчик, а если нету - добавим полностью
-    //-----переписать, чтобы принимала объект item целиком и ещё размеры как-нибудь!!!!!!------------------
-
-    addToCart(item = {name:"Тестовый", price:999}, ordered = {S:1, M:2, L:3}){
-        //---почему не добавляется?!?!?!--------------
+    //элементов массива должно быть не более, чем товаров. Счётчик корзины считается от общего кол-ва заказанных штук
+    addToCart(item, ordered){
+    this.cartBox.push({position:item, ordered:ordered})
         console.log(this.cartBox)
-        let added = false; // флаг - по умолчанию товара нет, т.е. false
-        if(this.cartBox){ //если не пустой
-            this.cartBox.forEach(cartEl => {
-                if (cartEl.position.name === item.name){
-                    console.log('match!', item.name)
-                } else {
-                    this.cartBox.push({position:{item}, ordered:{ordered}});
-                    console.log('pushed = ', item.name)
-                };
-            })
-        } else {
-            this.cartBox.push({position:{item}, ordered:{ordered}});
-            console.log('pushed = ', item.name)
-        }
-
     };
 
     //убавить на 1 позицию данного товара
@@ -42,10 +26,7 @@ export class Cart{
 
     //сложить счётчики у всех товаров в корзине
     totalItems(){
-        return this.cartBox.reduce((sum,item) =>{
-            sum += item.count;
-            return sum
-        },0)
+        return this.cartBox.length; //----------------------!!!!!!!!!!!!!!!---------------------
     };
 
     //сложить цены у всех товаров в корзине

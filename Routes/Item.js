@@ -67,9 +67,7 @@ export const Item = {
             let ordered = {}
             let checkedSizes = document.querySelectorAll('.size-checkbox');
             checkedSizes.forEach(el => { //el здесь это html тег с атрибутами
-                el.checked ?
-                    ordered[el.id] = 1:
-                    ordered.el = 0;
+                el.checked ? ordered[el.id] = 1 : '';
             })
             //console.log('chckbx called')
             return ordered //массив вида {S:1,M:0,L:1}
