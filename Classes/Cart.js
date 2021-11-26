@@ -4,6 +4,12 @@ export class Cart{
     //если есть такое имя - накрутим его счётчик, а если нету - добавим полностью
     //элементов массива должно быть не более, чем товаров. Счётчик корзины считается от общего кол-ва заказанных штук
     addToCart(item, ordered){
+        this.cartBox.find(elem => {
+            if(elem?.position?.name === item.name){ //такой товар уже есть
+                this.addNewOrder()
+            }
+        })
+
     this.cartBox.push({position:item, ordered:ordered})
         console.log(this.cartBox)
     };
@@ -50,6 +56,9 @@ export class Cart{
         return pCode;
     }
 
+    addNewOrder(){
+
+    }
 }
 
 /*
