@@ -3,14 +3,9 @@ export class Cart{
 
     //если есть такое имя - накрутим его счётчик, а если нету - добавим полностью
     //элементов массива должно быть не более, чем товаров. Счётчик корзины считается от общего кол-ва заказанных штук
-    addToCart(item, ordered){
-        this.cartBox.find(elem => {
-            if(elem?.position?.name === item.name){ //такой товар уже есть
-                this.addNewOrder()
-            }
-        })
-
-    this.cartBox.push({position:item, ordered:ordered})
+    addToCart(itemPlusOrder){ // Item.js, строка 18
+        console.log(itemPlusOrder)
+        this.cartBox.push(itemPlusOrder)
         console.log(this.cartBox)
     };
 
@@ -56,13 +51,23 @@ export class Cart{
         return pCode;
     }
 
-    addNewOrder(){
-
+    appendNewOrder(newOrderObj, oldOrderObj){
+        if (!newOrderObj || !oldOrderObj) {
+            return false
+        } else {
+            Object.keys(newOrderObj).forEach(key => { //----вариант с Object.keys ------------
+                if (oldOrderObj[key]) {
+                    oldOrderObj[key] += newOrderObj[key]
+                } else {
+                    oldOrderObj[key] = newOrderObj[key]
+                }
+            })
+        }
+        return oldOrderObj
     }
 }
 
-/*
-let c = new Cart();
+/*let c = new Cart();
 c.addToCart({name:"носки", price:333})
 c.addToCart({name:"носки", price:333})
 c.addToCart({name:"трусы", price:4944})

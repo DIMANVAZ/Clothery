@@ -15,7 +15,7 @@ export const Item = {
                 </div>
             </fieldset>
  
-            <button @click="cart.addToCart(item, this.checkBoxToCart())" class="item-cart-button">Добавить в корзину</button>
+            <button @click="cart.addToCart({position:item, ordered:this.orderedSizes()})" class="item-cart-button">Добавить в корзину</button>
             <br>
               --------------- все изображения (в px это высота) -------<br>
 
@@ -63,7 +63,7 @@ export const Item = {
             return match;
         },
         //работа с выбранными чекбоксами
-        checkBoxToCart(){
+        orderedSizes(){
             let ordered = {}
             let checkedSizes = document.querySelectorAll('.size-checkbox');
             checkedSizes.forEach(el => { //el здесь это html тег с атрибутами
