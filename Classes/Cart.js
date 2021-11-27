@@ -38,7 +38,15 @@ export class Cart{
 
     //сложить счётчики у всех товаров в корзине
     totalItems(){
-        return this.cartBox.reduce()
+        let totalItems = 0;
+        this.cartBox.forEach(el => {
+            let sizesSum = Object.values(el.ordered).reduce((start, item) => {
+                return start + item
+            })
+            totalItems += sizesSum;
+        })
+        console.log(`totalItems: ${totalItems}`)
+        return totalItems;
     };
 
     //сложить цены у всех товаров в корзине
@@ -50,12 +58,10 @@ export class Cart{
         // применить html-конструкцию
     };
 
-    //генератор промокода
+    //генератор промокода - переписать!!!
     promoCodeGen(){
-        let pCode = "";
-        this.cartBox.forEach(el => pCode += (el.name[0]+el.count+el.name[el.name.length-1]));
-        pCode += this.totalPrice();
-            console.log(this.cartBox)
+        let pCode = "R1A2N3O4V5A6T7O8";
+
         return pCode;
     };
 
