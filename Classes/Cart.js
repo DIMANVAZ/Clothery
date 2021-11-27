@@ -45,13 +45,22 @@ export class Cart{
             })
             totalItems += sizesSum;
         })
-        console.log(`totalItems: ${totalItems}`)
+        //console.log(`totalItems: ${totalItems}`)
         return totalItems;
     };
 
-    //сложить цены у всех товаров в корзине
+    //сложить цены у всех товаров в корзине, перемножив сумму размеров в ordered на цену товара
     totalPrice(){
-        // применить метод reduce
+        let totalPrice = 0;
+        this.cartBox.forEach(el => {
+            let sizesSum = Object.values(el.ordered).reduce((start, item) => {
+                return start + item
+            })
+            totalPrice += sizesSum * el.position?.price;
+            //console.log(`el.position?.price: ${el.position?.price}`)
+        })
+        //console.log(`totalPrice: ${totalPrice}`)
+        return totalPrice;
     };
 
     showAllItems(){
