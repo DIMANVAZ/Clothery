@@ -3,44 +3,52 @@ export class Cart{
 
     //если есть такое имя - накрутим его счётчик, а если нету - добавим полностью
     //элементов массива должно быть не более, чем товаров. Счётчик корзины считается от общего кол-ва заказанных штук
-    addToCart(itemPlusOrder){ // Item.js, строка 18
-        console.log(itemPlusOrder)
-        this.cartBox.push(itemPlusOrder)
+
+    addToCart(itemPlusOrder = {position:{name:"Рыба-имя"}, ordered:{XL:1, XXL:2}}){
+        // addToCart вызывается в Item.js, строка 18
+        // 1. Есть ли уже такой товар?
+        // да - наслаиваем, нет - просто пушим
+        if (this.cartBox.length === 0){      // корзина пуста ? смело пушим!
+            this.cartBox.push(itemPlusOrder)
+        }
+        else {
+            let match = this.cartBox.find(cartEl => {
+                if (cartEl.position.name === itemPlusOrder.position.name){ //если с таким именем элемент есть - наслаиваем
+                    return cartEl
+                }
+            });
+            if (match) {    // совпадения по имени есть? Да - наслаиваем
+                this.appendNewOrder(itemPlusOrder.ordered, match.ordered)
+            } else {        // совпадения по имени есть? Нет - смело пушим!
+                this.cartBox.push(itemPlusOrder)
+            }
+        }
         console.log(this.cartBox)
     };
 
-    //убавить на 1 позицию данного товара
-    removeOne(item){
-        this.cartBox.find(nextEl => {
-            if(nextEl.name === item.name && nextEl.count >= 1){
-                    console.log(`we decrease count of ${nextEl.name}`);
-                nextEl.count--;
-            }
-        })
-    }
+    //убавить на 1 позицию данного товара - продумать, как быть с галками
+    removeOne(){
+
+    };
 
     //полностью удалить позицию вообще
-    fullyRemove(item){
-        this.cartBox = this.cartBox.filter(elem => elem.name !== item.name);
-            console.log(`we fully removed ${item.name}`)
+    fullyRemove(){
+        // применить метод .filter
     };
 
     //сложить счётчики у всех товаров в корзине
     totalItems(){
-        return this.cartBox.length; //----------------------!!!!!!!!!!!!!!!---------------------
+        return this.cartBox.reduce()
     };
 
     //сложить цены у всех товаров в корзине
     totalPrice(){
-        return this.cartBox.reduce((sum,item) =>{
-            sum += item.price;
-            return sum
-        },0)
+        // применить метод reduce
     };
 
     showAllItems(){
-
-    }
+        // применить html-конструкцию
+    };
 
     //генератор промокода
     promoCodeGen(){
@@ -49,9 +57,9 @@ export class Cart{
         pCode += this.totalPrice();
             console.log(this.cartBox)
         return pCode;
-    }
+    };
 
-    appendNewOrder(newOrderObj, oldOrderObj){
+    appendNewOrder(newOrderObj, oldOrderObj){ //наложить новое кол-во заказанного поверх старого
         if (!newOrderObj || !oldOrderObj) {
             return false
         } else {
@@ -64,14 +72,8 @@ export class Cart{
             })
         }
         return oldOrderObj
-    }
+    };
 }
 
 /*let c = new Cart();
-c.addToCart({name:"носки", price:333})
-c.addToCart({name:"носки", price:333})
-c.addToCart({name:"трусы", price:4944})
-console.log(c.totalItems())
-console.log(c.totalPrice())
-console.log(c.cartBox)
-console.log(c.promoCodeGen())*/
+*/
