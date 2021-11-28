@@ -15,7 +15,7 @@ export const Item = {
                 </div>
             </fieldset>
  
-            <button @click="cart.addToCart({position:item, ordered:this.orderedSizes()})" class="item-cart-button">Добавить в корзину</button>
+            <button @click="cart.addToCart(item, this.orderedSizes())" class="item-cart-button">Добавить в корзину</button>
             <br>
               --------------- все изображения (в px это высота) -------<br>
               <div style="display:flex">

@@ -2,30 +2,58 @@ export class Cart{
     cartBox = []; //объекты {position:{item}, ordered:{}}
     arrayForCart = [];
 
-    //если есть такое имя - накрутим его счётчик, а если нету - добавим полностью
-    //элементов массива должно быть не более, чем товаров. Счётчик корзины считается от общего кол-ва заказанных штук
+    addToCart(item = {name:'defName',price:999}, sizes = {XL:1, XS:2}){
+        let incomKeys = Object.keys(sizes);
 
-    addToCart(itemPlusOrder = {position:{name:"Рыба-имя"}, ordered:{XL:1, XXL:2}}){
-        // addToCart вызывается в Item.js, строка 18
-        // 1. Есть ли уже такой товар?
-        // да - наслаиваем, нет - просто пушим
-        if (this.cartBox.length === 0){      // корзина пуста ? смело пушим!
-            this.cartBox.push(itemPlusOrder)
-        }
-        else {
-            let match = this.cartBox.find(cartEl => {
-                if (cartEl.position.name === itemPlusOrder.position.name){ //если с таким именем элемент есть - наслаиваем
-                    return cartEl
-                }
-            });
-            if (match) {    // совпадения по имени есть? Да - наслаиваем
-                this.appendNewOrder(itemPlusOrder.ordered, match.ordered)
-            } else {        // совпадения по имени есть? Нет - смело пушим!
-                this.cartBox.push(itemPlusOrder)
+        if (this.cartBox.length === 0) {//массив пуст - смело пушим!! для каждого размера по отдельности
+            incomKeys.forEach(size => {
+                this.cartBox.push({item,[size]:sizes[size]}) //для каждого размера по отдельности
+            })
+        } else {
+            //проверить, есть ли совпадения по имени. Да - проверяем ключи. Нет - пушим
+            let allMatches = this.cartBox.filter(cartEl => cartEl.item.name === item.name);
+            console.log('am = ', allMatches)
+            if (!allMatches.length) { //по имени не совпало - пушим!!
+                incomKeys.forEach(size => {
+                    this.cartBox.push({item,[size]:sizes[size]}) //для каждого размера по отдельности
+                })
+            } else {    //по имени cовпало - проверяем ключи.
+                        // allMatches - это все совпавшие по имени с входящим элементы массива корзины
+                incomKeys.forEach(size => {
+                    let first = allMatches.find(elem => { // если в массиве совпавших имён найдем такой же ключ(размер) - плюсуем их!
+                        if(elem[size]){
+                           elem[size] += sizes[size];
+                        }
+                    })
+                    if(!first){
+                        this.cartBox.push({item,[size]:sizes[size]}) //---ПРОВЕРИТЬ!!!--лишнее добавляет(((----------
+                    }
+                })
             }
         }
-        console.log(this.cartBox)
-    };
+        console.log('this CB = ',this.cartBox)
+    }
+    // addToCart(itemPlusOrder = {position:{name:"Рыба-имя"}, ordered:{XL:1, XXL:2}}){
+    //     // addToCart вызывается в Item.js, строка 18
+    //     // 1. Есть ли уже такой товар?
+    //     // да - наслаиваем, нет - просто пушим
+    //     if (this.cartBox.length === 0){      // корзина пуста ? смело пушим!
+    //         this.cartBox.push(itemPlusOrder)
+    //     }
+    //     else {
+    //         let match = this.cartBox.find(cartEl => {
+    //             if (cartEl.position.name === itemPlusOrder.position.name){ //если с таким именем элемент есть - наслаиваем
+    //                 return cartEl
+    //             }
+    //         });
+    //         if (match) {    // совпадения по имени есть? Да - наслаиваем
+    //             this.appendNewOrder(itemPlusOrder.ordered, match.ordered)
+    //         } else {        // совпадения по имени есть? Нет - смело пушим!
+    //             this.cartBox.push(itemPlusOrder)
+    //         }
+    //     }
+    //     console.log(this.cartBox)
+    // };
 
     //убавить на 1 позицию данного товара - продумать, как быть с галками
     removeOne(){
@@ -34,29 +62,12 @@ export class Cart{
 
     //сложить счётчики у всех товаров в корзине
     totalItems(){
-        let totalItems = 0;
-        this.cartBox.forEach(el => {
-            let sizesSum = Object.values(el.ordered).reduce((start, item) => {
-                return start + item
-            })
-            totalItems += sizesSum;
-        })
-        //console.log(`totalItems: ${totalItems}`)
-        return totalItems;
+        return 999;
     };
 
     //сложить цены у всех товаров в корзине, перемножив сумму размеров в ordered на цену товара
     totalPrice(){
-        let totalPrice = 0;
-        this.cartBox.forEach(el => {
-            let sizesSum = Object.values(el.ordered).reduce((start, item) => {
-                return start + item
-            })
-            totalPrice += sizesSum * el.position?.price;
-            //console.log(`el.position?.price: ${el.position?.price}`)
-        })
-        //console.log(`totalPrice: ${totalPrice}`)
-        return totalPrice;
+        return 100500;
     };
 
     //генератор промокода - переписать!!!
