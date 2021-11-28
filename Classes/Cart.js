@@ -1,5 +1,6 @@
 export class Cart{
     cartBox = []; //объекты {position:{item}, ordered:{}}
+    arrayForCart = [];
 
     //если есть такое имя - накрутим его счётчик, а если нету - добавим полностью
     //элементов массива должно быть не более, чем товаров. Счётчик корзины считается от общего кол-ва заказанных штук
@@ -29,11 +30,6 @@ export class Cart{
     //убавить на 1 позицию данного товара - продумать, как быть с галками
     removeOne(){
 
-    };
-
-    //полностью удалить позицию вообще
-    fullyRemove(){
-        // применить метод .filter
     };
 
     //сложить счётчики у всех товаров в корзине
@@ -84,6 +80,16 @@ export class Cart{
         }
         return oldOrderObj
     };
+
+    adapter(){ // адаптировать наш сложный массив cartBox под нужды Корзины для удобства показа в виде таблицы
+        this.cartBox.forEach(complexItem => {
+            Object.keys(complexItem.ordered).forEach(size => {
+                this.arrayForCart.push({item:complexItem.position, size, amount:complexItem.ordered[size]})
+            })
+        })
+        console.log(this.arrayForCart)
+        return this.arrayForCart
+    }
 }
 
 /*let c = new Cart();

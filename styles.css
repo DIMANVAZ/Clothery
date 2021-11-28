@@ -180,7 +180,10 @@ nav{
 /*    border: 1px solid red;*/
 }
 
-/*===========конец header=============================*/
+/*=========== Сart Route =============================*/
+tr{
+    background-color: #48BEEE;
+}
 
 /*================ MAIN CONTAINER ====================*/
 .main-container img.for-mobs{
