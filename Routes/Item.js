@@ -18,31 +18,33 @@ export const Item = {
             <button @click="cart.addToCart({position:item, ordered:this.orderedSizes()})" class="item-cart-button">Добавить в корзину</button>
             <br>
               --------------- все изображения (в px это высота) -------<br>
-
-            1) 160px
+              <div style="display:flex">
+                <img :src="this.dynamicBigImage()" alt="800px" class="big-image" id="big-image">
+                <div v-for="(pic,i) in item?.media?.images" >
+                    <img :src="pic.image160pxUrl" alt="160" :data="i" @click="this.dynamicBigImage(i)">
+                </div>
+              </div>
+              ---------------------------------------------------------------------------<br>
+<!--            1) 160px
             <div v-for="(pic,i) in item?.media?.images" >
-                <img :src="pic.image160pxUrl" alt="160" style="border:1px solid var(--divide-line)">
+                <img :src="pic.image160pxUrl" alt="160" style="border:1px solid var(&#45;&#45;divide-line)">
             </div>
-           
             2) 400px
             <div v-for="(pic,i) in item?.media?.images" >
-                <img :src="pic.image400pxUrl" alt="400" style="border:1px solid var(--divide-line)">
+                <img :src="pic.image400pxUrl" alt="400" style="border:1px solid var(&#45;&#45;divide-line)">
             </div>
-            
             3) 800px
             <div v-for="(pic,i) in item?.media?.images" >
-                <img :src="pic.image800pxUrl" alt="800px" style="border:1px solid var(--divide-line)">
+                <img :src="pic.image800pxUrl" alt="800px" style="border:1px solid var(&#45;&#45;divide-line)">
             </div>
-            
             4) 1500px
             <div v-for="(pic,i) in item?.media?.images" >
-                <img :src="pic.image1500pxUrl" alt="1500px" style="border:1px solid var(--divide-line)">
+                <img :src="pic.image1500pxUrl" alt="1500px" style="border:1px solid var(&#45;&#45;divide-line)">
             </div>
-            
             4) orig
             <div v-for="(pic,i) in item?.media?.images" >
-                <img :src="pic.imageOriginalUrl" alt="medium Product Photo" style="border:1px solid var(--divide-line)">
-            </div>
+                <img :src="pic.imageOriginalUrl" alt="medium Product Photo" style="border:1px solid var(&#45;&#45;divide-line)">
+            </div>-->
               `,
     data(){
         return{
@@ -71,6 +73,13 @@ export const Item = {
             })
             //console.log('chckbx called')
             return ordered //массив вида {S:1,M:0,L:1}
+        },
+        dynamicBigImage(i=0){
+            console.log('dyn')
+            let BI = document.getElementById("big-image");
+            if(BI){
+                BI.src = `${this.item?.media?.images[i]?.image800pxUrl}`
+            } else return `${this.item?.media?.images[i]?.image800pxUrl}`
         }
     },
     mounted(){

@@ -63,10 +63,6 @@ export class Cart{
         return totalPrice;
     };
 
-    showAllItems(){
-        // применить html-конструкцию
-    };
-
     //генератор промокода - переписать!!!
     promoCodeGen(){
         let pCode = "R1A2N3O4V5A6T7O8";

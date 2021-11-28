@@ -164,7 +164,7 @@ nav{
         padding: 0 0 0 10%;
     }
 
-/*-----------корзина----------------------------------*/
+/*-----------корзинка - иконка----------------------------------*/
 .header-nav-cart{ /*---эту штуку крутить в 1 очередь при работе с иконкой корзины---------*/
     height:60%; /*от высоты блока NAV*/
     position: relative;
@@ -190,6 +190,30 @@ nav{
 }
 
 /*===========конец header=============================*/
+
+/*================ COLLECTIONS =======================*/
+.collections-route{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+}
+.collections-section{
+    flex-grow:1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.collections-section-vFor{
+    display: flex;
+    flex-direction: column;
+}
+.collections-male{
+    border-right:1px solid var(--divide-line);
+}
+.collections-section-hr{
+    width: 100%;
+    border-top:1px solid var(--highlight);
+}
 
 /*================ ITEM ==============================*/
 .item.checkboxes-fieldset{
