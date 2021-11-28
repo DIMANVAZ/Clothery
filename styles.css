@@ -143,15 +143,6 @@ nav{
 .nav-item,.header-nav-cart{
 
 }
-.main-container img.for-mobs{
-    width:100%;
-}
-.main-container img.for-tabs{
-    width:50%;
-}
-.main-container img.for-PC{
-    width:50%;
-}
 .brand-logo{
     flex-grow: 2;
     font-size:2rem;
@@ -190,6 +181,21 @@ nav{
 }
 
 /*===========конец header=============================*/
+
+/*================ MAIN CONTAINER ====================*/
+.main-container img.for-mobs{
+    width:100%;
+}
+.main-container img.for-tabs{
+    width:50%;
+}
+.main-container img.for-PC{
+    width:50%;
+}
+.main-container{
+    font-size:0px;
+}
+
 
 /*================ COLLECTIONS =======================*/
 .collections-route{

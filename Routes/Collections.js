@@ -5,24 +5,29 @@ export const Collections = {
                     <h3>Мужская линейка</h3>
                     
                     <div v-for="item in this.maleCollection" class="collections-section-vFor">
+                            
                         <hr class="collections-section-hr">
                         <h4>{{ item.name.slice(9) }}</h4>
+                            <router-link :to="'/item/' + item.id">
                         <img :src="item?.media?.images[0].image400pxUrl" alt="400">
+                            </router-link>
                         <p>Цена:{{item.defaultDisplayedPriceFormatted}}</p>
-                        <router-link :to="'/item/' + item.id">Перейти >></router-link>
+                        <button>Купить</button>
                     </div>
                     
                 </section>
                 
-                <section class="collections-section collections-female">
+                <section class="collections-section collections-female" >
                     <h3>Женская линейка</h3>
                     
                     <div v-for="item in this.femCollection" class="collections-section-vFor">
                         <hr class="collections-section-hr">
                         <h4>{{ item.name.slice(9) }}</h4>
+                            <router-link :to="'/item/' + item.id">
                         <img :src="item?.media?.images[0].image400pxUrl" alt="400">
+                            </router-link>
                         <p>Цена:{{item.defaultDisplayedPriceFormatted}}</p>
-                        <router-link :to="'/item/' + item.id">Перейти >></router-link>
+                        <button>Купить</button>
                     </div>                    
                 </section>
                     
