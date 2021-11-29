@@ -41,8 +41,9 @@ export class Cart{
     }
 
     //убавить на 1 позицию данного товара - продумать, как быть с галками
-    removeOne(){
-
+    removeOneLine(i){
+        this.cartBox = this.cartBox.filter(el => el !== this.cartBox[i])
+        console.log(`removed elem ${this.cartBox[i]}`)
     };
 
     //сложить счётчики у всех товаров в корзине

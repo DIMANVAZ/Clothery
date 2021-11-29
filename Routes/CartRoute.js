@@ -2,9 +2,12 @@ export const CartRoute = {
     props:['items',`cart`],
     template:`
                 <div >
-                <h2>Корзина: всего товаров {{this.cart.totalItems()}} на сумму {{this.cart.totalPrice()}} руб</h2>
+                <h2>Корзина 
+                    <span v-if="this.cart.totalItems() > 0">: всего товаров {{this.cart.totalItems()}} на сумму {{this.cart.totalPrice()}} руб</span>
+                    <span v-if="this.cart.totalItems() === 0">пуста... </span>
+                </h2>
                 <table v-if="this.cart.totalItems() > 0">
-                    <caption>Товары в вашей корзине</caption>
+                    <caption></caption>
                     <tr>
                         <th class="table position">Товар</th>
                         <th class="table size">Размер</th>
@@ -12,14 +15,14 @@ export const CartRoute = {
                         <th class="table price_per_position">Сумма</th>
                         <th class="table delete-item">Удалить</th>
                     </tr>
-                    <tr v-for="i in this.cart.cartBox">
-                            <td > {{i?.item.name.slice(9)}} <br>
-                                <img :src="i.item?.media?.images[0].image160pxUrl" alt="160">
+                    <tr v-for="(position,i) in this.cart.cartBox">
+                            <td > {{position?.item.name.slice(9)}} <br>
+                                <img :src="position.item?.media?.images[0].image160pxUrl" alt="160">
                             </td>
-                            <td class="table size">{{ Object.keys(i)[1] }}</td>
-                            <td class="table pcs">{{ Object.values(i)[1] }}</td>
-                            <td class="table price_per_position">{{ Object.values(i)[1] * i.item.price }}</td>
-                            <td class="table delete-item"> X </td>
+                            <td class="table size">{{ Object.keys(position)[1] }}</td>
+                            <td class="table pcs">{{ Object.values(position)[1] }}</td>
+                            <td class="table price_per_position">{{ Object.values(position)[1] * position.item.price }}</td>
+                            <td class="table delete-item-x" :data="i" @click="this.cart.removeOneLine(i)"> X </td>
                     </tr>
                 </table>
                 <button v-if="this.cart.totalItems() > 0" id="orderRequestButton" @click="this.showDialog()">Оформить заказ</button>

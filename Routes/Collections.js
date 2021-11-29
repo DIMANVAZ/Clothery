@@ -1,8 +1,8 @@
 export const Collections = {
     props:[`items`],
     template:`<div class="Collections collections-route">
-                <section class="collections-section collections-male">
-                    <h3>Мужская линейка</h3>
+                <section v-if="this.maleShow" class="collections-section collections-male">
+                    <h3 @click="this.femShow=false">Мужская линейка</h3>
                     
                     <div v-for="item in this.maleCollection" class="collections-section-vFor">
                             
@@ -17,8 +17,8 @@ export const Collections = {
                     
                 </section>
                 
-                <section class="collections-section collections-female" >
-                    <h3>Женская линейка</h3>
+                <section v-if="this.femShow" class="collections-section collections-female">
+                    <h3 @click="this.maleShow=false">Женская линейка</h3>
                     
                     <div v-for="item in this.femCollection" class="collections-section-vFor">
                         <hr class="collections-section-hr">
@@ -35,6 +35,8 @@ export const Collections = {
               `,
     data(){
         return{
+            femShow:true,
+            maleShow:true
         }
     },
     methods:{

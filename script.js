@@ -57,7 +57,7 @@ const app = Vue.createApp({
 
  //---------- эта штука показывает эвент-таргеты---------------------
 document.onclick = function(){
-    //console.log(event.target)
+    console.log(event.target)
 }
 
 function checkBoxToCart(){

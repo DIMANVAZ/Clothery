@@ -182,10 +182,15 @@ nav{
 
 /*=========== Сart Route =============================*/
 tr{
-    background-color: #48BEEE;
+    border:1px solid var(--divide-line)
 }
 td{
     text-align:center;
+    border:1px solid var(--divide-line)
+}
+
+.delete-item-x:hover{
+    color:var(--mob-R)
 }
 /*================ MAIN CONTAINER ====================*/
 .main-container img.for-mobs{
