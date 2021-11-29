@@ -12,15 +12,13 @@ export const CartRoute = {
                         <th class="table price_per_position">Сумма</th>
                         <th class="table delete-item">Удалить</th>
                     </tr>
-                    <tr v-for="i in this.cart.adapter()">
-<!--                            <td class="table position">
-                                {{ elem.position.name.slice(9) }} <br>
-                                <img :src="elem.position?.media?.images[0].image160pxUrl" alt=""> 
+                    <tr v-for="i in this.cart.cartBox">
+                            <td > {{i?.item.name.slice(9)}} <br>
+                                <img :src="i.item?.media?.images[0].image160pxUrl" alt="160">
                             </td>
-                            <td class="table size">{{ size }}</td>
-                            <td class="table pcs">{{ elem.ordered[size] }}</td>
-                            <td class="table price_per_position">{{ this.sizesSum(elem) * elem.position.price }}</td>-->
-                            <td > {{i?.item}} </td>
+                            <td class="table size">{{ Object.keys(i)[1] }}</td>
+                            <td class="table pcs">{{ Object.values(i)[1] }}</td>
+                            <td class="table price_per_position">{{ Object.values(i)[1] * i.item.price }}</td>
                             <td class="table delete-item"> X </td>
                     </tr>
                 </table>

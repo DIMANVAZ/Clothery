@@ -184,7 +184,9 @@ nav{
 tr{
     background-color: #48BEEE;
 }
-
+td{
+    text-align:center;
+}
 /*================ MAIN CONTAINER ====================*/
 .main-container img.for-mobs{
     width:100%;

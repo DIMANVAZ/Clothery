@@ -47,12 +47,16 @@ export class Cart{
 
     //сложить счётчики у всех товаров в корзине
     totalItems(){
-        return 999;
+        return this.cartBox.reduce((initial,object) => {
+            return initial + Object.values(object)[1]
+        },0)
     };
 
     //сложить цены у всех товаров в корзине, перемножив сумму размеров в ordered на цену товара
     totalPrice(){
-        return 100500;
+        return this.cartBox.reduce((initial,object) => {
+            return initial + Object.values(object)[1] * object.item.price
+        },0)
     };
 
     //упорядочить массив Cart по именам \id, чтобы выводилось не вразброс
