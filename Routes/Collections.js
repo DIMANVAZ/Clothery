@@ -6,10 +6,10 @@ export const Collections = {
                     
                     <div v-for="item in this.maleCollection" class="collections-section-vFor">
                             
-                        <hr class="collections-section-hr">
+         <!--               <hr class="collections-section-hr">-->
                         <h4>{{ item.name.slice(9) }}</h4>
                             <router-link :to="'/item/' + item.id">
-                        <img :src="item?.media?.images[0].image400pxUrl" alt="400">
+                        <img :src="item?.media?.images[0].image400pxUrl" alt="400" style="width:100%;height:auto">
                             </router-link>
                         <p>Цена:{{item.defaultDisplayedPriceFormatted}}</p>
                         <button>Купить</button>
@@ -21,10 +21,10 @@ export const Collections = {
                     <h3 @click="this.maleShow=false">Женская линейка</h3>
                     
                     <div v-for="item in this.femCollection" class="collections-section-vFor">
-                        <hr class="collections-section-hr">
+            <!--            <hr class="collections-section-hr">-->
                         <h4>{{ item.name.slice(9) }}</h4>
                             <router-link :to="'/item/' + item.id">
-                        <img :src="item?.media?.images[0].image400pxUrl" alt="400">
+                        <img :src="item?.media?.images[0].image400pxUrl" alt="400" style="width:100%;height:auto">
                             </router-link>
                         <p>Цена:{{item.defaultDisplayedPriceFormatted}}</p>
                         <button>Купить</button>
