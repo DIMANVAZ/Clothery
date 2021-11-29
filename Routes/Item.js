@@ -75,7 +75,7 @@ export const Item = {
             return ordered //массив вида {S:1,M:0,L:1}
         },
         dynamicBigImage(i=0){
-            console.log('dyn')
+                            //console.log('dyn')//--------------------------------
             let BI = document.getElementById("big-image");
             if(BI){
                 BI.src = `${this.item?.media?.images[i]?.image800pxUrl}`
@@ -84,7 +84,7 @@ export const Item = {
     },
     mounted(){
         this.dataParams += this.$route.params.id;
-            console.log(this.$route.params) // {"id": "344134464"} сформированный в Collection через :to = item/item.id
+            //console.log(this.$route.params) // {"id": "344134464"} сформированный в Collection через :to = item/item.id
 
     },
     computed:{
