@@ -14,8 +14,7 @@ export const Item = {
                     <label for="size" class="item checkbox-label">{{ size.text }}</label>
                 </div>
             </fieldset>
- 
-            <button @click="cart.addToCart(item, this.orderedSizes())" class="item-cart-button">Добавить в корзину</button>
+            <div @click="cart.addToCart(item, this.orderedSizes())" class="item-cart-button">Добавить в корзину</div>
             <br>
               --------------- все изображения (в px это высота) -------<br>
               <div style="display:flex">

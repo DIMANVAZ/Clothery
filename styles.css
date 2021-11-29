@@ -212,6 +212,7 @@ td{
     display: flex;
     flex-direction: row;
     justify-content:space-around;
+        flex-wrap: wrap;
 }
 .collections-section{
     flex-grow:1;
@@ -246,6 +247,17 @@ td{
 .item.checkbox-label{
     margin-left:5px;
 }
+.item-cart-button{
+    padding:10px;
+    border:1px solid var(--divide-line);
+    background-color:var(--PC-R);
+    width:220px;
+} .item-cart-button:hover{
+      background-color:var(--highlight);
+      box-shadow: 0 0 10px var(--PC-L);
+      transition: all 0.4s ease
+  }
+
 
 /*-----------подвал-----------------------------------*/
 footer{
