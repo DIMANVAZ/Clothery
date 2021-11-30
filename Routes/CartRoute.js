@@ -7,42 +7,23 @@ export const CartRoute = {
                     <span v-if="this.cart.totalItems() === 0">пуста... </span>
                 </h2>
                 <div v-if="this.cart.totalItems() > 0">
-                     <tr v-for="(position,i) in this.cart.cartBox">
+                     <div v-for="(position,i) in this.cart.cartBox" class="table row-container">
+                        <div class="table pic_and_name_container">
                                 <router-link :to="'/item/' + position.item.id">
-                            <td > {{position?.item.name.slice(9)}} <br>
+                            <div class="table pic_and_name"> {{position?.item.name.slice(9)}} <br>
                                 <img :src="position.item?.media?.images[0].image160pxUrl" alt="160">
-                            </td>
+                            </div>
                                 </router-link>
-                            <td class="table size">{{ Object.keys(position)[1] }}</td>
-                            <td class="table pcs">{{ Object.values(position)[1] }}</td>
-                            <td class="table price_per_position">{{ Object.values(position)[1] * position.item.price }}</td>
-                            <td class="table delete-item-x" :data="i" @click="this.cart.removeOneLine(i),this.cart.saveToLS()"> X </td>
-                    </tr>
+                        </div>
+                        <div class="table info_container">
+                            <div class="table pcs_and_size">Кол-во: {{ Object.values(position)[1] }} </div>
+                            <div class>Размер: {{ Object.keys(position)[1] }}</div>    
+                            <div class="table price_per_position">На сумму {{ Object.values(position)[1] * position.item.price }} р</div>
+                            <div class="table delete-item-x" :data="i" @click="this.cart.removeOneLine(i),this.cart.saveToLS()"> X </div>
+                        </div>
+                    </div>
                 </div>
-                
-                
-                
-                <table v-if="this.cart.totalItems() > 0">
-                    <caption></caption>
-                    <tr>
-                        <th class="table position">Товар</th>
-                        <th class="table size">Размер</th>
-                        <th class="table pcs">Штук</th>
-                        <th class="table price_per_position">Сумма</th>
-                        <th class="table delete-item">Удалить</th>
-                    </tr>
-                    <tr v-for="(position,i) in this.cart.cartBox">
-                                <router-link :to="'/item/' + position.item.id">
-                            <td > {{position?.item.name.slice(9)}} <br>
-                                <img :src="position.item?.media?.images[0].image160pxUrl" alt="160">
-                            </td>
-                                </router-link>
-                            <td class="table size">{{ Object.keys(position)[1] }}</td>
-                            <td class="table pcs">{{ Object.values(position)[1] }}</td>
-                            <td class="table price_per_position">{{ Object.values(position)[1] * position.item.price }}</td>
-                            <td class="table delete-item-x" :data="i" @click="this.cart.removeOneLine(i),this.cart.saveToLS()"> X </td>
-                    </tr>
-                </table>
+
                 <button v-if="this.cart.totalItems() > 0" id="orderRequestButton" @click="this.showDialog(),this.cart.clearLS()">Оформить заказ</button>
                 
                 <dialog style="border-color:red">Поздравляем с покупкой! <br> Ваш промокод: {{this.cart.promoCodeGen()}}

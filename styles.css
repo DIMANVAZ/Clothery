@@ -191,16 +191,26 @@ nav{
 }
 
 /*=========== Сart Route =============================*/
-tr{
-    border:1px solid var(--divide-line)
-}
-td{
-    text-align:center;
-    border:1px solid var(--divide-line)
-}
 
+.row-container{
+    display:flex;
+    flex-wrap: wrap;
+    border-top:1px solid var(--divide-line);
+}
+.table.info_container{
+    position:relative;
+    margin-top: 15px;
+    margin-left: 5px;
+}
 .delete-item-x{
     transition: all 0.4s ease;
+    color:red;
+    font-size:1.2rem;
+    font-weight:bold;
+    position:absolute;
+    top:0;
+    right:0;
+    z-index:3;
 }
     .delete-item-x:hover{
         color:var(--mob-R)
@@ -261,17 +271,18 @@ td{
 .item.checkbox-label{
     margin-left:5px;
 }
-.item-cart-button{
-    padding:10px;
-    border:1px solid var(--divide-line);
-    background-color:var(--PC-R);
+
+.item-addToCart-button{
     width:220px;
-    transition: all 0.4s ease
-} .item-cart-button:hover{
-      background-color:var(--highlight);
-      box-shadow: 0 0 10px var(--PC-L);
-      border:1px solid var(--PC-L);
-  }
+    background-color:var(--highlight);
+    border:2px solid var(--divide-line);
+}
+.item-goToCart-button{
+    width:150px;
+    background-color:greenyellow;
+    border:2px solid var(--divide-line);
+}
+
 
 
 /*-----------подвал-----------------------------------*/

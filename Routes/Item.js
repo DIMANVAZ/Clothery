@@ -14,7 +14,12 @@ export const Item = {
                     <label for="size" class="item checkbox-label">{{ size.text }}</label>
                 </div>
             </fieldset>
-            <div @click="cart.addToCart(item, this.orderedSizes()),this.cart.saveToLS()" class="item-cart-button">Добавить в корзину</div>
+            <div v-if="!this.ordered" @click="cart.addToCart(item, this.orderedSizes()),this.cart.saveToLS(),this.ordered=true" class="item-addToCart-button">Добавить в корзину</div>
+                
+                <router-link to="/cart">
+                    <div v-if="this.ordered" class="item-goToCart-button">В корзине</div>
+                </router-link>
+                
             <br>
               --------------- все изображения (в px это высота) -------<br>
               <div style="display:flex">
@@ -48,6 +53,7 @@ export const Item = {
     data(){
         return{
             dataParams:'initially Empty => ',
+            ordered:false
         }
     },
     created(){
@@ -79,7 +85,7 @@ export const Item = {
             if(BI){
                 BI.src = `${this.item?.media?.images[i]?.image800pxUrl}`
             } else return `${this.item?.media?.images[i]?.image800pxUrl}`
-        }
+        },
     },
     mounted(){
         let toCheck = document.querySelector('.size-checkbox');
