@@ -26,7 +26,7 @@ export const Item = {
                 
             <br>
               --------------- все изображения (в px это высота) -------<br>
-              <div style="display:flex">
+              <div style="display:flex;flex-wrap:wrap;">
                 <img :src="this.dynamicBigImage() || this.setBigImage" alt="800px-image-of-Cloth" class="big-image" id="big-image">
                 <div v-for="(pic,i) in item?.media?.images" >
                     <img :src="pic.image160pxUrl" alt="160" :data="i" @click="this.dynamicBigImage(i)">
