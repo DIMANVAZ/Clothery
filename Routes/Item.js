@@ -17,7 +17,7 @@ export const Item = {
             <div v-if="!this.ordered" @click="cart.addToCart(item, this.orderedSizes()),this.cart.saveToLS(),this.ordered=true" class="item-addToCart-button">Добавить в корзину</div>
                 
                 <router-link to="/cart">
-                    <div v-if="this.ordered" class="item-goToCart-button">В корзине</div>
+                    <div v-if="this.ordered" class="item-goToCart-button">В корзине >></div>
                 </router-link>
                 
             <br>
