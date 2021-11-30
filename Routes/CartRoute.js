@@ -22,10 +22,11 @@ export const CartRoute = {
                             <td class="table size">{{ Object.keys(position)[1] }}</td>
                             <td class="table pcs">{{ Object.values(position)[1] }}</td>
                             <td class="table price_per_position">{{ Object.values(position)[1] * position.item.price }}</td>
-                            <td class="table delete-item-x" :data="i" @click="this.cart.removeOneLine(i)"> X </td>
+                            <td class="table delete-item-x" :data="i" @click="this.cart.removeOneLine(i),this.cart.saveToLS()"> X </td>
                     </tr>
                 </table>
-                <button v-if="this.cart.totalItems() > 0" id="orderRequestButton" @click="this.showDialog()">Оформить заказ</button>
+                <button v-if="this.cart.totalItems() > 0" id="orderRequestButton" @click="this.showDialog(),this.cart.clearLS()">Оформить заказ</button>
+                
                 <dialog style="border-color:red">Поздравляем с покупкой! <br> Ваш промокод: {{this.cart.promoCodeGen()}}
                     <p>Закрыть</p>
                 </dialog>

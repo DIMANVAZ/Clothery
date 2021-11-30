@@ -1,5 +1,5 @@
 export class Cart{
-    cartBox = []; //объекты {item:{item}, S:3}
+    cartBox = this.getFromLS() || []; //объекты {item:{item}, S:3}
 
     addToCart(item = {name:'defName',price:999}, sizes = {XL:1, XS:2}){
         let incomKeys = Object.keys(sizes);
@@ -60,9 +60,18 @@ export class Cart{
         },0)
     };
 
-    //упорядочить массив Cart по именам \id, чтобы выводилось не вразброс
-    sortCartBox(){
+    saveToLS(){
+        localStorage.setItem('Clothery',JSON.stringify(this.cartBox));
+    }
 
+    getFromLS(){
+        //this.cartBox = JSON.parse(localStorage.getItem('Clothery'));
+        return JSON.parse(localStorage.getItem('Clothery'));
+    }
+
+    clearLS(){
+        //this.cartBox = []
+        localStorage.removeItem('Clothery')
     }
 
     //генератор промокода - переписать!!!

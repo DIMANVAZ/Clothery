@@ -53,6 +53,9 @@ html{
     .nav-item:hover{
         color:var(--PC-R);
     }
+    .cart-counter:hover{
+        color:var(--PC-R)
+    }
     .About figure{
         width:50%;
     }
@@ -75,6 +78,9 @@ html{
     .nav-item:hover{
         color:var(--tab-R);
     }
+    .cart-counter:hover{
+        color:var(--tab-R)
+    }
     .About figure{
         width:50%;
     }
@@ -94,6 +100,9 @@ html{
     }
     .nav-icon:hover{
         fill:var(--mob-R);
+    }
+    .cart-counter:hover{
+        color:var(--mob-R)
     }
     .About figure{
         width:100%;
@@ -181,10 +190,6 @@ nav{
 /*    border: 1px solid red;*/
 }
 
-.main-container{
-
-}
-
 /*=========== Сart Route =============================*/
 tr{
     border:1px solid var(--divide-line)
@@ -197,9 +202,9 @@ td{
 .delete-item-x{
     transition: all 0.4s ease;
 }
-.delete-item-x:hover{
-    color:var(--mob-R)
-}
+    .delete-item-x:hover{
+        color:var(--mob-R)
+    }
 /*================ MAIN CONTAINER ====================*/
 .main-container img.for-mobs{
     width:100%;
