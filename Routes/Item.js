@@ -14,16 +14,20 @@ export const Item = {
                     <label for="size" class="item checkbox-label">{{ size.text }}</label>
                 </div>
             </fieldset>
-            <div v-if="!this.ordered" @click="cart.addToCart(item, this.orderedSizes()),this.cart.saveToLS(),this.ordered=true" class="item-addToCart-button">Добавить в корзину</div>
+            <div v-if="!this.ordered" 
+                 @click="cart.addToCart(item, this.orderedSizes()),this.cart.saveToLS(),this.ordered=true" 
+                 class="item-addToCart-button">
+                 Добавить в корзину
+            </div>
                 
-                <router-link to="/cart">
-                    <div v-if="this.ordered" class="item-goToCart-button">В корзине >></div>
-                </router-link>
+            <router-link to="/cart">
+                 <div v-if="this.ordered" class="item-goToCart-button">В корзине >></div>
+            </router-link>
                 
             <br>
               --------------- все изображения (в px это высота) -------<br>
               <div style="display:flex">
-                <img :src="this.dynamicBigImage()" alt="800px" class="big-image" id="big-image">
+                <img :src="this.dynamicBigImage() || this.setBigImage" alt="800px-image-of-Cloth" class="big-image" id="big-image">
                 <div v-for="(pic,i) in item?.media?.images" >
                     <img :src="pic.image160pxUrl" alt="160" :data="i" @click="this.dynamicBigImage(i)">
                 </div>
@@ -53,13 +57,14 @@ export const Item = {
     data(){
         return{
             dataParams:'initially Empty => ',
-            ordered:false
+            ordered:false,
+            setBigImage:`${this.selectItem().media?.images[0]?.image800pxUrl}`
         }
     },
     created(){
     },
     methods:{
-        //выбираем карточку товара из массива, ищем через id в роуте-парамс
+            //выбираем карточку товара из массива, ищем через id в роуте-парамс
         selectItem(){
             let match = {}
             this.items.forEach(item => {
@@ -69,7 +74,7 @@ export const Item = {
             });
             return match;
         },
-        //работа с выбранными чекбоксами
+            //работа с выбранными чекбоксами
         orderedSizes(){
             let ordered = {}
             let checkedSizes = document.querySelectorAll('.size-checkbox');
@@ -79,10 +84,11 @@ export const Item = {
             //console.log('chckbx called')
             return ordered //массив вида {S:1,M:0,L:1}
         },
+            //назначение большого рисунка
         dynamicBigImage(i=0){
-                            //console.log('dyn')//--------------------------------
             let BI = document.getElementById("big-image");
             if(BI){
+                console.log(`BI.src = ${this.item?.media?.images[i]?.image800pxUrl}`)
                 BI.src = `${this.item?.media?.images[i]?.image800pxUrl}`
             } else return `${this.item?.media?.images[i]?.image800pxUrl}`
         },
