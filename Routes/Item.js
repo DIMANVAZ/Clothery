@@ -82,6 +82,9 @@ export const Item = {
         }
     },
     mounted(){
+        let toCheck = document.querySelector('.size-checkbox');
+        if(toCheck){toCheck.checked = true}
+
         this.dataParams += this.$route.params.id;
             //console.log(this.$route.params) // {"id": "344134464"} сформированный в Collection через :to = item/item.id
 

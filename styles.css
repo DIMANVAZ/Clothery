@@ -108,7 +108,11 @@ a{
 header{
     /*border: 1px solid green;*/
     border-bottom: 1px solid var(--divide-line);
-    position: relative;
+    /*  position:relative;*/
+    position: sticky;
+        top: 0;
+        background-color:white;
+        z-index:2;
     display:flex;
         flex-direction:row;
         align-items:center;
@@ -175,6 +179,10 @@ nav{
     font-weight:550;
 /*    color:red;*/
 /*    border: 1px solid red;*/
+}
+
+.main-container{
+
 }
 
 /*=========== Сart Route =============================*/
