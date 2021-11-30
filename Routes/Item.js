@@ -22,17 +22,24 @@ export const Item = {
                 
             <router-link to="/cart">
                  <div v-if="this.ordered" class="item-goToCart-button">В корзине >></div>
-            </router-link>
-                
+            </router-link>    
             <br>
-              --------------- все изображения (в px это высота) -------<br>
-              <div style="display:flex;flex-wrap:wrap;">
-                <img :src="this.dynamicBigImage() || this.setBigImage" alt="800px-image-of-Cloth" class="big-image" id="big-image">
-                <div v-for="(pic,i) in item?.media?.images" >
-                    <img :src="pic.image160pxUrl" alt="160" :data="i" @click="this.dynamicBigImage(i)">
-                </div>
+            
+            <div style="display:flex;flex-wrap:wrap;">
+              <img :src="this.dynamicBigImage() || this.setBigImage" 
+                   alt="800px-image-of-Cloth" 
+                   id="big-image" 
+                   style="max-width:100%;padding:5px">
+                   
+              <div v-for="(pic,i) in item?.media?.images" >
+                  <img :src="pic.image160pxUrl" 
+                       alt="160" 
+                       :data="i" 
+                       @click="this.dynamicBigImage(i)" 
+                       style="border:1px solid var(--mob-R);padding:5px;margin:0 5px;">
               </div>
-              ---------------------------------------------------------------------------<br>
+            </div>
+            
 <!--            1) 160px
             <div v-for="(pic,i) in item?.media?.images" >
                 <img :src="pic.image160pxUrl" alt="160" style="border:1px solid var(&#45;&#45;divide-line)">
