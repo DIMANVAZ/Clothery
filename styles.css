@@ -231,17 +231,43 @@ nav{
 
 
 /*================ COLLECTIONS =======================*/
-path.brown:hover{
-    fill: #48BEEE;
+.collections-gender-icon{
+    width:95%;
 }
-path.blue:hover{
-    fill: #BA7D6A;
+
+.collections-header{
+    text-align:center;
+}
+
+.two-boxes-container{
+    display: flex;
+    justify-content:center;
+}
+
+path.brown{
+    transition: all 0.4s ease;
+}
+    path.brown:hover{
+        fill: #48BEEE;
+    }
+
+path.blue{
+    transition: all 0.4s ease;
+}
+    path.blue:hover{
+        fill: #BA7D6A;
+    }
+
+.icon-and-header-box{
+    display: flex;
+    flex-direction:column;
+    max-width:50%
 }
 
 .collections-route{
     display: flex;
     flex-direction: column;
-    justify-content:space-around;
+    align-items: center;
         flex-wrap: wrap;
 }
 .collections-section{
@@ -254,9 +280,7 @@ path.blue:hover{
     display: flex;
     flex-direction: column;
 }
-.collections-male{
-    border-right:1px solid var(--divide-line);
-}
+
 .collections-section-hr{
     width: 100%;
     border-top:1px solid var(--highlight);

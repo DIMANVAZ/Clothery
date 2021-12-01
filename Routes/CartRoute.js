@@ -24,9 +24,14 @@ export const CartRoute = {
                     </div>
                 </div>
 
-                <button v-if="this.cart.totalItems() > 0" 
+
+                <div class="item-goToCart-button" 
+                     v-if="this.cart.totalItems() > 0" 
+                     id="orderRequestButton" 
+                     @click="this.showDialog(),this.cart.clearLS()">Оформить заказ</div>
+<!--                <button v-if="this.cart.totalItems() > 0" 
                         id="orderRequestButton" 
-                        @click="this.showDialog(),this.cart.clearLS()">Оформить заказ</button>
+                        @click="this.showDialog(),this.cart.clearLS()">Оформить заказ</button>-->
                 
                 <dialog style="border-color:red">Поздравляем с покупкой! <br> Ваш промокод: {{this.cart.promoCodeGen()}}
                     <p>Закрыть</p>
