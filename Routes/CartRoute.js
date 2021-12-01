@@ -29,17 +29,24 @@ export const CartRoute = {
                      v-if="this.cart.totalItems() > 0" 
                      id="orderRequestButton" 
                      @click="this.showDialog(),this.cart.clearLS()">Оформить заказ</div>
-<!--                <button v-if="this.cart.totalItems() > 0" 
-                        id="orderRequestButton" 
-                        @click="this.showDialog(),this.cart.clearLS()">Оформить заказ</button>-->
                 
-                <dialog style="border-color:red">Поздравляем с покупкой! <br> Ваш промокод: {{this.cart.promoCodeGen()}}
-                    <p>Закрыть</p>
+                <dialog>Поздравляем с покупкой! <br> 
+                        Ваш промокод: {{this.cart.promoCodeGen()}} <br>
+                            <router-link to="/">
+                        <p class="delete-item-x" @click="this.hideDialog(),this.cart.cartBox=[]">Закрыть</p>
+                            </router-link>
                 </dialog>
                 </div>`,
     methods:{
         showDialog(){
-            document.querySelector('dialog').setAttribute('open','')
+            let dialog = document.querySelector('dialog');
+            dialog.setAttribute('open','');
+            dialog.style = "display:flex;align-items:center;justify-content: center;"
+        },
+        hideDialog(){
+            let dialog = document.querySelector('dialog');
+            dialog.style = "";
+            dialog.open = false
         },
         sizesSum(elem){
             return Object.values(elem.ordered).reduce((start, item) => {

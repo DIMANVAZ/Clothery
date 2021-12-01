@@ -191,6 +191,14 @@ nav{
 }
 
 /*=========== Сart Route =============================*/
+dialog{
+    border-color:var(--divide-line);
+    height:60vh;
+    width:80vw;
+    top:20vh;
+    left:10vh;
+    z-index:4;
+}
 
 .row-container{
     display:flex;
@@ -215,6 +223,7 @@ nav{
     .delete-item-x:hover{
         color:var(--mob-R)
     }
+
 /*================ MAIN CONTAINER ====================*/
 .main-container img.for-mobs{
     width:100%;
