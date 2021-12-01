@@ -2,12 +2,12 @@ export const Item = {
     props:[`items`,`cart`], //это переданный нам массив объектов items.
                      // Здесь к нему можно обращаться this.items
     template:` 
-            <h2>{{item.name.slice(8)}}</h2>
-            <h3>Код товара: {{item.id}}</h3>
-            <p>Цена:{{item.defaultDisplayedPriceFormatted}}</p>
-            <p v-html="item.description"></p>
+            <h2 class="item-text-elem">{{item.name.slice(8)}}</h2>
+            <h3 class="item-text-elem">Код товара: {{item.id}}</h3>
+            <p class="item-text-elem">Цена:{{item.defaultDisplayedPriceFormatted}}</p>
+            <p v-html="item.description" class="item-full-description item-text-elem">{{ item.description }}</p>
 
-            Доступные размеры:
+            <h3 class="item-text-elem">Доступные размеры:</h3>
             <fieldset class="item checkboxes-fieldset">
                 <div v-for="(size,i) in item.options[0].choices" class="item checkboxAndLabel">
                     <input type="checkbox" :id="size.text" :name="size.text" :value="size.text" class="item size-checkbox">
@@ -16,7 +16,7 @@ export const Item = {
             </fieldset>
             <div v-if="!this.ordered" 
                  @click="cart.addToCart(item, this.orderedSizes()),this.cart.saveToLS(),this.ordered=true" 
-                 class="item-addToCart-button">
+                 class="item-addToCart-button item-text-elem">
                  Добавить в корзину
             </div>
                 
@@ -25,7 +25,7 @@ export const Item = {
             </router-link>    
             <br>
             
-            <div style="display:flex;flex-wrap:wrap;">
+            <div class="item all-images-container">
               <img :src="this.dynamicBigImage() || this.setBigImage" 
                    alt="800px-image-of-Cloth" 
                    id="big-image" 
