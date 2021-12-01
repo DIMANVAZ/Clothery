@@ -20,10 +20,12 @@ export const Collections = {
          <!--               <hr class="collections-section-hr">-->
                         <h4>{{ item.name.slice(9) }}</h4>
                             <router-link :to="'/item/' + item.id">
-                        <img :src="item?.media?.images[0].image400pxUrl" alt="400" style="width:100%;height:auto">
+                        <img :src="item?.media?.images[0].image400pxUrl" alt="400" style="max-width:100%;height:auto">
                             </router-link>
                         <p>Цена:{{item.defaultDisplayedPriceFormatted}}</p>
-                        <button>Купить</button>
+                            <router-link :to="'/item/' + item.id">
+                        <div class="item-goToCart-button">Купить >></div>
+                            </router-link>   
                     </div>
                     
                 </section>
@@ -39,10 +41,12 @@ export const Collections = {
             <!--            <hr class="collections-section-hr">-->
                         <h4>{{ item.name.slice(9) }}</h4>
                             <router-link :to="'/item/' + item.id">
-                        <img :src="item?.media?.images[0].image400pxUrl" alt="400" style="width:100%;height:auto">
+                        <img :src="item?.media?.images[0].image400pxUrl" alt="400" style="max-width:100%;height:auto">
                             </router-link>
                         <p>Цена:{{item.defaultDisplayedPriceFormatted}}</p>
-                        <button>Купить</button>
+                            <router-link :to="'/item/' + item.id">
+                        <div class="item-goToCart-button">Купить >></div>
+                            </router-link>  
                     </div>                    
                 </section>
                     

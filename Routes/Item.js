@@ -11,7 +11,7 @@ export const Item = {
             <fieldset class="item checkboxes-fieldset">
                 <div v-for="(size,i) in item.options[0].choices" class="item checkboxAndLabel">
                     <input type="checkbox" :id="size.text" :name="size.text" :value="size.text" class="item size-checkbox">
-                    <label for="size" class="item checkbox-label">{{ size.text }}</label>
+                    <label :for="size.text" class="item checkbox-label">{{ size.text }}</label>
                 </div>
             </fieldset>
             <div v-if="!this.ordered" 

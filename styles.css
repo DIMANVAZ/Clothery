@@ -265,9 +265,7 @@ nav{
 .item.checkboxAndLabel{
     margin-left:15px;
 }
-.item.size-checkbox{
-   /* margin-left:10px;*/
-}
+
 .item.checkbox-label{
     margin-left:5px;
 }
@@ -371,3 +369,5 @@ footer{
         width:100%;
     }
 }
+
+/*-------для чекбокса-----------------------*/
