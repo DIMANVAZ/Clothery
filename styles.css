@@ -231,10 +231,16 @@ nav{
 
 
 /*================ COLLECTIONS =======================*/
-.collections-route{
+path.brown:hover{
+    fill: #48BEEE;
+}
+path.blue:hover{
+    fill: #BA7D6A;
+}
 
+.collections-route{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content:space-around;
         flex-wrap: wrap;
 }
