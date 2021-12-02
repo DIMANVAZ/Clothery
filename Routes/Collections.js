@@ -28,7 +28,7 @@ export const Collections = {
                 <section v-if="this.maleShow" class="collections-section collections-male">
                     
                     <div v-for="item in this.maleCollection" class="collections-section-vFor">
-                        <h4>{{ item.name.slice(9) }}</h4>
+                        <h4>{{ item.name?.slice(9) }}</h4>
                             <router-link :to="'/item/' + item.id">
                         <img :src="item?.media?.images[0].image400pxUrl" alt="400" style="max-width:100%;height:auto">
                             </router-link>
@@ -43,7 +43,7 @@ export const Collections = {
                 <section v-if="this.femShow" class="collections-section collections-female">
                     
                     <div v-for="item in this.femCollection" class="collections-section-vFor">
-                        <h4>{{ item.name.slice(9) }}</h4>
+                        <h4>{{ item.name?.slice(9) }}</h4>
                             <router-link :to="'/item/' + item.id">
                         <img :src="item?.media?.images[0].image400pxUrl" alt="400" style="max-width:100%;height:auto">
                             </router-link>

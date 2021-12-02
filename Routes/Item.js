@@ -2,10 +2,10 @@ export const Item = {
     props:[`items`,`cart`], //это переданный нам массив объектов items.
                      // Здесь к нему можно обращаться this.items
     template:` 
-            <h2 class="item-text-elem">{{item.name.slice(8)}}</h2>
+            <h2 class="item-text-elem">{{item.name?.slice(8)}}</h2>
             <h3 class="item-text-elem">Код товара: {{item.id}}</h3>
             <p class="item-text-elem">Цена:{{item.defaultDisplayedPriceFormatted}}</p>
-            <p v-html="item.description" class="item-full-description item-text-elem">{{ item.description }}</p>
+            <p v-html="item.description" class="item-full-description item-text-elem"></p>
 
             <h3 class="item-text-elem">Доступные размеры:</h3>
             <fieldset class="item checkboxes-fieldset">
@@ -15,7 +15,7 @@ export const Item = {
                 </div>
             </fieldset>
             <div v-if="!this.ordered" 
-                 @click="cart.addToCart(item, this.orderedSizes()),this.cart.saveToLS(),this.ordered=true" 
+                 @click="cart.addToCart(item, this.orderedSizes()),this.cart.saveToLS(),this.ordered=true,this.clearFlags()" 
                  class="item-addToCart-button item-text-elem">
                  Добавить в корзину
             </div>
@@ -99,6 +99,12 @@ export const Item = {
                 BI.src = `${this.item?.media?.images[i]?.image800pxUrl}`
             } else return `${this.item?.media?.images[i]?.image800pxUrl}`
         },
+        clearFlags(){
+            let checkedSizes = document.querySelectorAll('.size-checkbox');
+            checkedSizes.forEach(el =>{
+                el.checked = false;
+            })
+        }
     },
     mounted(){
         let toCheck = document.querySelector('.size-checkbox');

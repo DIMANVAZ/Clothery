@@ -202,12 +202,11 @@ dialog{
     color: black;
 }
 
-.row-container{
+.whole-row-container{
     display:flex;
     flex-wrap: wrap;
-    border-top:1px solid var(--divide-line);
 }
-.table.info_container{
+.row.info_container{
     position:relative;
     margin-top: 15px;
     margin-left: 5px;
