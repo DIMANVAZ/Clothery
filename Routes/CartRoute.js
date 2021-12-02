@@ -40,13 +40,12 @@ export const CartRoute = {
     methods:{
         showDialog(){
             let dialog = document.querySelector('dialog');
-            dialog.setAttribute('open','');
-            dialog.style = "display:flex;align-items:center;justify-content: center;"
+            //dialog.show();
+            dialog.showModal();
         },
         hideDialog(){
             let dialog = document.querySelector('dialog');
-            dialog.style = "";
-            dialog.open = false
+            dialog.close();
         },
         sizesSum(elem){
             return Object.values(elem.ordered).reduce((start, item) => {
