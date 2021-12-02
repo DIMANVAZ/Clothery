@@ -8,5 +8,13 @@ export const Home = {
                             <img src="./pics/main-woMan-PC-900x900.jpg" alt="" class="for-PC">
                 </div>
                     </router-link>
-                `
+                `,
+    created(){
+
+    },
+    mounted(){
+        setTimeout(()=>{
+            //здесь показать надпись про одежду
+        },1000)
+    }
 }

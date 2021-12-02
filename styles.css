@@ -227,6 +227,10 @@ dialog{
     }
 
 /*================ MAIN CONTAINER ====================*/
+.main-container{
+    position:relative;
+}
+
 .main-container img.for-mobs{
     width:100%;
 }
@@ -253,7 +257,12 @@ dialog{
 
 .collections-header{
     text-align:center;
+    transition: all 0.4s ease;
+    font-weight:400;
 }
+    .collections-header:hover{
+        color:var(--PC-R);
+    }
 
 .two-boxes-container{
     display: flex;
@@ -275,6 +284,7 @@ path.blue{
     }
 
 .icon-and-header-box{
+    margin:10px;
     display: flex;
         flex-direction:column;
         align-items: center;
@@ -296,11 +306,7 @@ path.blue{
 .collections-section-vFor{
     display: flex;
     flex-direction: column;
-}
-
-.collections-section-hr{
-    width: 100%;
-    border-top:1px solid var(--highlight);
+    margin:10px;
 }
 
 /*================ ITEM ==============================*/
@@ -322,17 +328,19 @@ path.blue{
 }
 
 .item-addToCart-button{
-    width:220px;
-    background-color:var(--highlight);
+    display:inline-block;
+    width:30%;
+    max-width:100px;
+    background-color:coral;
     border:2px solid var(--divide-line);
     margin:0 10px;
 }
 .item-goToCart-button{
     display:inline-block;
-    width:150px;
+    width:50%;
+    max-width:150px;
     background-color:greenyellow;
     border:2px solid var(--divide-line);
-    margin:0 10px;
 }
 
 .all-images-container{
