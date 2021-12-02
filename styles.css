@@ -248,10 +248,10 @@ dialog{
 .collections-gender-icon{
     transition: all 0.4s linear;
 
-    width:95%;
+    width:65%;
 }
     .collections-gender-icon:hover{
-        width:65%;
+        width:95%;
     }
 
 .collections-header{
