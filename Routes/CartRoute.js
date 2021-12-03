@@ -4,7 +4,7 @@ export const CartRoute = {
                 <div class="CartRoute-main-container" >
                 <h2>Корзина 
                     <span v-if="this.cart.totalItems() > 0">: всего товаров {{this.cart.totalItems()}} на сумму {{this.cart.totalPrice()}} руб</span>
-                    <span v-if="this.cart.totalItems() === 0">пуста... </span>
+                    <span v-if="this.cart.totalItems() === 0">пуста...</span>
                 </h2>
                 <div v-if="this.cart.totalItems() > 0" class="CartRoute-allRows-container">
                      <div v-for="(position,i) in this.cart.cartBox" class="CartRoute whole-row-container">
