@@ -16,22 +16,22 @@ export const Item = {
                     </select>
                 </div>
             </fieldset>
-            <div v-if="!this.ordered" 
-                 @click="cart.addToCart(item, this.orderedSizes()),
-                         this.cart.saveToLS(),
-                         this.ordered=true,
-                         this.clearFlags()" 
+            <div v-if="!ordered" 
+                 @click="cart.addToCart(item, orderedSizes()),
+                         cart.saveToLS(),
+                         ordered=true,
+                         clearFlags()" 
                  class="item-addToCart-button item-text-elem">
                  Добавить в корзину
             </div>
                 
             <router-link to="/cart">
-                 <div v-if="this.ordered" class="item-goToCart-button">В корзине >></div>
+                 <div v-if="ordered" class="item-goToCart-button">В корзине >></div>
             </router-link>    
             <br>
             
             <div class="item all-images-container">
-              <img :src="this.dynamicBigImage() || this.setBigImage" 
+              <img :src="dynamicBigImage() || setBigImage" 
                    alt="800px-image-of-Cloth" 
                    id="big-image" 
                    style="max-width:100%;padding:5px">
@@ -40,7 +40,7 @@ export const Item = {
                   <img :src="pic.image160pxUrl" 
                        alt="160" 
                        :data="i" 
-                       @click="this.dynamicBigImage(i)" 
+                       @click="dynamicBigImage(i)" 
                        style="border:1px solid var(--mob-R);padding:5px;margin:0 5px;">
               </div>
             </div>

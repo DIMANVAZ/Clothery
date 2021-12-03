@@ -2,7 +2,7 @@ export const Collections = {
     props:[`items`],
     template:`<div class="Collections collections-route">
                 <div class="collection two-boxes-container" >
-                    <div class="collections icon-and-header-box" @click="this.femShow=false,this.maleShow=true" >
+                    <div class="collections icon-and-header-box" @click="femShow=false,maleShow=true" >
                        <h3 class="collections-header">Мужская линейка</h3> 
                        <svg class="collections-gender-icon" width="212" height="202" viewBox="0 0 212 202" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path class="brown" d="M131.525 12.2915C131.525 12.2915 155.136 17.2397 164.581 23.1709C174.026 29.1017 211.213 175.119 211.213 175.119L183.47 184.609L158.088 123.402L131.525 12.2915Z" fill="#BA7D6A" stroke="black" stroke-width="1.0125"/>
@@ -16,7 +16,7 @@ export const Collections = {
                             <path class="brown" d="M121.675 58.6747L147.979 58.5269L148.07 88.3846L121.675 88.3109V58.6747Z" fill="#BA7D6A" stroke="black" stroke-width="1.12469"/>
                         </svg>
                     </div>
-                    <div class="collections icon-and-header-box" @click="this.maleShow=false,this.femShow=true" >
+                    <div class="collections icon-and-header-box" @click="maleShow=false,femShow=true" >
                        <h3 class="collections-header">Женская линейка</h3>
                        <svg class="collections-gender-icon" width="146" height="204" viewBox="0 0 146 204" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path class="blue" d="M36.3688 1.25128L35.208 1.2477L35.6818 2.30739C37.3611 6.06351 37.8561 10.2782 37.4297 14.3951L37.4289 14.4028L37.4282 14.4106C37.1008 18.3717 35.4434 22.2053 32.6671 25.0338L32.1744 25.5358L32.6438 26.0597C38.0917 32.1395 41.5017 39.7831 44.0036 47.5897C47.6311 59.0948 49.018 71.2101 49.1479 83.2903L49.1549 83.9441L49.8036 84.0263C65.1771 85.9738 80.7958 85.9823 96.1703 84.022L96.8177 83.9394L96.8254 83.2868C97.014 67.2855 99.3359 51.0194 106.317 36.5674C108.302 32.799 110.456 29.1465 113.305 26.064L113.783 25.5465L113.296 25.037C111.145 22.7846 109.578 19.9717 108.953 16.9421L108.952 16.9403C107.932 12.0556 108.27 6.84989 110.288 2.30571L110.758 1.24771L109.6 1.25128C108.616 1.25432 107.628 1.25294 106.638 1.25156C104.898 1.24913 103.153 1.24669 101.414 1.26816L100.797 1.27579L100.685 1.88308C99.9401 5.95549 98.821 9.95154 97.0021 13.6264L96.9953 13.64L96.9891 13.654C94.6259 18.961 90.8083 23.6969 85.8159 26.642C79.7993 30.1735 72.2879 30.8065 65.5728 28.9596C59.7157 27.3419 54.7327 23.2532 51.428 18.1506C48.2654 13.2603 46.2973 7.64523 45.2845 1.88816L45.1766 1.27488L44.554 1.26815C42.8285 1.24951 41.0977 1.25105 39.3719 1.25258C38.3685 1.25347 37.3667 1.25436 36.3688 1.25128Z" fill="#48BEEE" stroke="black" stroke-width="1.5"/>
@@ -25,9 +25,9 @@ export const Collections = {
                     </div>    
                 </div>
                 
-                <section v-if="this.maleShow" class="collections-section collections-male">
+                <section v-if="maleShow" class="collections-section collections-male">
                     
-                    <div v-for="item in this.maleCollection" class="collections-section-vFor">
+                    <div v-for="item in maleCollection" class="collections-section-vFor">
                         <h4>{{ item.name?.slice(9) }}</h4>
                             <router-link :to="'/item/' + item.id">
                         <img :src="item?.media?.images[0].image400pxUrl" alt="400" style="max-width:100%;height:auto">
@@ -40,9 +40,9 @@ export const Collections = {
                     
                 </section>
                 
-                <section v-if="this.femShow" class="collections-section collections-female">
+                <section v-if="femShow" class="collections-section collections-female">
                     
-                    <div v-for="item in this.femCollection" class="collections-section-vFor">
+                    <div v-for="item in femCollection" class="collections-section-vFor">
                         <h4>{{ item.name?.slice(9) }}</h4>
                             <router-link :to="'/item/' + item.id">
                         <img :src="item?.media?.images[0].image400pxUrl" alt="400" style="max-width:100%;height:auto">

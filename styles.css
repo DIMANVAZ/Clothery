@@ -206,12 +206,12 @@ dialog{
     display:flex;
     flex-wrap: wrap;
 }
-.row.info_container{
+.row-info-container{
     position:relative;
     margin-top: 15px;
     margin-left: 5px;
 }
-.delete-item-x{
+.row-delete-item-x{
     transition: all 0.4s ease;
     color:red;
     font-size:1.2rem;
@@ -221,7 +221,7 @@ dialog{
     right:0;
     z-index:3;
 }
-    .delete-item-x:hover{
+    .row-delete-item-x:hover{
         color:var(--mob-R)
     }
 
