@@ -17,6 +17,9 @@ export const CartRoute = {
                         </div>
                         <div class="row info_container">
                             <div class="row pcs_and_size">Кол-во: {{ Object.values(position)[1] }} </div>
+                                <select style="margin:10px" :id="Object.keys(position)[1]" :name="Object.keys(position)[1]">
+                                    <option v-for="i in 11" :value="Object.values(position)[1]" class="item size-amount-selector">{{ Object.values(position)[1] }}</option>
+                                </select>
                             <div class>Размер: {{ Object.keys(position)[1] }}</div>    
                             <div class="row price_per_position">На сумму {{ Object.values(position)[1] * position.item.price }} р</div>
                             <div class="row delete-item-x" :data="i" @click="this.cart.removeOneLine(i),this.cart.saveToLS()"> X </div>
