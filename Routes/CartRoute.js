@@ -16,9 +16,14 @@ export const CartRoute = {
                                 </router-link>
                         </div>
                         <div class="row info_container">
-<!--                            <div class="row pcs_and_size">Кол-во: {{ Object.values(position)[1] }} </div>-->
-                                <select style="margin:10px" :id="Object.keys(position)[1]" :name="Object.keys(position)[1]">
-                                    <option v-for="i in 11" :value="Object.values(position)[1]" class="item size-amount-selector">{{ Object.values(position)[1] }}</option>
+                                <select style="margin:10px" 
+                                :id="Object.keys(position)[1]" 
+                                :name="Object.keys(position)[1]" 
+                                :selectedIndex="Object.values(position)[1]-1"
+                                @change="this.refresher(position)">
+                                    <option v-for="i in 10" 
+                                            :value="i"
+                                            class="item size-amount-selector" >{{ i }}</option>
                                 </select>
                             <div class>Размер: {{ Object.keys(position)[1] }}</div>    
                             <div class="row price_per_position">На сумму {{ Object.values(position)[1] * position.item.price }} р</div>
@@ -26,7 +31,6 @@ export const CartRoute = {
                         </div>
                     </div>
                 </div>
-
 
                 <div class="item-goToCart-button" 
                      v-if="this.cart.totalItems() > 0" 
@@ -54,6 +58,11 @@ export const CartRoute = {
             return Object.values(elem.ordered).reduce((start, item) => {
                 return start + item
             })
+        },
+        refresher(position){
+            let size = Object.keys(position)[1]
+            let amount = Object.values(position)[1]
+            position[size] = +event.target.value
         }
     }
 }

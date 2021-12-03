@@ -4,13 +4,12 @@ export const Item = {
     template:` 
             <h2 class="item-text-elem">{{item.name?.slice(8)}}</h2>
             <h3 class="item-text-elem">Код товара: {{item.id}}</h3>
-            <p class="item-text-elem">Цена:{{item.defaultDisplayedPriceFormatted}}</p>
+            <p class="item-text-elem">Цена: {{item.defaultDisplayedPriceFormatted}} р</p>
             <p v-html="item.description" class="item-full-description item-text-elem"></p>
 
             <h3 class="item-text-elem">Доступные размеры:</h3>
             <fieldset class="item checkboxes-fieldset">
                 <div v-for="(size,i) in item.options[0].choices" class="item checkboxAndLabel">
-  <!--                  <input type="checkbox" :id="size.text" :name="size.text" :value="size.text" class="item size-checkbox">-->
                     <label :for="size.text" class="item checkbox-label">{{ size.text }}</label>
                     <select style="margin:10px" :id="size.text" :name="size.text">
                         <option v-for="i in 11" :value="i-1" class="item size-amount-selector">{{ i-1 }}</option>
@@ -89,13 +88,8 @@ export const Item = {
             //работа с выбранными чекбоксами
         orderedSizes(){
             let ordered = {}
-            //---прежняя функция: пробегались по флажкам------------
-            //   let checkedSizes = document.querySelectorAll('.size-checkbox');
-            //       checkedSizes.forEach(el => { //el здесь это html тег с атрибутами
-            //         el.checked ? ordered[el.id] = 1 : '';
-            //   })
-            //-----------конец прежней функции-----------
             let selects = document.querySelectorAll('select')
+            console.log(`selectorAll  = `,selects)
             selects.forEach(el =>{ //чтобы нули не улетали в корзину
                 if(el.value !== '0'){
                     ordered[el.id] = +el.value;
@@ -111,11 +105,8 @@ export const Item = {
                 BI.src = `${this.item?.media?.images[i]?.image800pxUrl}`
             } else return `${this.item?.media?.images[i]?.image800pxUrl}`
         },
+            //сбросить значения флагов или селектора
         clearFlags(){
-            // let checkedSizes = document.querySelectorAll('.size-checkbox');
-            // checkedSizes.forEach(el =>{
-            //     el.checked = false;
-            // })
             let selects = document.querySelectorAll('select')
             selects.forEach(el =>{
                 el.value = '0'
