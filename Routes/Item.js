@@ -34,7 +34,8 @@ export const Item = {
               <img :src="dynamicBigImage() || setBigImage" 
                    alt="800px-image-of-Cloth" 
                    id="big-image" 
-                   style="max-width:100%;padding:5px">
+                   style="max-width:100%;padding:5px"
+                   class="">
                    
               <div v-for="(pic,i) in item?.media?.images" >
                   <img :src="pic.image160pxUrl" 
@@ -67,7 +68,6 @@ export const Item = {
               `,
     data(){
         return{
-            dataParams:'initially Empty => ',
             ordered:false,
             setBigImage:`${this.selectItem().media?.images[0]?.image800pxUrl}`
         }
@@ -114,12 +114,8 @@ export const Item = {
         }
     },
     mounted(){
-        let toCheck = document.querySelector('.size-checkbox');
-        if(toCheck){toCheck.checked = true}
-
-        this.dataParams += this.$route.params.id;
-            //console.log(this.$route.params) // {"id": "344134464"} сформированный в Collection через :to = item/item.id
-
+        let preSelect= document.querySelector('select');
+        if(preSelect){preSelect.selectedIndex = 1}
     },
     computed:{
         //карточка товара - находим через функцию
