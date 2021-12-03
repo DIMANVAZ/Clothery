@@ -96,8 +96,10 @@ export const Item = {
             //   })
             //-----------конец прежней функции-----------
             let selects = document.querySelectorAll('select')
-            selects.forEach(el =>{
-                ordered[el.id] = +el.value;
+            selects.forEach(el =>{ //чтобы нули не улетали в корзину
+                if(el.value !== '0'){
+                    ordered[el.id] = +el.value;
+                }
             })
             return ordered //массив вида {S:1,M:0,L:1}
         },
