@@ -12,6 +12,9 @@ export const Item = {
                 <div v-for="(size,i) in item.options[0].choices" class="item checkboxAndLabel">
                     <input type="checkbox" :id="size.text" :name="size.text" :value="size.text" class="item size-checkbox">
                     <label :for="size.text" class="item checkbox-label">{{ size.text }}</label>
+                        <select style="margin:10px">
+                            <option v-for="i in 11" :value="i-1">{{ i-1 }}</option>
+                        </select>
                 </div>
             </fieldset>
             <div v-if="!this.ordered" 
