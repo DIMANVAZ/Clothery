@@ -10,15 +10,18 @@ export const Item = {
             <h3 class="item-text-elem">Доступные размеры:</h3>
             <fieldset class="item checkboxes-fieldset">
                 <div v-for="(size,i) in item.options[0].choices" class="item checkboxAndLabel">
-                    <input type="checkbox" :id="size.text" :name="size.text" :value="size.text" class="item size-checkbox">
+  <!--                  <input type="checkbox" :id="size.text" :name="size.text" :value="size.text" class="item size-checkbox">-->
                     <label :for="size.text" class="item checkbox-label">{{ size.text }}</label>
-                        <select style="margin:10px">
-                            <option v-for="i in 11" :value="i-1">{{ i-1 }}</option>
-                        </select>
+                    <select style="margin:10px" :id="size.text" :name="size.text">
+                        <option v-for="i in 11" :value="i-1" class="item size-amount-selector">{{ i-1 }}</option>
+                    </select>
                 </div>
             </fieldset>
             <div v-if="!this.ordered" 
-                 @click="cart.addToCart(item, this.orderedSizes()),this.cart.saveToLS(),this.ordered=true,this.clearFlags()" 
+                 @click="cart.addToCart(item, this.orderedSizes()),
+                         this.cart.saveToLS(),
+                         this.ordered=true,
+                         this.clearFlags()" 
                  class="item-addToCart-button item-text-elem">
                  Добавить в корзину
             </div>
@@ -42,7 +45,6 @@ export const Item = {
                        style="border:1px solid var(--mob-R);padding:5px;margin:0 5px;">
               </div>
             </div>
-            
 <!--            1) 160px
             <div v-for="(pic,i) in item?.media?.images" >
                 <img :src="pic.image160pxUrl" alt="160" style="border:1px solid var(&#45;&#45;divide-line)">
@@ -87,11 +89,16 @@ export const Item = {
             //работа с выбранными чекбоксами
         orderedSizes(){
             let ordered = {}
-            let checkedSizes = document.querySelectorAll('.size-checkbox');
-            checkedSizes.forEach(el => { //el здесь это html тег с атрибутами
-                el.checked ? ordered[el.id] = 1 : '';
+            //---прежняя функция: пробегались по флажкам------------
+            //   let checkedSizes = document.querySelectorAll('.size-checkbox');
+            //       checkedSizes.forEach(el => { //el здесь это html тег с атрибутами
+            //         el.checked ? ordered[el.id] = 1 : '';
+            //   })
+            //-----------конец прежней функции-----------
+            let selects = document.querySelectorAll('select')
+            selects.forEach(el =>{
+                ordered[el.id] = +el.value;
             })
-            //console.log('chckbx called')
             return ordered //массив вида {S:1,M:0,L:1}
         },
             //назначение большого рисунка
@@ -103,9 +110,13 @@ export const Item = {
             } else return `${this.item?.media?.images[i]?.image800pxUrl}`
         },
         clearFlags(){
-            let checkedSizes = document.querySelectorAll('.size-checkbox');
-            checkedSizes.forEach(el =>{
-                el.checked = false;
+            // let checkedSizes = document.querySelectorAll('.size-checkbox');
+            // checkedSizes.forEach(el =>{
+            //     el.checked = false;
+            // })
+            let selects = document.querySelectorAll('select')
+            selects.forEach(el =>{
+                el.value = '0'
             })
         }
     },
