@@ -9,15 +9,17 @@
 }
 
 :root{
+    --blue:#48BEEE;
+    --deepBlue:#24699E;
+    --milkChoc:#BA7D6A;
     --mob-L:#9196B4;
     --mob-R:#BA8461;
-    --tab-L:#24699E;
-    --tab-R:#BA7D6A;
-    --PC-L:#48BEEE;
+    --tab-L:var(--deepBlue);
+    --tab-R:var(--milkChoc);
+    --PC-L:var(--blue);
     --PC-R:#C3AFB0;
-    --divide-line:var(--tab-L);
-    --highlight:var(--PC-L);
 }
+
 @font-face {
     font-family:"Whipsmart";
     src:url(./fonts/Whipsmart.ttf) format('truetype');
@@ -116,7 +118,7 @@ a{
 }
 header{
     /*border: 1px solid green;*/
-    border-bottom: 1px solid var(--divide-line);
+    border-bottom: 1px solid var(--deepBlue);
     /*  position:relative;*/
     position: sticky;
         top: 0;
@@ -260,7 +262,7 @@ dialog{
     font-weight:400;
 }
     .collections-header:hover{
-        color:var(--PC-R);
+        color:var(--milkChoc);
     }
 
 .two-boxes-container{
@@ -272,14 +274,14 @@ path.brown{
     transition: all 0.4s ease;
 }
     path.brown:hover{
-        fill: #48BEEE;
+        fill: var(--blue);
     }
 
 path.blue{
     transition: all 0.4s ease;
 }
     path.blue:hover{
-        fill: #BA7D6A;
+        fill: var(--milkChoc);
     }
 
 .icon-and-header-box{
@@ -314,7 +316,7 @@ path.blue{
 }
 
 .item.checkboxes-fieldset{
-    display: flex;
+    display: inline-flex;
     flex-direction:row;
     border: none;
 }
@@ -328,25 +330,23 @@ path.blue{
 
 .item-addToCart-button{
     display:inline-block;
-    width:30%;
     max-width:100px;
-    background-color:coral;
-    border:2px solid var(--divide-line);
-    margin:0 10px;
+    background-color:var(--milkChoc);
+    margin:0 10px 10px 10px;
 }
+
 .item-goToCart-button{
     display:inline-block;
     width:50%;
     max-width:150px;
-    background-color:greenyellow;
-    border:2px solid var(--divide-line);
+    background-color:var(--blue);
 }
 
 .all-images-container{
     display:flex;
     flex-wrap:wrap;
     width:95%;
-    border:1px solid greenyellow;
+    border:1px solid var(--deepBlue);
 }
 
 
@@ -354,13 +354,13 @@ path.blue{
 /*-----------подвал-----------------------------------*/
 footer{
     background-color: ghostwhite;
-    border-top: 1px solid var(--divide-line);
+    border-top: 1px solid var(--deepBlue);
     text-align: center;
 }
 .footer-icon{
     height:80%;
     width:auto;
-    fill:var(--divide-line);
+    fill:var(--deepBlue);
 }
 .line-with-icon{
     display:inline-block;
