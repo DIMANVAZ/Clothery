@@ -382,20 +382,25 @@ footer{
 }
 
 /*=====================about раздел========================*/
-.About .figures {
+.About-whole-container{
+    margin:0 10px;
+}
+
+.About-figures figure{
+    margin-top:20px;
+    margin-bottom:10px;
+}
+
+.About-figures img{
     max-width:100%;
 }
-.About figure{
-    max-width:100%;
+
+.About-description{
+ margin-bottom:10px;
 }
-.About img{
-    max-width:100%;
-}
-.About figcaption{
+
+.About-figures figcaption{
     font-style:italic;
-}
-.About p{
-    margin: 5px 10px;
 }
 
 /*=====================Contacts раздел========================*/
