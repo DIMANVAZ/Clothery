@@ -404,16 +404,34 @@ footer{
 }
 
 /*=====================Contacts раздел========================*/
-.contacts-component{
-    display:flex;
-    flex-direction:column;
+.Contacts-whole-container{
+    margin:0 10px;
 }
-#key_figures{
+
+.Contacts-figures{
+    width:100%;
     display:flex;
-    flex-direction:row;
     flex-wrap:wrap;
     justify-content:center;
+}
 
+.Contacts-figures figure{
+    width:50%;
+    margin-top:20px;
+    margin-bottom:10px;
+    min-width:300px;
+}
+
+.Contacts-figures img{
+    width:100%
+}
+
+.Contacts-description{
+    margin-bottom:10px;
+}
+
+.Contacts-figures figcaption{
+    font-style:italic;
 }
 
 /*-----------мобилки: <= 767, Таб 768-1200, ПеКа >= 1201--------*/
