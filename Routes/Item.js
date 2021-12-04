@@ -8,26 +8,29 @@ export const Item = {
             <p v-html="item.description" class="item-full-description item-text-elem"></p>
 
             <h3 class="item-text-elem">Доступные размеры:</h3>
-            <fieldset class="item checkboxes-fieldset">
-                <div v-for="(size,i) in item.options[0].choices" class="item checkboxAndLabel">
-                    <label :for="size.text" class="item checkbox-label">{{ size.text }}</label>
-                    <select style="margin:10px" :id="size.text" :name="size.text">
-                        <option v-for="i in 11" :value="i-1" class="item size-amount-selector">{{ i-1 }}</option>
-                    </select>
+            <div class="item fieldset-plus-buttons">
+                <fieldset class="item checkboxes-fieldset">
+                    <div v-for="(size,i) in item.options[0].choices" class="item checkboxAndLabel">
+                        <label :for="size.text" class="item checkbox-label">{{ size.text }}</label>
+                        <select style="margin:10px" :id="size.text" :name="size.text">
+                            <option v-for="i in 11" :value="i-1" class="item size-amount-selector">{{ i-1 }}</option>
+                        </select>
+                    </div>
+                </fieldset>
+                <div v-if="!ordered" 
+                     @click="cart.addToCart(item, orderedSizes()),
+                             cart.saveToLS(),
+                             ordered=true,
+                             clearFlags()" 
+                     class="item-addToCart-button item-text-elem">
+                     Добавить в корзину
                 </div>
-            </fieldset>
-            <div v-if="!ordered" 
-                 @click="cart.addToCart(item, orderedSizes()),
-                         cart.saveToLS(),
-                         ordered=true,
-                         clearFlags()" 
-                 class="item-addToCart-button item-text-elem">
-                 Добавить в корзину
-            </div>
-                
-            <router-link to="/cart">
-                 <div v-if="ordered" class="item-goToCart-button">В корзине >></div>
-            </router-link>    
+                <router-link to="/cart">
+                     <div v-if="ordered" class="item-goToCart-button">В корзине >></div>
+                </router-link>   
+            </div> 
+            
+            
             <br>
             
             <div class="item all-images-container">

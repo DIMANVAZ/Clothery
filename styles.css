@@ -146,7 +146,7 @@ nav{
 }
 .nav-icon{
     max-width: 100%;
-    height:55%;
+    height:45%;
     width:auto;
     margin: auto 0;
     transition: all 0.4s ease;
@@ -169,7 +169,7 @@ nav{
 
 /*-----------корзинка - иконка----------------------------------*/
 .header-nav-cart{ /*---эту штуку крутить в 1 очередь при работе с иконкой корзины---------*/
-    height:60%; /*от высоты блока NAV*/
+    height:50%; /*от высоты блока NAV*/
     position: relative;
 /*    border: 1px solid blue;*/
 }
@@ -313,6 +313,10 @@ path.blue{
 /*================ ITEM ==============================*/
 .item-text-elem{
     padding:10px;
+}
+
+.fieldset-plus-buttons{
+
 }
 
 .item.checkboxes-fieldset{
