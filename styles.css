@@ -325,7 +325,7 @@ path.blue{
     border: none;
 }
 .item.checkboxAndLabel{
-    margin-left:15px;
+    /*margin-left:15px;*/
 }
 
 .item.checkbox-label{
