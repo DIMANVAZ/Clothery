@@ -37,6 +37,16 @@ html{
 }
 
 /*-----------мобилки: <= 767, Таб 768-1200, ПеКа >= 1201--------*/
+/*для широких ПеКА*/
+@media screen and (min-width: 1500px) {
+    .Contacts-figures figure{
+
+    }
+    .Contacts-figures figure img{
+
+    }
+}
+
 /*для ПеКА*/
 @media screen and (min-width: 1201px) {
     .for-mobs,.for-tabs{
@@ -45,7 +55,6 @@ html{
     #brand-L{
         text-shadow: 0 0 10px var(--PC-L);
     }
-
     #brand-R{
         text-shadow: 0 0 10px var(--PC-R);
     }
@@ -59,7 +68,10 @@ html{
         color:var(--PC-R)
     }
     .About figure{
-        width:50%;
+
+    }
+    .Contacts-figures figure{
+
     }
 
 }
@@ -84,7 +96,10 @@ html{
         color:var(--tab-R)
     }
     .About figure{
-        width:50%;
+
+    }
+    .Contacts-figures figure{
+
     }
 
 }
@@ -96,7 +111,6 @@ html{
     #brand-L{
         text-shadow: 0 0 10px var(--mob-L);
     }
-
     #brand-R{
         text-shadow: 0 0 10px var(--mob-R);
     }
@@ -107,7 +121,10 @@ html{
         color:var(--mob-R)
     }
     .About figure{
-        width:100%;
+
+    }
+    .Contacts-figures figure{
+/*        width:100%;*/
     }
 }
 
@@ -465,37 +482,6 @@ li path{
 
 .Contacts-figures figcaption{
     font-style:italic;
-}
-
-/*-----------мобилки: <= 767, Таб 768-1200, ПеКа >= 1201--------*/
-/*для широких ПеКА*/
-@media screen and (min-width: 1500px) {
-    #key_figures figure{
-        width:50%;
-    }
-    #key_figures figure img{
-
-    }
-
-}
-
-/*для ПеКА*/
-@media screen and (min-width: 1201px) {
-    #key_figures figure{
-        width:50%;
-    }
-}
-/*для планш*/
-@media screen and (max-width: 1200px) and (min-width:768px){
-    #key_figures figure{
-        width:50%;
-    }
-}
-/*для мобилок*/
-@media screen and (max-width: 767px){
-    #key_figures figure{
-        width:100%;
-    }
 }
 
 /*-------анимация роутинга-----------------------*/

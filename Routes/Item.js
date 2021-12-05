@@ -3,9 +3,9 @@ export const Item = {
                      // Здесь к нему можно обращаться this.items
     template:` 
         <div class="item-whole-container">
-            <h2 class="item-text-name">{{item.name?.slice(8)}}</h2>
+            <h2 class="item-text-name">{{item?.name?.slice(8)}}</h2>
             <h3 class="item-text-code">Код товара: {{item.id}}</h3>
-            <p class="item-text-price">Цена: {{item.defaultDisplayedPriceFormatted}} р</p>
+            <p class="item-text-price">Цена: {{item.defaultDisplayedPriceFormatted}}</p>
             <p v-html="item.description" class="item-text-fullDecription"></p>
             
             <div class="item-selectors-plus-buttons">
