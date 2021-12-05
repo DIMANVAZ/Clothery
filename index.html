@@ -74,7 +74,10 @@
 
         </header>
 
-        <router-view :items="items" :cart="cart"></router-view> <!--здесь отображается компонент, соответствующий УРЛу-->
+        <transition name="router-fade">
+            <router-view :items="items" :cart="cart"></router-view> <!--здесь отображается компонент, соответствующий УРЛу-->
+        </transition>
+
 
         <footer class="footer">
             <ul>

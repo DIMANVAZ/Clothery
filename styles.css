@@ -465,4 +465,13 @@ footer{
     }
 }
 
-/*-------для чекбокса-----------------------*/
+/*-------анимация роутинга-----------------------*/
+.router-fade-enter-active,
+.router-fade-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.router-fade-enter-from,
+.router-fade-leave-to {
+    opacity: 0;
+}
