@@ -2,18 +2,19 @@ export const Item = {
     props:[`items`,`cart`], //это переданный нам массив объектов items.
                      // Здесь к нему можно обращаться this.items
     template:` 
-            <h2 class="item-text-elem">{{item.name?.slice(8)}}</h2>
-            <h3 class="item-text-elem">Код товара: {{item.id}}</h3>
-            <p class="item-text-elem">Цена: {{item.defaultDisplayedPriceFormatted}} р</p>
-            <p v-html="item.description" class="item-full-description item-text-elem"></p>
-
-            <h3 class="item-text-elem">Доступные размеры:</h3>
-            <div class="item fieldset-plus-buttons">
-                <fieldset class="item checkboxes-fieldset">
-                    <div v-for="(size,i) in item.options[0].choices" class="item checkboxAndLabel">
-                        <label :for="size.text" class="item checkbox-label">{{ size.text }}</label>
+        <div class="item-whole-container">
+            <h2 class="item-text-name">{{item.name?.slice(8)}}</h2>
+            <h3 class="item-text-code">Код товара: {{item.id}}</h3>
+            <p class="item-text-price">Цена: {{item.defaultDisplayedPriceFormatted}} р</p>
+            <p v-html="item.description" class="item-text-fullDecription"></p>
+            
+            <div class="item-selectors-plus-buttons">
+            <h3 class="item-text-availableSizes">Доступные размеры:</h3>
+                <fieldset class="item-selectors-fieldset">
+                    <div v-for="(size,i) in item.options[0].choices" class="item-selector-and-label">
+                        <label :for="size.text" class="item-selector-label">{{ size.text }}</label>
                         <select style="margin:10px" :id="size.text" :name="size.text">
-                            <option v-for="i in 11" :value="i-1" class="item size-amount-selector">{{ i-1 }}</option>
+                            <option v-for="i in 11" :value="i-1" class="item-size-amount-selector">{{ i-1 }}</option>
                         </select>
                     </div>
                 </fieldset>
@@ -22,7 +23,7 @@ export const Item = {
                              cart.saveToLS(),
                              ordered=true,
                              clearFlags()" 
-                     class="item-addToCart-button item-text-elem">
+                     class="item-addToCart-button">
                      Добавить в корзину
                 </div>
                 <router-link to="/cart">
@@ -30,24 +31,24 @@ export const Item = {
                 </router-link>   
             </div> 
             
-            
             <br>
             
-            <div class="item all-images-container">
+            <div class="item-all-images-container">
               <img :src="dynamicBigImage() || setBigImage" 
                    alt="800px-image-of-Cloth" 
                    id="big-image" 
-                   style="max-width:100%;padding:5px"
-                   class="">
+                   class="item-images-bigImage">
                    
               <div v-for="(pic,i) in item?.media?.images" >
                   <img :src="pic.image160pxUrl" 
                        alt="160" 
                        :data="i" 
                        @click="dynamicBigImage(i)" 
-                       style="border:1px solid var(--mob-R);padding:5px;margin:0 5px;">
+                       class="item-images-smallImage">
               </div>
-            </div>
+            </div> 
+        </div>
+
 <!--            1) 160px
             <div v-for="(pic,i) in item?.media?.images" >
                 <img :src="pic.image160pxUrl" alt="160" style="border:1px solid var(&#45;&#45;divide-line)">

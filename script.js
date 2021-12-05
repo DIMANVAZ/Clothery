@@ -48,6 +48,7 @@ const app = Vue.createApp({
         },
     },
     computed:{
+
     },
     mounted(){
     },
@@ -58,9 +59,12 @@ const app = Vue.createApp({
       app.mount('#app');
 
  //---------- эта штука показывает эвент-таргеты---------------------
+
 document.onclick = function(){
     console.log(event.target)
+
 }
+
 
 
 
