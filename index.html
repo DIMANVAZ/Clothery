@@ -74,10 +74,15 @@
 
         </header>
 
-        <transition name="router-fade">
-            <router-view :items="items" :cart="cart"></router-view> <!--здесь отображается компонент, соответствующий УРЛу-->
-        </transition>
+<!--    <transition name="router-fade">
+            <router-view :items="items" :cart="cart"></router-view> &lt;!&ndash;здесь отображается компонент, соответствующий УРЛу&ndash;&gt;
+        </transition>-->
 
+        <router-view v-slot="{ Component }" :items="items" :cart="cart">
+            <transition name="router-fade">
+                <component :is="Component" />
+            </transition>
+        </router-view>
 
         <footer class="footer">
             <ul>

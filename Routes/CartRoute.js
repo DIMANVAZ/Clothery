@@ -2,8 +2,8 @@ export const CartRoute = {
     props:['items',`cart`],
     template:`
                 <div class="CartRoute-main-container" >
-                <h4>Корзина 
-                    <span v-if="cart.totalItems() > 0">: всего товаров {{cart.totalItems()}} на сумму {{cart.totalPrice()}} руб</span>
+                <h4 class="CartRoute-header-info">Корзина 
+                    <span v-if="totalItems > 0">: всего товаров {{cart.totalItems()}} на сумму {{cart.totalPrice()}} руб</span>
                     <span v-if="cart.totalItems() === 0">пуста...</span>
                 </h4>
                 <div v-if="cart.totalItems() > 0" class="CartRoute-allRows-container">
@@ -22,7 +22,7 @@ export const CartRoute = {
                                 :name="size(position)" 
                                 :selectedIndex="amount(position)-1"
                                 @change="refresher(position)">
-                                    <option v-for="i in 10" 
+                                    <option v-for="i in amount(position)+5" 
                                             :value="i"
                                             class="item size-amount-selector" >{{ i }}</option>
                                 </select>
@@ -33,7 +33,7 @@ export const CartRoute = {
                     </div>
                 </div>
 
-                <div class="item-goToCart-button" 
+                <div class="CartRoute-order-button" 
                      v-if="cart.totalItems() > 0" 
                      id="orderRequestButton" 
                      @click="showDialog(),cart.clearLS()">Оформить заказ</div>
@@ -68,6 +68,15 @@ export const CartRoute = {
         },
         refresher(position){
             position[this.size(position)] = +event.target.value
+        }
+    },
+    data(){
+        return {}
+    },
+    computed:{
+        totalItems(){
+            //чисто как альтернатива cart.totalItems() - см. span v-if, строки ~6-7
+            return this.cart.totalItems()
         }
     }
 }

@@ -50,6 +50,8 @@ const app = Vue.createApp({
     computed:{
     },
     mounted(){
+    },
+    watch:{
     }
 })
       app.use(router);
@@ -60,12 +62,6 @@ document.onclick = function(){
     console.log(event.target)
 }
 
-function checkBoxToCart(){
-   let allChB = document.querySelectorAll('.size-checkbox');
-   allChB.forEach(chb => {
-       //console.log(chb.value)
-   })
-}
 
 
 
