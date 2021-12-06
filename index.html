@@ -67,7 +67,8 @@
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path d="M56 24V20C56 8.954 47.046 0 36 0C24.954 0 16 8.954 16 20V24H0V84C0 90.63 5.37 96 12 96H60C66.63 96 72 90.63 72 84V24H56ZM24 20C24 13.373 29.373 8 36 8C42.627 8 48 13.373 48 20V24H24V20ZM64 84C64 86.21 62.21 88 60 88H12C9.79 88 8 86.21 8 84V32H64V84Z"/>
                             </svg>
-                            <p class="cart-counter" v-if="cart.totalItems()>0">{{cart.totalItems()}}</p>
+                            <p class="cart-counter"         v-if="cart.totalItems() > 0 && cart.totalItems() < 100">{{cart.totalItems()}}</p>
+                            <p class="cart-counter-smaller" v-if="cart.totalItems() >= 100">{{cart.totalItems()}}</p>
                     </router-link>
                 </div>
             </nav>
