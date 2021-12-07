@@ -16,17 +16,26 @@ export const Home = {
     methods:{
         moveTitle(){
             let magTitle = document.getElementById('magazine');
-            console.log(`magTitle = ${magTitle}`)
             let top = 10;
+            let goDown = true;
             setTimeout(()=>{
                 setInterval(()=>{
-                    if(top < 300) {
-                        top += 2;
-                        magTitle.style = `top:${top}px`
-                    } else{
-                        //как сделать возвращение обратно? while
+                    if(goDown){
+                        if(top === 600){
+                            goDown = false;
+                            return
+                        }
+                        top += 1;
+                        magTitle.style = `top:${top}px;`
+                    } else {
+                        if(top === 10){
+                            goDown = true;
+                            return
+                        }
+                        top -= 1;
+                        magTitle.style = `top:${top}px;`
                     }
-                },30) //ограничить спуск margin-top!
+                },5)
             },1000)
         }
     },
