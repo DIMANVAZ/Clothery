@@ -31,6 +31,7 @@ const app = Vue.createApp({
     },
     created(){
         this.fetcher();
+
     },
     methods:{
         getMainColor(item){
@@ -46,9 +47,9 @@ const app = Vue.createApp({
                 console.log('this.items = ',this.items) // Proxy {[]}
             } catch(e){ console.error(`Error from App.vue/created(): `,e)}
         },
+
     },
     computed:{
-
     },
     mounted(){
     },
@@ -64,6 +65,8 @@ document.onclick = function(){
     console.log(event.target)
 
 }
+
+
 
 
 

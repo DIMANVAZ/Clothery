@@ -3,7 +3,9 @@ export const Collections = {
     template:`<div class="Collections collections-route">
                 <div class="collection two-boxes-container" >
                     <div class="collections icon-and-header-box" @click="femShow=false,maleShow=true" >
-                       <router-link to="#maleStaff"><h3 class="collections-header">Мужская линейка</h3></router-link> 
+  
+                        <h3 class="collections-header">Мужская линейка</h3>
+ 
                        <svg class="collections-gender-icon" width="212" height="202" viewBox="0 0 212 202" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path class="brown" d="M131.525 12.2915C131.525 12.2915 155.136 17.2397 164.581 23.1709C174.026 29.1017 211.213 175.119 211.213 175.119L183.47 184.609L158.088 123.402L131.525 12.2915Z" fill="#BA7D6A" stroke="black" stroke-width="1.0125"/>
                             <path class="brown" d="M80.6877 12.2915C80.6877 12.2915 57.0769 17.2397 47.6322 23.1709C38.1875 29.1017 1 175.119 1 175.119L28.743 184.609L54.1252 123.402L80.6877 12.2915Z" fill="#BA7D6A" stroke="black" stroke-width="1.0125"/>
