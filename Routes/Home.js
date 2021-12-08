@@ -17,27 +17,42 @@ export const Home = {
         moveTitle(){
             let magTitle = document.getElementById('magazine');
             let top = 10;
-            let goDown = true;
+            let vector;
             setTimeout(()=>{
                 setInterval(()=>{
-                    if(goDown){
-                        if(top === 600){
-                            goDown = false;
-                            return
-                        }
-                        top += 1;
-                        magTitle.style = `top:${top}px;`
-                    } else {
-                        if(top === 10){
-                            goDown = true;
-                            return
-                        }
-                        top -= 1;
-                        magTitle.style = `top:${top}px;`
+                    if(top  >= 600){
+                        vector = -1;
                     }
-                },5)
+                    if(top <= 10){
+                        vector = 1
+                    }
+                    magTitle.style = `top:${top += vector}px`
+                },20)
+
             },1000)
-        }
+
+            // let magTitle = document.getElementById('magazine');
+            // let top = 10; // стартовая позиция
+            // let goDown = true; // разрешающий движение вниз флаг
+            // setTimeout(()=>{
+            //     setInterval(()=>{
+            //         if(goDown){
+            //             if(top >= 600){
+            //                 goDown = false;
+            //                 return
+            //             }
+            //             top += 1;
+            //         } else {
+            //             if(top <= 10){
+            //                 goDown = true;
+            //                 return
+            //             }
+            //             top -= 1;
+            //         }
+            //       magTitle.style = `top:${top}px;`
+            //     },5)
+            // },1000)
+        },
     },
     created(){
     },

@@ -306,7 +306,6 @@ dialog{
 /*================ COLLECTIONS =======================*/
 .collections-gender-icon{
     transition: all 0.4s linear;
-
     width:65%;
 }
     .collections-gender-icon:hover{
@@ -342,7 +341,8 @@ path.blue{
     }
 
 .icon-and-header-box{
-    margin:10px;
+        /*-20 чтобы иконки svg сильно не двигали товары от себя*/
+        margin:10px 10px -20px 10px;
     display: flex;
         flex-direction:column;
         align-items: center;
@@ -364,7 +364,7 @@ path.blue{
 .collections-section-vFor{
     display: flex;
     flex-direction: column;
-    margin:10px;
+    margin: -10px 10px 10px  10px;
 }
 
 /*================ ITEM ==============================*/
