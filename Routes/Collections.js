@@ -69,7 +69,7 @@ export const Collections = {
         scrollToItem(){ //прописать сразу активацию переменной
            let x = document.querySelector('.icon-and-header-box')
            let params = x.getBoundingClientRect()
-           let sum = params.y + params.height
+           let sum = params.y + params.height - 20 //margin -20
            window.scrollTo(0,sum)
         },
 
