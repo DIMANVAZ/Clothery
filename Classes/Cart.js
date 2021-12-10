@@ -72,11 +72,20 @@ export class Cart{
         localStorage.removeItem('Clothery')
     }
 
-    //генератор промокода - переписать!!!
-    promoCodeGen(){
-        let pCode = "R1A2N3O4V5A6T7O8";
+    //генератор промокода
+    // промокод 10% появляется только при сумме больше 10000,
+    // а при сумме больше 15000 он 15%
+    // и он не длиннее 8 букв
+    promoCodeGen(initDiscount){
+        //console.table(this.cartBox)
+        console.log('pcGEN----------')
+        let rawCode = this.cartBox.reduce((initDiscount,value) => {
+            return '' + initDiscount + Object.keys(value)[1] + Object.values(value)[1]
+        },initDiscount)
+        if(rawCode && this.totalPrice()){
+            return (rawCode + this.totalPrice()).slice(0,8)
+        } else return '15SSX2'
 
-        return pCode;
     };
 }
 
