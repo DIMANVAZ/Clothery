@@ -3,48 +3,52 @@ export const Item = {
                      // Здесь к нему можно обращаться this.items
     template:` 
         <div class="item-whole-container">
-            <h2 class="item-text-name">{{item?.name?.slice(8)}}</h2>
-            <h3 class="item-text-code">Код товара: {{item.id}}</h3>
-            <p class="item-text-price">Цена: {{item.defaultDisplayedPriceFormatted}}</p>
-            <p v-html="item.description" class="item-text-fullDecription"></p>
-            
-            <div class="item-selectors-plus-buttons">
-            <h3 class="item-text-availableSizes">Доступные размеры:</h3>
-                <fieldset class="item-selectors-fieldset">
-                    <div v-for="(size,i) in item.options[0].choices" class="item-selector-and-label">
-                        <label :for="size.text" class="item-selector-label">{{ size.text }}</label>
-                        <select style="margin:10px" :id="size.text" :name="size.text">
-                            <option v-for="i in 11" :value="i-1" class="item-size-amount-selector">{{ i-1 }}</option>
-                        </select>
+            <div class="item-infoAndOrder-box">
+                <h2 class="item-text-name">{{item?.name?.slice(8)}}</h2>
+                <h3 class="item-text-code">Код товара: {{item.id}}</h3>
+                <p class="item-text-price">Цена: {{item.defaultDisplayedPriceFormatted}}</p>
+                <p v-html="item.description" class="item-text-fullDecription"></p>
+                
+                <div class="item-selectors-plus-buttons">
+                <h3 class="item-text-availableSizes">Доступные размеры:</h3>
+                    <fieldset class="item-selectors-fieldset">
+                        <div v-for="(size,i) in item.options[0].choices" class="item-selector-and-label">
+                            <label :for="size.text" class="item-selector-label">{{ size.text }}</label>
+                            <select style="margin:10px" :id="size.text" :name="size.text">
+                                <option v-for="i in 11" :value="i-1" class="item-size-amount-selector">{{ i-1 }}</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                    <div v-if="!ordered" 
+                         @click="cart.addToCart(item, orderedSizes()),
+                                 cart.saveToLS(),
+                                 ordered=true,
+                                 clearFlags()" 
+                         class="item-addToCart-button">
+                         Добавить в корзину
                     </div>
-                </fieldset>
-                <div v-if="!ordered" 
-                     @click="cart.addToCart(item, orderedSizes()),
-                             cart.saveToLS(),
-                             ordered=true,
-                             clearFlags()" 
-                     class="item-addToCart-button">
-                     Добавить в корзину
-                </div>
-                <router-link to="/cart">
-                     <div v-if="ordered" class="item-goToCart-button">В корзине >></div>
-                </router-link>   
-            </div> 
-            
-            <br>
-            
+                    <router-link to="/cart">
+                         <div v-if="ordered" class="item-goToCart-button">В корзине >></div>
+                    </router-link>   
+                </div> 
+                <br>
+            </div>
             <div class="item-all-images-container">
-              <img :src="dynamicBigImage() || setBigImage" 
+              <div class="item-box-for-big-image">
+                   <img :src="dynamicBigImage() || setBigImage" 
                    alt="800px-image-of-Cloth" 
                    id="big-image" 
                    class="item-images-bigImage">
+              </div>
                    
-              <div v-for="(pic,i) in item?.media?.images" >
-                  <img :src="pic.image160pxUrl" 
-                       alt="160" 
-                       :data="i" 
-                       @click="dynamicBigImage(i)" 
-                       class="item-images-smallImage">
+              <div class="item-all-SmallImages-box">
+                  <div v-for="(pic,i) in item?.media?.images" class="item-box-for-small-image">
+                      <img :src="pic.image160pxUrl" 
+                           alt="160" 
+                           :data="i" 
+                           @click="dynamicBigImage(i)" 
+                           class="item-images-smallImage">
+                  </div>
               </div>
             </div> 
         </div>
