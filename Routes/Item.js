@@ -3,6 +3,28 @@ export const Item = {
                      // Здесь к нему можно обращаться this.items
     template:` 
         <div class="item-whole-container">
+            
+            <div class="item-all-images-container">
+            
+              <div class="item-all-SmallImages-box">
+                  <div v-for="(pic,i) in item?.media?.images" class="item-box-for-small-image">
+                      <img :src="pic.image160pxUrl" 
+                           alt="160" 
+                           :data="i" 
+                           @click="dynamicBigImage(i)" 
+                           class="item-images-smallImage">
+                  </div>
+              </div>                
+            
+              <div class="item-box-for-big-image">
+                   <img :src="dynamicBigImage() || setBigImage" 
+                   alt="800px-image-of-Cloth" 
+                   id="big-image" 
+                   class="item-images-bigImage">
+              </div>
+                   
+
+            </div> 
             <div class="item-infoAndOrder-box">
                 <h2 class="item-text-name">{{item?.name?.slice(8)}}</h2>
                 <h3 class="item-text-code">Код товара: {{item.id}}</h3>
@@ -33,24 +55,7 @@ export const Item = {
                 </div> 
                 <br>
             </div>
-            <div class="item-all-images-container">
-              <div class="item-box-for-big-image">
-                   <img :src="dynamicBigImage() || setBigImage" 
-                   alt="800px-image-of-Cloth" 
-                   id="big-image" 
-                   class="item-images-bigImage">
-              </div>
-                   
-              <div class="item-all-SmallImages-box">
-                  <div v-for="(pic,i) in item?.media?.images" class="item-box-for-small-image">
-                      <img :src="pic.image160pxUrl" 
-                           alt="160" 
-                           :data="i" 
-                           @click="dynamicBigImage(i)" 
-                           class="item-images-smallImage">
-                  </div>
-              </div>
-            </div> 
+        
         </div>
 
 <!--            1) 160px
