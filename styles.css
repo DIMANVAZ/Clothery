@@ -369,38 +369,60 @@ path.blue{
 /*для ПеКА*/
 @media screen and (min-width: 1201px) {
     .item-infoAndOrder-box{
-
+        width: 40%;
+        padding:5px;
     }
     .item-all-images-container{
-
+        width: 60%;
     }
     .item-box-for-big-image{
-        width:600px;
+        width: 80%;
+    }
+    .item-all-SmallImages-box{
+        width: 20%;
+        display:flex;
+            flex-direction: column;
+            justify-content:center;
     }
 }
 /*для планш гориз*/
-@media screen and (max-width: 1200px) and (min-width:768px){
+@media screen and (min-width:768px) and (max-width: 1200px)  {
     .item-infoAndOrder-box{
-
+        width: 40%;
+        padding:5px;
     }
     .item-all-images-container{
-
+        width: 60%;
     }
     .item-box-for-big-image{
-        width:500px;
+        width: 80%;
+    }
+    .item-all-SmallImages-box{
+        width: 20%;
+        display:flex;
+            flex-direction: column;
+            justify-content:center;
     }
 }
 
-/*для планш гориз*/
-@media screen and (max-width: 767px) and (min-width:481px){
+/*для планш верт*/
+@media screen and (min-width:481px) and (max-width: 767px) {
     .item-infoAndOrder-box{
 
+        padding:5px;
     }
     .item-all-images-container{
+        flex-wrap: wrap;
+        justify-content:center;
 
     }
     .item-box-for-big-image{
-        width:400px;
+
+    }
+    .item-all-SmallImages-box{
+        display:flex;
+                    width:100%;
+
     }
 }
 
@@ -408,12 +430,16 @@ path.blue{
 @media screen and (max-width: 480px) {
     .item-infoAndOrder-box{
 
+        padding:5px;
     }
     .item-all-images-container{
 
     }
     .item-box-for-big-image{
         width:100%;
+    }
+    .item-all-SmallImages-box{
+        display:none;
     }
 }
 
@@ -458,10 +484,11 @@ path.blue{
     .item-all-images-container{
         font-size:0;
         display:flex;
-        flex-wrap:wrap;
+        /*flex-wrap:wrap;*/
         border:2px dotted dodgerblue;
     }
         .item-box-for-big-image{
+                /*width: 500px;*/
             overflow: hidden;
             border: 2px solid red;
             aspect-ratio: 1/1;
@@ -477,15 +504,18 @@ path.blue{
             }
 
         .item-all-SmallImages-box{
+            /*display: flex;в медиа*/
             border:2px solid lime;
         }
 
             .item-box-for-small-image{
                 border: 2px solid purple;
                 text-align: center;
+                width:100%
             }
                 .item-images-smallImage{
                     border: 2px solid orangered;
+                    width:100%
                 }
 
 
