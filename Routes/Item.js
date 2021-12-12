@@ -27,9 +27,9 @@ export const Item = {
             </div> 
             <div class="item-infoAndOrder-box">
                 <h2 class="item-text-name">{{item?.name?.slice(8)}}</h2>
-                <h3 class="item-text-code">Код товара: {{item.id}}</h3>
-                <p class="item-text-price">Цена: {{item.defaultDisplayedPriceFormatted}}</p>
-                <p v-html="item.description" class="item-text-fullDecription"></p>
+                <p class="item-text-code">Код товара: {{item.id}}</p>
+                <p v-html="changeName(item.description)" class="item-text-fullDecription"></p>
+                <h3 class="item-text-price">Цена: {{item.defaultDisplayedPriceFormatted}}</h3>
                 
                 <div class="item-selectors-plus-buttons">
                 <h3 class="item-text-availableSizes">Доступные размеры:</h3>
@@ -124,6 +124,10 @@ export const Item = {
             selects.forEach(el =>{
                 el.value = '0'
             })
+        },
+            //заменить слово SurfRide на Clothery
+        changeName(smth){
+            return smth.replace('SurfRide','Clothery')
         }
     },
     mounted(){

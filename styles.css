@@ -414,6 +414,7 @@ path.blue{
     .item-all-images-container{
         flex-wrap: wrap;
         justify-content:center;
+        flex-direction: column-reverse;
 
     }
     .item-box-for-big-image{
@@ -422,8 +423,14 @@ path.blue{
     .item-all-SmallImages-box{
         display:flex;
                     width:100%;
+        justify-content: center;
 
     }
+    .item-box-for-small-image{
+        /*aspect-ratio: 1/1;*/
+        /*width:260px;*/
+    }
+
 }
 
 /*для мобилок*/
@@ -511,11 +518,11 @@ path.blue{
             .item-box-for-small-image{
                 border: 2px solid purple;
                 text-align: center;
-                width:100%
+                /*width:100%*/
             }
                 .item-images-smallImage{
                     border: 2px solid orangered;
-                    width:100%
+                    max-width:100%
                 }
 
 
