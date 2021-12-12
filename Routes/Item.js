@@ -13,6 +13,7 @@ export const Item = {
                            :data="i" 
                            @click="dynamicBigImage(i)" 
                            class="item-images-smallImage">
+                      <div class="item-slide-indicator"></div>
                   </div>
               </div>                
             

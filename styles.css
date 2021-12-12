@@ -256,6 +256,12 @@ dialog{
         color:var(--mob-R)
     }
 
+.close-dialog-red-x {
+    position:relative;
+    text-align:center;
+}
+
+
 .CartRoute-order-button{
     display:inline-block;
     padding:10px;
@@ -384,6 +390,9 @@ path.blue{
             flex-direction: column;
             justify-content:center;
     }
+    .item-slide-indicator{
+        display:none;
+    }
 }
 /*для планш гориз*/
 @media screen and (min-width:768px) and (max-width: 1200px)  {
@@ -402,6 +411,9 @@ path.blue{
         display:flex;
             flex-direction: column;
             justify-content:center;
+    }
+    .item-slide-indicator{
+        display:none;
     }
 }
 
@@ -431,6 +443,10 @@ path.blue{
         /*width:260px;*/
     }
 
+    .item-slide-indicator{
+        display:none;
+    }
+
 }
 
 /*для мобилок*/
@@ -440,13 +456,31 @@ path.blue{
         padding:5px;
     }
     .item-all-images-container{
-
+        flex-direction: column-reverse;
     }
     .item-box-for-big-image{
         width:100%;
     }
+
     .item-all-SmallImages-box{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+    }
+    .item-images-smallImage{
         display:none;
+    }
+
+    .item-slide-indicator{
+        width:15px;
+        height:15px;
+        border-radius:10px;
+        border:1px solid orangered;
+            background-color: grey;
+        /*не попробовать ли подобрать цвет под кругляшки из getMainColor(item)*/
+        margin:5px;
+
     }
 }
 

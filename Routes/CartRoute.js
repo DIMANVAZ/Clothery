@@ -42,7 +42,7 @@ export const CartRoute = {
                        <p v-if="cart.totalPrice() >= 15000">Ваш промокод на скидку в 15%: {{cart.promoCodeGen(15)}}</p> <br>
                        <p v-if="cart.totalPrice() >= 10000 && cart.totalPrice() < 15000">Ваш промокод на скидку в 10%: {{cart.promoCodeGen(10)}}</p> <br>
                             <router-link to="/">
-                        <p class="row-delete-item-x" @click="hideDialog(),cart.cartBox=[]">Закрыть</p>
+                        <p class="close-dialog-red-x" @click="hideDialog(),cart.cartBox=[]">Закрыть</p>
                             </router-link>
                 </dialog>
                 </div>`,
