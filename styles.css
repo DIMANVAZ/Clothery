@@ -420,18 +420,19 @@ path.blue{
 /*для планш верт*/
 @media screen and (min-width:481px) and (max-width: 767px) {
     .item-infoAndOrder-box{
-
         padding:5px;
     }
     .item-all-images-container{
         flex-wrap: wrap;
         justify-content:center;
         flex-direction: column-reverse;
+        max-width: 100%;
 
     }
     .item-box-for-big-image{
-
+        max-width: 100%;
     }
+
     .item-all-SmallImages-box{
         display:flex;
                     width:100%;
