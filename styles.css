@@ -374,6 +374,11 @@ path.blue{
 
 /*для ПеКА*/
 @media screen and (min-width: 1201px) {
+    .item-whole-container{
+        display:flex;
+        flex-direction:row;
+    }
+
     .item-infoAndOrder-box{
         width: 40%;
         padding:5px;
@@ -396,6 +401,11 @@ path.blue{
 }
 /*для планш гориз*/
 @media screen and (min-width:768px) and (max-width: 1200px)  {
+    .item-whole-container{
+        display:flex;
+        flex-direction:row;
+    }
+
     .item-infoAndOrder-box{
         width: 40%;
         padding:5px;
@@ -418,27 +428,71 @@ path.blue{
 }
 
 /*для планш верт*/
-@media screen and (min-width:481px) and (max-width: 767px) {
+@media screen and (min-width:641px) and (max-width: 767px) {
+    .item-whole-container{
+        display:flex;
+        flex-direction:row;
+    }
+
     .item-infoAndOrder-box{
+                width: 40%;
         padding:5px;
     }
     .item-all-images-container{
-        flex-wrap: wrap;
-        justify-content:center;
-        flex-direction: column-reverse;
-        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+                width: 60%;
 
     }
     .item-box-for-big-image{
-        max-width: 100%;
+        width:100%
     }
 
     .item-all-SmallImages-box{
+        width: 100%;
         display:flex;
-                    width:100%;
-        justify-content: center;
+        flex-direction: row;
+        justify-content:center;
+    }
+
+    .item-box-for-small-image{
+        /*aspect-ratio: 1/1;*/
+        /*width:260px;*/
+    }
+
+    .item-slide-indicator{
+        display:none;
+    }
+
+}
+
+/*длинный вариант - в столбик, но есть превьюшки*/
+@media screen and (min-width:481px) and (max-width: 640px) {
+    .item-whole-container{
+        display:flex;
+        flex-direction:column;
+    }
+    .item-infoAndOrder-box{
+        width: 100%;
+        padding:5px;
+    }
+    .item-all-images-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
 
     }
+    .item-box-for-big-image{
+        width:100%
+    }
+
+    .item-all-SmallImages-box{
+        width: 100%;
+        display:flex;
+        flex-direction: row;
+        justify-content:center;
+    }
+
     .item-box-for-small-image{
         /*aspect-ratio: 1/1;*/
         /*width:260px;*/
@@ -452,8 +506,11 @@ path.blue{
 
 /*для мобилок*/
 @media screen and (max-width: 480px) {
+    .item-whole-container{
+        display:flex;
+        flex-direction:row;
+    }
     .item-infoAndOrder-box{
-
         padding:5px;
     }
     .item-all-images-container{
@@ -462,17 +519,14 @@ path.blue{
     .item-box-for-big-image{
         width:100%;
     }
-
     .item-all-SmallImages-box{
         display: flex;
         flex-direction: row;
         justify-content: center;
-
     }
     .item-images-smallImage{
         display:none;
     }
-
     .item-slide-indicator{
         width:15px;
         height:15px;
@@ -488,8 +542,6 @@ path.blue{
 
 .item-whole-container{
     border: 2px solid darkolivegreen;
-    display: flex;
-    flex-direction: row;
     flex-wrap:wrap;
 }
 
@@ -507,7 +559,7 @@ path.blue{
         }
         .item-selector-and-label{
             display: flex;
-            align-items: center;
+            align-items: center;font-weight: bold;
         }
         .item-text-availableSizes{
             margin-right: 10px;
@@ -540,6 +592,7 @@ path.blue{
 
         }
             .item-images-bigImage{
+                border:2px solid darkgoldenrod;
                 max-width: 100%;
                 max-height: 100%;
                 height: auto;
@@ -553,7 +606,7 @@ path.blue{
             .item-box-for-small-image{
                 border: 2px solid purple;
                 text-align: center;
-                /*width:100%*/
+                margin:5px;
             }
                 .item-images-smallImage{
                     border: 2px solid orangered;
