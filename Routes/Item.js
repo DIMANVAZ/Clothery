@@ -1,3 +1,5 @@
+import Swiper from 'https://unpkg.com/swiper@7/swiper-bundle.esm.browser.min.js'
+
 export const Item = {
     props:[`items`,`cart`], //это переданный нам массив объектов items.
                      // Здесь к нему можно обращаться this.items
@@ -14,7 +16,6 @@ export const Item = {
                            :data="i" 
                            @click="dynamicBigImage(i)" 
                            class="item-images-smallImage">
-                      <div class="item-slide-indicator"></div>
                   </div>
 
               </div>                
@@ -25,9 +26,30 @@ export const Item = {
                    id="big-image" 
                    class="item-images-bigImage">
               </div>
-                   
+
+              <div class="item-mobile-swiper swiper" ref="carousel">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div v-for="(pic) in item?.media?.images" class="swiper-slide">
+                    <img :src="pic.image800pxUrl"
+                         alt="800">
+                  </div>
+
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <!-- If we need scrollbar -->
+                <!-- <div class="swiper-scrollbar"></div>-->
+              </div>
 
             </div> 
+            
             <div class="item-infoAndOrder-box">
                 <h2 class="item-text-name">{{item?.name?.slice(8)}}</h2>
                 <p class="item-text-code">Код товара: {{item.id}}</p>
@@ -91,6 +113,18 @@ export const Item = {
     created(){
     },
     methods:{
+        init() {
+            const options = {
+                pagination: {
+                    el: '.swiper-pagination'
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
+                }
+            }
+            const carousel = new Swiper(this.$refs.carousel, options)
+        },
             //выбираем карточку товара из массива, ищем через id в роуте-парамс
         selectItem(){
             let match = {}
@@ -134,8 +168,15 @@ export const Item = {
         }
     },
     mounted(){
+        this.$nextTick(() => { //что такое НекстТик ?
+            this.init()
+        });
         let preSelect= document.querySelector('select');
         if(preSelect){preSelect.selectedIndex = 1}
+
+        this.item.media.images.forEach(el => {
+            console.log(el.image800pxUrl)
+        })
     },
     computed:{
         //карточка товара - находим через функцию
