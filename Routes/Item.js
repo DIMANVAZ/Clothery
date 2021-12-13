@@ -3,10 +3,11 @@ export const Item = {
                      // Здесь к нему можно обращаться this.items
     template:` 
         <div class="item-whole-container">
-            
+        
             <div class="item-all-images-container">
             
               <div class="item-all-SmallImages-box">
+                    
                   <div v-for="(pic,i) in item?.media?.images" class="item-box-for-small-image">
                       <img :src="pic.image160pxUrl" 
                            alt="160" 
@@ -15,6 +16,7 @@ export const Item = {
                            class="item-images-smallImage">
                       <div class="item-slide-indicator"></div>
                   </div>
+
               </div>                
             
               <div class="item-box-for-big-image">

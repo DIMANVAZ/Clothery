@@ -2,7 +2,7 @@
   "name": "Clothery",
   "version": "1.0.0",
   "dependencies": {
+    "swiper": "^7.3.2"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

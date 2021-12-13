@@ -1,6 +1,7 @@
 import {Cart} from "./Classes/Cart.js"
 const cart = new Cart();
 
+
 import {getAPIdata} from "./Classes/GetRemoteData.js";
 import {Home} from "./Routes/Home.js";
 import {About} from "./Routes/About.js";
@@ -8,6 +9,8 @@ import {CartRoute} from "./Routes/CartRoute.js";
 import {Collections} from "./Routes/Collections.js";
 import {Contacts} from "./Routes/Contacts.js";
 import {Item} from "./Routes/Item.js";
+import {Carousel} from './Routes/Carousel.js'
+
 
 const routes = [
     { path: '/', name:'Home', component: Home },
@@ -16,6 +19,8 @@ const routes = [
     { path: '/collections', name:'Collections',component: Collections },
     { path: '/contacts', name:'Contacts',component: Contacts },
     { path: '/item/:xxx', name:"Item",component: Item },
+    { path: '/carousel', name: 'Carousel', component: Carousel }
+
 ];
 const router = VueRouter.createRouter({
     history: VueRouter.createWebHashHistory(),
