@@ -9,7 +9,7 @@ import {CartRoute} from "./Routes/CartRoute.js";
 import {Collections} from "./Routes/Collections.js";
 import {Contacts} from "./Routes/Contacts.js";
 import {Item} from "./Routes/Item.js";
-import {Carousel} from './Routes/Carousel.js'
+// import {Carousel} from './Routes/Carousel.js'
 
 
 const routes = [
@@ -19,7 +19,7 @@ const routes = [
     { path: '/collections', name:'Collections',component: Collections },
     { path: '/contacts', name:'Contacts',component: Contacts },
     { path: '/item/:xxx', name:"Item",component: Item },
-    { path: '/carousel', name: 'Carousel', component: Carousel }
+    // { path: '/carousel', name: 'Carousel', component: Carousel }
 
 ];
 const router = VueRouter.createRouter({

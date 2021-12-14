@@ -164,6 +164,7 @@ export const Item = {
         },
             //заменить слово SurfRide на Clothery
         changeName(smth){
+            if(typeof(smth) === 'string')
             return smth.replace('SurfRide','Clothery')
         }
     },
