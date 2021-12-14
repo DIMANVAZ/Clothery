@@ -169,6 +169,8 @@ export const Item = {
         }
     },
     mounted(){
+        console.log(this.$route.params, '= this route params')
+
         this.$nextTick(() => { //что такое НекстТик ?
             this.init()
         });
