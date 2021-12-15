@@ -1,3 +1,5 @@
+import {getAPIdata} from "../Classes/GetRemoteData.js";
+
 export const Collections = {
     props:[`items`],
     template:`<div class="Collections collections-route">
@@ -61,6 +63,7 @@ export const Collections = {
               `,
     data(){
         return{
+            finalItems:{},
             maleStaff:false,
             femStaff:false
         }
@@ -72,18 +75,33 @@ export const Collections = {
            let sum = params.y + params.height - 102 //margin -20
            window.scrollTo(0,sum)
         },
+        async fetchItems(){
+            if(this.items.length > 0){
+                console.log('this items  = ', this.items)
+                this.finalItems = this.items;
+            }
+            else{
+                console.log('bypass')
+                let respObj = await getAPIdata().then(response => response.json());
+                //debugger
+                console.log('this.items = ',this.items)
+                this.finalItems = respObj.items;
+            }
+        }
 
     },
     created(){
+
+        this.fetchItems()
     },
     mounted() {
     },
     computed:{
         maleCollection(){
-            return [this.items[2]];
+            return [this.finalItems[2]];
         },
         femCollection(){
-            return [this.items[0],this.items[1]];
+            return [this.finalItems[0],this.finalItems[1]];
         }
 
     }

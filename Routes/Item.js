@@ -88,7 +88,7 @@ export const Item = {
         return{
             item:{},
             ordered:false,
-            setBigImage:`${this.item?.media?.images[0]?.image800pxUrl}`
+            setBigImage:''
         }
     },
     created(){
@@ -109,11 +109,11 @@ export const Item = {
         },
 
         //выбираем карточку товара из массива, ищем через id в роуте-парамс ЛИБО костылим, если к нам идут по прямой ссылке
-
         async giveMetTrueItem(){
             if(this.items.length > 0){
                 this.item = this.items.find(el => el.id  === +this.$route.params.xxx)
                 console.log('this item now = ', this.item)
+                this.setBigImage = `${this.item?.media?.images[0]?.image800pxUrl}`
             }
             else{
                 console.log('bypass')
@@ -121,6 +121,7 @@ export const Item = {
                 let respObj = await getAPIdata().then(response => response.json());
                 //debugger
                 this.item = respObj.items.find(item => item.id === +idParam)
+                this.setBigImage = `${this.item?.media?.images[0]?.image800pxUrl}`
             }
         },
             //работа с выбранными чекбоксами
@@ -165,9 +166,6 @@ export const Item = {
         let preSelect= document.querySelector('select');
         if(preSelect){preSelect.selectedIndex = 1}
 
-        this.item.media.images.forEach(el => {
-            console.log(el.image800pxUrl)
-        })
     },
     computed:{
     }
