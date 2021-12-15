@@ -1,4 +1,5 @@
 import Swiper from 'https://unpkg.com/swiper@7/swiper-bundle.esm.browser.min.js'
+import {getAPIdata} from "../Classes/GetRemoteData.js";
 
 export const Item = {
     props:[`items`,`cart`], //это переданный нам массив объектов items.
@@ -59,9 +60,9 @@ export const Item = {
                 <div class="item-selectors-plus-buttons">
                 <h3 class="item-text-availableSizes">Доступные размеры:</h3>
                     <fieldset class="item-selectors-fieldset">
-                        <div v-for="(size,i) in item.options[0].choices" class="item-selector-and-label">
+                        <div v-for="(size,i) in item.options[0]?.choices" class="item-selector-and-label">
                             <label :for="size.text" class="item-selector-label">{{ size.text }}</label>
-                            <select style="margin:10px" :id="size.text" :name="size.text">
+                            <select :id="size.text" :name="size.text">
                                 <option v-for="i in 11" :value="i-1" class="item-size-amount-selector">{{ i-1 }}</option>
                             </select>
                         </div>
@@ -82,35 +83,16 @@ export const Item = {
             </div>
         
         </div>
-
-<!--            1) 160px
-            <div v-for="(pic,i) in item?.media?.images" >
-                <img :src="pic.image160pxUrl" alt="160" style="border:1px solid var(&#45;&#45;divide-line)">
-            </div>
-            2) 400px
-            <div v-for="(pic,i) in item?.media?.images" >
-                <img :src="pic.image400pxUrl" alt="400" style="border:1px solid var(&#45;&#45;divide-line)">
-            </div>
-            3) 800px
-            <div v-for="(pic,i) in item?.media?.images" >
-                <img :src="pic.image800pxUrl" alt="800px" style="border:1px solid var(&#45;&#45;divide-line)">
-            </div>
-            4) 1500px
-            <div v-for="(pic,i) in item?.media?.images" >
-                <img :src="pic.image1500pxUrl" alt="1500px" style="border:1px solid var(&#45;&#45;divide-line)">
-            </div>
-            4) orig
-            <div v-for="(pic,i) in item?.media?.images" >
-                <img :src="pic.imageOriginalUrl" alt="medium Product Photo" style="border:1px solid var(&#45;&#45;divide-line)">
-            </div>-->
               `,
     data(){
         return{
+            item:{},
             ordered:false,
-            setBigImage:`${this.selectItem().media?.images[0]?.image800pxUrl}`
+            setBigImage:`${this.item?.media?.images[0]?.image800pxUrl}`
         }
     },
     created(){
+        this.giveMetTrueItem();
     },
     methods:{
         init() {
@@ -125,15 +107,21 @@ export const Item = {
             }
             const carousel = new Swiper(this.$refs.carousel, options)
         },
-            //выбираем карточку товара из массива, ищем через id в роуте-парамс
-        selectItem(){
-            let match = {}
-            this.items.forEach(item => {
-                if(item.id === parseInt(this.$route.params.xxx)) {
-                    match = item;
-                }
-            });
-            return match;
+
+        //выбираем карточку товара из массива, ищем через id в роуте-парамс ЛИБО костылим, если к нам идут по прямой ссылке
+
+        async giveMetTrueItem(){
+            if(this.items.length > 0){
+                this.item = this.items.find(el => el.id  === +this.$route.params.xxx)
+                console.log('this item now = ', this.item)
+            }
+            else{
+                console.log('bypass')
+                const idParam = +window.location?.hash?.slice(7) || 0;
+                let respObj = await getAPIdata().then(response => response.json());
+                //debugger
+                this.item = respObj.items.find(item => item.id === +idParam)
+            }
         },
             //работа с выбранными чекбоксами
         orderedSizes(){
@@ -169,7 +157,7 @@ export const Item = {
         }
     },
     mounted(){
-        console.log(this.$route.params, '= this route params')
+        //console.log(this.$route.params, '= this route params')
 
         this.$nextTick(() => { //что такое НекстТик ?
             this.init()
@@ -182,9 +170,26 @@ export const Item = {
         })
     },
     computed:{
-        //карточка товара - находим через функцию
-        item(){
-            return this.selectItem()
-        },
     }
 }
+
+// 1) 160px
+// <div v-for="(pic,i) in item?.media?.images" >
+//     <img :src="pic.image160pxUrl" alt="160" style="border:1px solid var(&#45;&#45;divide-line)">
+//     </div>
+// 2) 400px
+// <div v-for="(pic,i) in item?.media?.images" >
+//     <img :src="pic.image400pxUrl" alt="400" style="border:1px solid var(&#45;&#45;divide-line)">
+//     </div>
+// 3) 800px
+// <div v-for="(pic,i) in item?.media?.images" >
+//     <img :src="pic.image800pxUrl" alt="800px" style="border:1px solid var(&#45;&#45;divide-line)">
+//     </div>
+// 4) 1500px
+// <div v-for="(pic,i) in item?.media?.images" >
+//     <img :src="pic.image1500pxUrl" alt="1500px" style="border:1px solid var(&#45;&#45;divide-line)">
+//     </div>
+// 4) orig
+// <div v-for="(pic,i) in item?.media?.images" >
+//     <img :src="pic.imageOriginalUrl" alt="medium Product Photo" style="border:1px solid var(&#45;&#45;divide-line)">
+//     </div>
