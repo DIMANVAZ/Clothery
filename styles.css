@@ -643,7 +643,7 @@ footer{
         object-fit: contain;
     }
 }
-/*для планш гориз*/
+/*для планш гориз */
 @media screen and (min-width:768px) and (max-width: 1200px)  {
 
 }
