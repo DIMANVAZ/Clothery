@@ -32,7 +32,7 @@ export const Collections = {
                 
                 <section v-show="maleStaff" class="collections-section collections-male" id="maleStaff">
                     
-                    <div v-for="item in maleCollection" class="collections-section-vFor">
+                    <div v-for="item in sortCollections" class="collections-section-vFor">
                         <h4>{{ item.name?.slice(9) }}</h4>
                             <router-link :to="'/item/' + item.id">
                         <img :src="item?.media?.images[0].image400pxUrl" alt="400" style="max-width:100%;height:auto">
@@ -47,7 +47,7 @@ export const Collections = {
                 
                 <section v-show="femStaff" class="collections-section collections-female" id="femStaff">
                     
-                    <div v-for="item in femCollection" class="collections-section-vFor">
+                    <div v-for="item in sortCollections" class="collections-section-vFor">
                         <h4>{{ item.name?.slice(9) }}</h4>
                             <router-link :to="'/item/' + item.id">
                         <img :src="item?.media?.images[0].image400pxUrl" alt="400" style="max-width:100%;height:auto">
@@ -91,18 +91,18 @@ export const Collections = {
 
     },
     created(){
-
         this.fetchItems()
     },
     mounted() {
     },
     computed:{
-        maleCollection(){
-            return [this.finalItems[2]];
-        },
-        femCollection(){
-            return [this.finalItems[0],this.finalItems[1]];
+        sortCollections(){
+            let male = ['Рубашка', 'Шорты', 'Фланель']
+            let female = ['Римская туника','Черное платье','Солнечные очки','Белый топ','Цветочный топ','Черный топ']
+            let selected = this.maleStaff === true ? male : female
+            return this.finalItems.filter(el => {
+                return selected.some(selectedEl => selectedEl === el.name.slice(9))
+            })
         }
-
     }
 }
