@@ -101,7 +101,8 @@ export const Collections = {
             let female = ['Римская туника','Черное платье','Солнечные очки','Белый топ','Цветочный топ','Черный топ']
             let selected = this.maleStaff === true ? male : female
             return this.finalItems.filter(el => {
-                return selected.some(selectedEl => selectedEl === el.name.slice(9))
+                //return selected.some(selectedEl => selectedEl === el.name.slice(9))
+                return selected.includes(el.name.slice(9))
             })
         }
     }

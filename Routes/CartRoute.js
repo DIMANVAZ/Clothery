@@ -38,9 +38,9 @@ export const CartRoute = {
                      id="orderRequestButton" 
                      @click="showDialog(),cart.clearLS()">Оформить заказ</div>
                 
-                <dialog>Поздравляем с покупкой! <br> 
-                       <p v-if="cart.totalPrice() >= 15000">Ваш промокод на скидку в 15%: {{cart.promoCodeGen(15)}}</p> <br>
-                       <p v-if="cart.totalPrice() >= 10000 && cart.totalPrice() < 15000">Ваш промокод на скидку в 10%: {{cart.promoCodeGen(10)}}</p> <br>
+                <dialog class="cart-route-dialog">Поздравляем с покупкой! <br> 
+                       <p v-if="cart.totalPrice() >= 15000">Ваш промокод на скидку в 15%: <span>{{cart.promoCodeGen(15)}}</span></p> <br>
+                       <p v-if="cart.totalPrice() >= 10000 && cart.totalPrice() < 15000">Ваш промокод на скидку в 10%: <span>{{cart.promoCodeGen(10)}}</span></p> <br>
                             <router-link to="/">
                         <p class="close-dialog-red-x" @click="hideDialog(),cart.cartBox=[]">Закрыть</p>
                             </router-link>
