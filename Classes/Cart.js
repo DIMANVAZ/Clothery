@@ -2,51 +2,29 @@ export class Cart{
     cartBox = this.getFromLS() || []; //объекты {item:{item}, S:3}
     //надо в объекты {item:{item}, sizes:{S:3, M:2}}
 
-    addToCart(item = {name:'defName',price:999}, sizes = {XL:1, XS:2}){
-        let incomKeys = Object.keys(sizes);
-        console.log('item = ',item)
-        console.log('sizes = ', sizes)
-        if(this.cartBox.length === 0){//массив пуст - смело пушим!! 1 товар - 1 строка. item, sizes
+    addToCart(item = {name:'defName',price:999}, sizes = {XXL:1}){
+
+        if(this.cartBox.length === 0){  //массив пуст - смело пушим!! 1 товар - 1 строка. item, sizes
             this.cartBox.push({item,sizes})
-            console.log('last:', this.cartBox[this.cartBox.length-1])
         }
+        else{               //массив не пуст
+            let matchItem = this.cartBox.find(el => el.item.name === item.name) //предполагаемое совпадение
 
+            if(!matchItem){ //совпадения по имени нет - пушим
+                this.cartBox.push({item,sizes})
+            }
+            else {          //есть совпадение по имени. Сращиваем объекты размеров у входящего item и match
 
-
-        if (this.cartBox.length === 0) {//массив пуст - смело пушим!! для каждого размера по отдельности
-            incomKeys.forEach(incomSize => {
-                this.cartBox.push({item,[incomSize]:sizes[incomSize]}) //для каждого размера по отдельности
-                console.log(' \n pushed {item,[incomSize]:sizes[incomSize]} :', {item,[incomSize]:sizes[incomSize]})
-            })
-        } else {
-            //проверить, есть ли совпадения по имени. Да - проверяем ключи. Нет - пушим
-            let allMatches = this.cartBox.filter(cartEl => cartEl.item.id === item.id);
-
-            if (!allMatches.length) { //по имени не совпало - пушим!!
-                incomKeys.forEach(size => {
-                    this.cartBox.push({item,[size]:sizes[size]}) //для каждого размера по отдельности
-                })
-            } else {    //по имени cовпало - проверяем ключи.
-                        // allMatches - это все совпавшие по имени с входящим элементы массива корзины
-                incomKeys.forEach(incomSize => {
-                    let match = false;
-
-                    allMatches.forEach(idMatchElem => {
-
-                        if (idMatchElem[incomSize]){
-
-                            idMatchElem[incomSize] += sizes[incomSize];
-                            match = true;
-                        }
-                    })
-                    if(!match){
-
-                        this.cartBox.push({item,[incomSize]:sizes[incomSize]})
+                Object.keys(sizes).forEach(incomSize => { //для каждого входящего размера
+                    if (matchItem.sizes[incomSize]){      //...если в размерах совпавшего есть такой ключ, то...
+                        matchItem.sizes[incomSize] += sizes[incomSize] //..плюсуем! и выходим досрачно
+                        return
                     }
+                    matchItem.sizes[incomSize] = sizes[incomSize] //а раз не вышли, то ключа не было - присваиваем новый ключ
                 })
             }
         }
-        //console.log('this CartBox = ',this.cartBox)
+        console.log('this CartBox = ',this.cartBox)
     }
 
     //убавить на 1 позицию данного товара - продумать, как быть с галками
@@ -56,17 +34,23 @@ export class Cart{
 
     //сложить счётчики у всех товаров в корзине
     totalItems(){
-        return this.cartBox.reduce((initial,object) => {
-            return initial + Object.values(object)[1]
-            // из-за путаницы с размерами у новых товаров пришлось делать "костыль", чтобы не переписывать все методы с нуля
+        return this.cartBox.reduce((initial,cartString) => {
+            let amountForString = 0;
+            Object.values(cartString.sizes).forEach(amountOfSize => {
+                amountForString += amountOfSize
+            })
+            return initial + amountForString;
         },0);
     };
 
     //сложить цены у всех товаров в корзине, перемножив сумму размеров в ordered на цену товара
     totalPrice(){
-        return this.cartBox.reduce((initial,object) => {
-            return initial + Object.values(object)[1] * object.item.price
-            // из-за путаницы с размерами у новых товаров пришлось делать "костыль", чтобы не переписывать все методы с нуля
+        return this.cartBox.reduce((initial,cartString) => {
+            let amountForString = 0;
+            Object.values(cartString.sizes).forEach(amountOfSize => {
+                amountForString += amountOfSize
+            })
+            return initial + amountForString * cartString.item.price;
         },0)
     };
 
