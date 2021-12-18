@@ -1,12 +1,22 @@
 export class Cart{
     cartBox = this.getFromLS() || []; //объекты {item:{item}, S:3}
+    //надо в объекты {item:{item}, sizes:{S:3, M:2}}
 
     addToCart(item = {name:'defName',price:999}, sizes = {XL:1, XS:2}){
         let incomKeys = Object.keys(sizes);
+        console.log('item = ',item)
+        console.log('sizes = ', sizes)
+        if(this.cartBox.length === 0){//массив пуст - смело пушим!! 1 товар - 1 строка. item, sizes
+            this.cartBox.push({item,sizes})
+            console.log('last:', this.cartBox[this.cartBox.length-1])
+        }
+
+
 
         if (this.cartBox.length === 0) {//массив пуст - смело пушим!! для каждого размера по отдельности
             incomKeys.forEach(incomSize => {
                 this.cartBox.push({item,[incomSize]:sizes[incomSize]}) //для каждого размера по отдельности
+                console.log(' \n pushed {item,[incomSize]:sizes[incomSize]} :', {item,[incomSize]:sizes[incomSize]})
             })
         } else {
             //проверить, есть ли совпадения по имени. Да - проверяем ключи. Нет - пушим
@@ -48,6 +58,7 @@ export class Cart{
     totalItems(){
         return this.cartBox.reduce((initial,object) => {
             return initial + Object.values(object)[1]
+            // из-за путаницы с размерами у новых товаров пришлось делать "костыль", чтобы не переписывать все методы с нуля
         },0);
     };
 
@@ -55,6 +66,7 @@ export class Cart{
     totalPrice(){
         return this.cartBox.reduce((initial,object) => {
             return initial + Object.values(object)[1] * object.item.price
+            // из-за путаницы с размерами у новых товаров пришлось делать "костыль", чтобы не переписывать все методы с нуля
         },0)
     };
 

@@ -77,14 +77,10 @@ export const Collections = {
         },
         async fetchItems(){
             if(this.items.length > 0){
-                console.log('this items  = ', this.items)
                 this.finalItems = this.items;
             }
             else{
-                console.log('bypass')
                 let respObj = await getAPIdata().then(response => response.json());
-                //debugger
-                console.log('this.items = ',this.items)
                 this.finalItems = respObj.items;
             }
         }

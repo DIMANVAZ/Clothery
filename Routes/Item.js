@@ -112,28 +112,26 @@ export const Item = {
         async giveMetTrueItem(){
             if(this.items.length > 0){
                 this.item = this.items.find(el => el.id  === +this.$route.params.xxx)
-                console.log('this item now = ', this.item)
                 this.setBigImage = `${this.item?.media?.images[0]?.image800pxUrl}`
             }
             else{
-                console.log('bypass')
                 const idParam = +window.location?.hash?.slice(7) || 0;
                 let respObj = await getAPIdata().then(response => response.json());
-                //debugger
                 this.item = respObj.items.find(item => item.id === +idParam)
                 this.setBigImage = `${this.item?.media?.images[0]?.image800pxUrl}`
             }
         },
-            //работа с выбранными чекбоксами
+            //работа с выбранными чекбоксами - а если размеров нет? как у очков
         orderedSizes(){
             let ordered = {}
             let selects = document.querySelectorAll('select')
-            console.log(`selectorAll  = `,selects)
+
             selects.forEach(el =>{ //чтобы нули не улетали в корзину
                 if(el.value !== '0'){
                     ordered[el.id] = +el.value;
                 }
             })
+            console.log(ordered)
             return ordered //массив вида {S:1,M:0,L:1}
         },
             //назначение большого рисунка

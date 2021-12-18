@@ -48,6 +48,7 @@ export const CartRoute = {
                 </div>`,
     methods:{
         size(position){
+
             return Object.keys(position)[1];
         },
         amount(position){
