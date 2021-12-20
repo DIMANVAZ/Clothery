@@ -1,7 +1,6 @@
 import {Cart} from "./Classes/Cart.js"
 const cart = new Cart();
 
-
 import {getAPIdata} from "./Classes/GetRemoteData.js";
 import {Home} from "./Routes/Home.js";
 import {About} from "./Routes/About.js";

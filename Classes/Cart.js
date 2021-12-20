@@ -1,57 +1,45 @@
 export class Cart{
-    cartBox = this.getFromLS() || []; //объекты {item:{item}, S:3}
-    //надо в объекты {item:{item}, sizes:{S:3, M:2}}
+    cartBox = this.getFromLS() || []; //массив объектов [{item:{},size:S,amount:1}},{item:{},size:M,amount:4}} ]
 
-    addToCart(item = {name:'defName',price:999}, sizes = {XXL:1}){
-
-        if(this.cartBox.length === 0){  //массив пуст - смело пушим!! 1 товар - 1 строка. item, sizes
-            this.cartBox.push({item,sizes})
+    addToCart(orderedList = [{item:{id:"default"}, size:"RR", amount:99}]){
+        if(_.isEmpty(this.cartBox)){ // для лодаша, подключенного через <script>
+            this.cartBox = orderedList
         }
-        else{               //массив не пуст
-            let matchItem = this.cartBox.find(el => el.item.name === item.name) //предполагаемое совпадение
-
-            if(!matchItem){ //совпадения по имени нет - пушим
-                this.cartBox.push({item,sizes})
-            }
-            else {          //есть совпадение по имени. Сращиваем объекты размеров у входящего item и match
-
-                Object.keys(sizes).forEach(incomSize => { //для каждого входящего размера
-                    if (matchItem.sizes[incomSize]){      //...если в размерах совпавшего есть такой ключ, то...
-                        matchItem.sizes[incomSize] += sizes[incomSize] //..плюсуем! и выходим досрачно
-                        return
+        else{
+            orderedList.forEach(order => { //для очередного входящего
+                let match = false;         //флаг)) по умолчанию совпадений нет
+                this.cartBox.find(yetItem => { //Чтобы не городить двойной цикл - поиск функцией
+                    if (yetItem.item.id === order.item.id && yetItem.size === order.size){
+                        yetItem.amount += order.amount
+                        match = true  //...было дело, значит ))
                     }
-                    matchItem.sizes[incomSize] = sizes[incomSize] //а раз не вышли, то ключа не было - присваиваем новый ключ
                 })
-            }
+                if(!match){ // а раз не нашлось совпадений - пушим
+                    this.cartBox.push(order)
+                }
+            })
         }
         console.log('this CartBox = ',this.cartBox)
     }
 
-    //убавить на 1 позицию данного товара - продумать, как быть с галками
-    removeOneLine(i){
-        this.cartBox = this.cartBox.filter(el => el !== this.cartBox[i])
-    };
 
-    //сложить счётчики у всех товаров в корзине
+    //сложить счётчики у всех товаров в корзине. ЙЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕ
     totalItems(){
-        return this.cartBox.reduce((initial,cartString) => {
-            let amountForString = 0;
-            Object.values(cartString.sizes).forEach(amountOfSize => {
-                amountForString += amountOfSize
-            })
-            return initial + amountForString;
-        },0);
+        return this.cartBox.reduce((initial, cartString) => {
+            return initial + cartString.amount
+        },0)
     };
 
     //сложить цены у всех товаров в корзине, перемножив сумму размеров в ordered на цену товара
     totalPrice(){
-        return this.cartBox.reduce((initial,cartString) => {
-            let amountForString = 0;
-            Object.values(cartString.sizes).forEach(amountOfSize => {
-                amountForString += amountOfSize
-            })
-            return initial + amountForString * cartString.item.price;
+        return this.cartBox.reduce((initialPrice, cartString) => {
+            return initialPrice + cartString.item?.price * cartString.amount
         },0)
+    };
+
+    //убавить на 1 позицию данного товара - продумать, как быть с галками
+    removeOneLine(i){
+        this.cartBox = this.cartBox.filter(el => el !== this.cartBox[i]);
     };
 
     saveToLS(){

@@ -68,7 +68,7 @@ export const Item = {
                         </div>
                     </fieldset>
                     <div v-if="!ordered" 
-                         @click="cart.addToCart(item, orderedSizes()),
+                         @click="cart.addToCart(orderedList()),
                                  cart.saveToLS(),
                                  ordered=true,
                                  clearFlags()" 
@@ -122,17 +122,21 @@ export const Item = {
             }
         },
             //работа с выбранными чекбоксами - а если размеров нет? как у очков
-        orderedSizes(){
-            let ordered = {}
+        orderedList(){
+            let orderedList = []
             let selects = document.querySelectorAll('select')
 
             selects.forEach(el =>{ //чтобы нули не улетали в корзину
                 if(el.value !== '0'){
-                    ordered[el.id] = +el.value;
+                    orderedList.push(
+                        {item:this.item,
+                         size:el.id,
+                       amount:+el.value}
+                    )
                 }
             })
-            console.log(ordered)
-            return ordered //массив вида {S:1,M:0,L:1}
+            console.log('orderedList = ',orderedList)
+            return orderedList //массив вида [{item:{},size:S,amount:1}, {item:{},size:M,amount:3}]
         },
             //назначение большого рисунка
         dynamicBigImage(i=0){
