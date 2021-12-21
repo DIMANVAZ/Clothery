@@ -1,4 +1,5 @@
 // рефакторить КартРОУТ - чтобы выводило по размерам + рефекторить Карт, чтобы удаляло по размеру
+// массив cart = [{item:{},size:S,amount:1}},{item:{},size:M,amount:4}} ]
 export const CartRoute = {
     props:['items',`cart`],
     template:`
@@ -8,7 +9,6 @@ export const CartRoute = {
         <span v-if="cart.totalItems() === 0">пуста...</span>
       </h4>
       <div v-if="cart.totalItems() > 0" class="CartRoute-allRows-container">
-        
 
         <div v-for="(position,i) in cart.cartBox" class="CartRoute whole-row-container">
           <div class="row pic-name-container">
@@ -21,17 +21,17 @@ export const CartRoute = {
           <div class="row-info-container">
             Кол-во:
             <select class="row-info-container-select"
-                    :id="size(position)"
-                    :name="size(position)"
-                    :selectedIndex="amount(position)-1"
+                    :id="position.size"
+                    :name="position.size"
+                    :selectedIndex="position.amount - 1"
                     @change="refresh(position)">
-              <option v-for="i in amount(position)+5"
+              <option v-for="i in position.amount + 5"
                       :value="i"
                       class="item size-amount-selector">{{ i }}
               </option>
             </select>
-            <div class>Размер: {{ size(position) }}</div>
-            <div class="">На сумму {{ amount(position) * position.item.price }} р</div>
+            <div class>Размер: {{ position.size }}</div>
+            <div class="">На сумму {{ position.amount * position.item.price }} р</div>
             <div class="row-delete-item-x" :data="i" @click="cart.removeOneLine(i),cart.saveToLS()"> X</div>
           </div>
         </div>
@@ -54,12 +54,6 @@ export const CartRoute = {
       </dialog>
       </div>`,
     methods:{
-        size(position){
-            return Object.keys(position)[1];
-        },
-        amount(position){
-            return Object.values(position)[1];
-        },
         showDialog(){
             let dialog = document.querySelector('dialog');
             //dialog.show();
@@ -69,14 +63,9 @@ export const CartRoute = {
             let dialog = document.querySelector('dialog');
             dialog.close();
         },
-        sizesSum(elem){
-            return Object.values(elem.ordered).reduce((start, item) => {
-                return start + item
-            })
-        },
-        refresh(position,size){
-            //position[this.size(position)] = +event.target.value
-            position.sizes[size] = +event.target.value
+
+        refresh(position){
+            position.amount = +event.target.value
         }
     },
     data(){

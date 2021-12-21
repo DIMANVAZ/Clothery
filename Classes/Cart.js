@@ -59,17 +59,14 @@ export class Cart{
     //генератор промокода
     // промокод 10% появляется только при сумме больше 10000,
     // а при сумме больше 15000 он 15%
-    // и он не длиннее 8 букв
+    // и он не длиннее 8 букв. См также класс cart-route-dialog в CartRoute
     promoCodeGen(initDiscount){
-        //console.table(this.cartBox)
-        console.log('pcGEN----------')
         let rawCode = this.cartBox.reduce((initDiscount,value) => {
-            return '' + initDiscount + Object.keys(value)[1] + Object.values(value)[1]
+            return '' + initDiscount + value.size + value.amount
         },initDiscount)
         if(rawCode && this.totalPrice()){
             return (rawCode + this.totalPrice()).slice(0,8)
         } else return '15SSX2'
-
     };
 }
 
