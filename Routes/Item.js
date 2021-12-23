@@ -66,8 +66,16 @@ export const Item = {
                                 <option v-for="i in 11" :value="i-1" class="item-size-amount-selector">{{ i-1 }}</option>
                             </select>
                         </div>
+                      <div v-if="!item.options[0]?.choices" class="item-selector-and-label">
+                        <label for="One-Size" class="item-selector-label"> One-Size </label>
+                        <select id="One-Size" name="One-Size">
+                          <option v-for="i in 11" :value="i-1" class="item-size-amount-selector">{{ i-1 }}</option>
+                        </select>
+                      </div>
+                      
                     </fieldset>
-                    <div v-if="!ordered" 
+                    <div 
+                         
                          @click="cart.addToCart(orderedList()),
                                  cart.saveToLS(),
                                  ordered=true,

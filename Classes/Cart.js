@@ -62,7 +62,7 @@ export class Cart{
     // и он не длиннее 8 букв. См также класс cart-route-dialog в CartRoute
     promoCodeGen(initDiscount){
         let rawCode = this.cartBox.reduce((initDiscount,value) => {
-            return '' + initDiscount + value.size + value.amount
+            return '' + initDiscount + value.size[0] + value.amount
         },initDiscount)
         if(rawCode && this.totalPrice()){
             return (rawCode + this.totalPrice()).slice(0,8)

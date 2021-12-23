@@ -48,6 +48,7 @@ const app = Vue.createApp({
             try{
                 let respObject = await getAPIdata().then(response => response.json());
                 this.items = respObject.items;
+//console.table(this.items)
             } catch(e){ console.error(`Error from App.vue/created(): `,e)}
         },
 
@@ -63,6 +64,7 @@ const app = Vue.createApp({
       app.mount('#app');
 
  //---------- эта штука показывает эвент-таргеты---------------------
+
 
 document.onclick = function(){
     //console.log(event.target)

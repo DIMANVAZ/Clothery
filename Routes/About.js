@@ -5,7 +5,7 @@ export const About = {
         Почти вековая история модного дома Clothery начинается в довоенном Лондоне.<br/>
         Его основатель Чезаре Феллини приходился потомком самому Маринони Дезенцано - портному при дворе короля Генриха VIII Тюдора.<br/>                                   
         </p>
-        <div class="About-figures">
+        <div class="About-figures" id="medievalPics">
            <figure>
                 <img src="./pics/Morignoni_Desenciano.jpg" alt="portrait of young tailor Morignoni Desenciano ">
                 <figcaption> Портрет Маринони Дезенцано, Лондон, 1525г.</figcaption>
@@ -25,7 +25,7 @@ export const About = {
         Успешно выполнив его, в 1933 году он даёт мастерской название <b><i>Clothery</i></b> <i>(по аналогии с привычными англичанам 
         "grocery"(бакалея) или "bakery"(булочная))</i> и открывает при ней магазин готовой одежды. 
         </p>
-        <div class="About-figures">
+        <div class="About-figures" id="20th_pics">
             <figure>
                 <img src="./pics/Chesare_Fellini_1930s.jpg" alt="portrait of tailor Chesare Fellini">
                 <figcaption> Чезаре Феллини в мастерской, 1930-е гг, Лондон</figcaption>
