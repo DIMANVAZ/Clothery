@@ -54,6 +54,9 @@ export const CartRoute = {
       </dialog>
       </div>`,
     methods:{
+        hideThis(){
+            event.target.style = "display:none;"
+        },
         showDialog(){
             let dialog = document.querySelector('dialog');
             //dialog.show();

@@ -296,10 +296,11 @@ nav{
 /*================ COLLECTIONS =======================*/
 .collections-gender-icon{
     transition: all 0.4s linear;
-    width:65%;
+    width: 60%;
+    /*width:65%;*/
 }
     .collections-gender-icon:hover{
-        width:95%;
+        width:80%;
     }
 
 .collections-header{
