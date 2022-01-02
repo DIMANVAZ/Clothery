@@ -51,17 +51,12 @@ export const About = {
     </div>`,
     data(){
         return{
-            //ширина экрана - будем следить за ней через Watch
-            screenWidth:document.documentElement.clientWidth,
+
         }
     },
     mounted(){
-        window.onload = ()=> {
-            styler.findPics('.about-pic').forEach(el => {
-                styler.pics.push(styler.findNGive(el))
-            })
-            console.log(styler.pics)
-
+        window.onresize = ()=> {
+            console.log(document.documentElement.clientWidth)
         };
 
     },
@@ -75,11 +70,7 @@ export const About = {
 
     },
     watch:{
-        screenWidth(){ //если ресайзнули окно - делать это:
-            //styler.pics[0].el.style = 'width:300px'
-            console.log('resize')
-            //styler.calcStyles(styler.pics[0], styler.pics[1])
-        }
+
     }
 
 }

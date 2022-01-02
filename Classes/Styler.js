@@ -5,6 +5,13 @@ export class Styler {
         return document.querySelectorAll(className);
     }
 
+    fillPicsByElData(className){ //заполняет массив объектами
+        this.findPics(className)
+            .forEach(el => {
+                this.pics.push( this.findNGive(el) )
+        })
+    }
+
     calcStyles(elData1,elData2,screenWidthFresh = document.documentElement.clientWidth){
         let wider,narrower,taller,lower;
         let sumOfWi = elData1.width + elData2.width;
