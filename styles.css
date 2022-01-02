@@ -628,16 +628,19 @@ footer{
 /*=====================about раздел========================*/
 /*для ПеКА*/
 @media screen and (min-width: 1201px) {
-    .About-figures{
 
+    .About-figures {   /*Див с 2мя Figures*/
+        display:flex;
+        flex-direction:row;
     }
 
-    .About-figures figure{
-
+    .About-figures figure{ /*фигура = картинка+подпись*/
+        padding:0 10px;
     }
 
-    .About-figures img{
-
+    .About-whole-container img{ /*сама картинка*/
+        width:100%;
+        height:100%;
     }
 
 }
@@ -666,24 +669,20 @@ footer{
 }
 /*-------------общее-------------*/
 .About-whole-container{ /* весь контейнер */
-    display:flex;
-    flex-direction:column;
+    /*display:flex;*/
+    /*flex-direction:column;*/
 }
 
 .About-figures { /* ящик с 2-мя фигурами */
-    display:flex;
-    flex-direction: row;
 
 }
 
 .About-figures figure{ /* фигура - фото и подпись */
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+
 }
 
 .About-figures img{ /* фото в фигуре */
-    width:90%;
+
 }
 
 .About-figures figcaption{
@@ -693,7 +692,6 @@ footer{
 .About-description{
     margin:10px 20px;
     text-align:left;
-
 }
 
 .About-description a{

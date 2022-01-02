@@ -8,10 +8,12 @@ export const About = {
         <div class="About-figures" id="medievalPics">
            <figure>
                 <img src="./pics/Morignoni_Desenciano.jpg" alt="portrait of young tailor Morignoni Desenciano ">
+<!--                <img src="https://1.bp.blogspot.com/-QSd1Uh3-HDM/WJTSc3Po-lI/AAAAAAAActg/bQGmNlSDTTUvIbb8tTae2VHKQVXrXI4XwCLcB/s1600/giovanni_battista_moroni_-_the_tailor_il_tagliapanni_-_google_art_project.jpg" alt="portrait of young tailor Morignoni Desenciano ">-->
                 <figcaption> Портрет Маринони Дезенцано, Лондон, 1525г.</figcaption>
            </figure>
            <figure>
-                <img src="./pics/Henry_8_compressed.jpeg" alt="portrait of King Henry VIII">
+                    <img src="./pics/Henry_8.jpeg" alt="portrait of King Henry VIII">
+<!--                <img src="http://4.bp.blogspot.com/-rYu2nmHFoS0/VDxjMn1xzxI/AAAAAAAAAMA/QkeJqI9rJaw/s1600/henry8petworth.jpg" alt="portrait of King Henry VIII">-->
                 <figcaption> Портрет Короля Генриха VIII, Лондон, 1528г.</figcaption>
            </figure>            
         </div>
@@ -45,5 +47,21 @@ export const About = {
         дочерний филиал, который в дальнейшем выделится в отдельный бренд,  сменит хозяина и станет известен как <a href="https://aeronauticamilitare.eu/">Aeronautica Militare</a>.    
         
         </p>
-    </div>`
+    </div>`,
+    data(){
+        return{
+    }},
+    mounted(){
+
+    },
+    created(){
+
+    },
+    methods:{
+
+    },
+    computed:{
+
+    },
+
 }
