@@ -1,11 +1,9 @@
 export class Styler {
     pics = [];
 
-    fillPicsArray(className){
-        document.querySelectorAll(className).forEach(el => {
-            this.pics.push(el)
-        })
-    };
+    findPics(className){ //выдаёт массив из нод-узлов (элементов)
+        return document.querySelectorAll(className);
+    }
 
     calcStyles(elData1,elData2,screenWidthFresh = document.documentElement.clientWidth){
         let wider,narrower,taller,lower;
@@ -21,17 +19,17 @@ export class Styler {
 
     };
 
-    getParam(stylesObj, param){
+    getParam(stylesObj, param){ //получает исчисленный объект стилей и имя параметра, возвращает численное значение параметра
         return  +stylesObj[param]
             .slice(0,stylesObj[param]
                 .indexOf('px'));
     };
 
-    findNGive(id){
+    findNGive(elem){ // иметь в виду, что компьютед-стили надо бы запрашивать после прогрузки ДОМ!
         let elData = {}
-        elData.el = document.getElementById(id);
-        elData.id = id;
-        elData.initStyles = window.getComputedStyle(elData.el);
+        elData.el = elem;
+        //elData.id = id;
+        elData.initStyles = window.getComputedStyle(elem);
         elData.height = this.getParam(elData.initStyles,'height');
         elData.width = this.getParam(elData.initStyles,'width');
         elData.ratio = elData.width / elData.height;

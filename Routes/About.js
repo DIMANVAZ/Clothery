@@ -1,3 +1,6 @@
+import {Styler} from "../Classes/Styler.js"
+let styler = new Styler();
+
 export const About = {
     template:
    `<div class="About-whole-container">
@@ -7,13 +10,11 @@ export const About = {
         </p>
         <div class="About-figures" id="medievalPics">
            <figure>
-                <img src="./pics/Morignoni_Desenciano.jpg" alt="portrait of young tailor Morignoni Desenciano ">
-<!--                <img src="https://1.bp.blogspot.com/-QSd1Uh3-HDM/WJTSc3Po-lI/AAAAAAAActg/bQGmNlSDTTUvIbb8tTae2VHKQVXrXI4XwCLcB/s1600/giovanni_battista_moroni_-_the_tailor_il_tagliapanni_-_google_art_project.jpg" alt="portrait of young tailor Morignoni Desenciano ">-->
+                <img src="./pics/Morignoni_Desenciano.jpg" class="about-pic" alt="portrait of young tailor Morignoni Desenciano">
                 <figcaption> Портрет Маринони Дезенцано, Лондон, 1525г.</figcaption>
            </figure>
            <figure>
-                    <img src="./pics/Henry_8.jpeg" alt="portrait of King Henry VIII">
-<!--                <img src="http://4.bp.blogspot.com/-rYu2nmHFoS0/VDxjMn1xzxI/AAAAAAAAAMA/QkeJqI9rJaw/s1600/henry8petworth.jpg" alt="portrait of King Henry VIII">-->
+                <img src="./pics/Henry_8.jpeg" class="about-pic" alt="portrait of King Henry VIII">
                 <figcaption> Портрет Короля Генриха VIII, Лондон, 1528г.</figcaption>
            </figure>            
         </div>
@@ -29,11 +30,11 @@ export const About = {
         </p>
         <div class="About-figures" id="20th_pics">
             <figure>
-                <img src="./pics/Chesare_Fellini_1930s.jpg" alt="portrait of tailor Chesare Fellini">
+                <img src="./pics/Chesare_Fellini_1930s.jpg" class="about-pic" alt="portrait of tailor Chesare Fellini">
                 <figcaption> Чезаре Феллини в мастерской, 1930-е гг, Лондон</figcaption>
             </figure>      
             <figure>
-                <img src="./pics/British_Indian_Army.png" alt="three British Indian Army officers">
+                <img src="./pics/British_Indian_Army.png" class="about-pic" alt="three British Indian Army officers">
                 <figcaption>Выпускники Академии, 1930-е гг, Лондон</figcaption>
             </figure>          
         </div>
@@ -50,8 +51,18 @@ export const About = {
     </div>`,
     data(){
         return{
-    }},
+            //ширина экрана - будем следить за ней через Watch
+            screenWidth:document.documentElement.clientWidth,
+        }
+    },
     mounted(){
+        window.onload = ()=> {
+            styler.findPics('.about-pic').forEach(el => {
+                styler.pics.push(styler.findNGive(el))
+            })
+            console.log(styler.pics)
+
+        };
 
     },
     created(){
@@ -63,5 +74,12 @@ export const About = {
     computed:{
 
     },
+    watch:{
+        screenWidth(){ //если ресайзнули окно - делать это:
+            //styler.pics[0].el.style = 'width:300px'
+            console.log('resize')
+            //styler.calcStyles(styler.pics[0], styler.pics[1])
+        }
+    }
 
 }
