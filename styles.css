@@ -732,30 +732,96 @@ footer{
 
 
 /*=====================Contacts раздел========================*/
+/*для ПеКА*/
+@media screen and (min-width: 1201px) {
+
+    .Contacts-whole-container{ /* весь контейнер */
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .Contacts-figures {   /*Див с 2мя Figures*/
+        margin-top:10px;
+        display:flex;
+        flex-direction:row;
+        width:fit-content;
+        margin-left:15px;
+    }
+
+    .Contacts-figures figure{ /*фигура = картинка+подпись*/
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height:500px;
+        margin-right:15px;
+    }
+
+    .contacts-pic{ /*сама картинка*/
+        object-fit:contain;
+        height:85%;
+    }
+    .Contacts-description{
+        width:100%;
+        display:flex;
+        flex-direction: column;
+    }
+
+    .Contacts-description p{
+        margin-bottom:10px;
+    }
+}
+/*для планш гориз */
+@media screen and (min-width:768px) and (max-width: 1200px)  {
+    .over_1201{
+        display:none;
+    }
+}
+
+/*для планш верт*/
+@media screen and (min-width:481px) and (max-width: 767px) {
+    .over_1201{
+        display:none;
+    }
+}
+
+/*для мобилок*/
+@media screen and (max-width: 480px) {
+    .over_1201{
+        display:none;
+    }
+
+
+    .About-figures{
+
+    }
+    .About-figures img {
+
+    }
+
+    .About-figures figure{
+
+    }
+}
+
 .Contacts-whole-container{
     margin:0 10px;
 }
 
 .Contacts-figures{
-    width:100%;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
+
 }
 
 .Contacts-figures figure{
-    width:50%;
-    margin-top:20px;
-    margin-bottom:10px;
-    min-width:300px;
+
 }
 
 .Contacts-figures img{
-    width:100%
+
 }
 
 .Contacts-description{
-    margin-bottom:10px;
+
 }
 
 .Contacts-figures figcaption{
