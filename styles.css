@@ -628,33 +628,64 @@ footer{
 /*=====================about раздел========================*/
 /*для ПеКА*/
 @media screen and (min-width: 1201px) {
+    .over_1201{
+        padding-right:30px;
+        padding-top:10px;
+    }
+
+    .lower_1201{
+        display:none;
+    }
+
+    .About-whole-container{ /* весь контейнер */
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
 
     .About-figures {   /*Див с 2мя Figures*/
+        margin-top:10px;
         display:flex;
         flex-direction:row;
+        width:fit-content;
+        margin-left:15px;
     }
 
     .About-figures figure{ /*фигура = картинка+подпись*/
-        padding:0 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height:600px;
+        margin-right:15px;
     }
 
     .about-pic{ /*сама картинка*/
-
+        object-fit:contain;
+        height:90%;
     }
 
 }
 /*для планш гориз */
 @media screen and (min-width:768px) and (max-width: 1200px)  {
-
+    .over_1201{
+        display:none;
+    }
 }
 
 /*для планш верт*/
 @media screen and (min-width:481px) and (max-width: 767px) {
-
+    .over_1201{
+        display:none;
+    }
 }
 
 /*для мобилок*/
 @media screen and (max-width: 480px) {
+    .over_1201{
+        display:none;
+    }
+
+
     .About-figures{
 
     }
@@ -668,19 +699,18 @@ footer{
 }
 /*-------------общее-------------*/
 .About-whole-container{ /* весь контейнер */
-    /*display:flex;*/
-    /*flex-direction:column;*/
+    border:2px solid red;
 }
 
 .About-figures { /* ящик с 2-мя фигурами */
-
+    border:2px solid blue;
 }
 
 .About-figures figure{ /* фигура - фото и подпись */
-
+    border:2px solid greenyellow;
 }
 
-.About-figures img{ /* фото в фигуре */
+.about-pic{ /* фото в фигуре */
 
 }
 
@@ -689,8 +719,7 @@ footer{
 }
 
 .About-description{
-    margin:10px 20px;
-    text-align:left;
+
 }
 
 .About-description a{
