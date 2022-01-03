@@ -628,12 +628,12 @@ footer{
 /*=====================about раздел========================*/
 /*для ПеКА*/
 @media screen and (min-width: 1201px) {
-    .over_1201{
+    .about_over_1201{
         padding-right:30px;
         padding-top:10px;
     }
 
-    .upto480{
+    .about_upto480{
         display:none;
     }
 
@@ -667,21 +667,55 @@ footer{
 }
 /*для планш гориз */
 @media screen and (min-width:768px) and (max-width: 1200px)  {
-    .over_1201, .upto480{
+    .about_over_1201, .about_upto480{
         display:none;
     }
 }
 
 /*для планш верт*/
 @media screen and (min-width:481px) and (max-width: 767px) {
-    .over_1201, .upto480{
-        display:none;
+
+    .About-whole-container{ /* весь контейнер */
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .About-figures{
+        width:100%;
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+        margin-bottom:15px;
+    }
+
+    .About-figures figure{
+        width:50%;
+        align-items: center;
+        margin-bottom:10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .About-figures img {
+        width:90%
+    }
+
+    .About-description{
+        width:90%;
+        font-size:0.9rem;
+    }
+
+    .About-figures figcaption{
+        font-style:italic;
+        font-size:0.8rem;
+        width:90%;
     }
 }
 
 /*для мобилок*/
 @media screen and (max-width: 480px) {
-    .over_1201{
+    .about_over_1201{
         display:none;
     }
 
@@ -751,7 +785,6 @@ footer{
     font-style:italic;
     font-weight:bold;
 }
-
 
 
 /*=====================Contacts раздел========================*/

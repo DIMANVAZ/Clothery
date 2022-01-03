@@ -4,11 +4,11 @@ let styler = new Styler();
 export const About = {
     template:
    `<div class="About-whole-container">
-          <p class="About-description upto480">
-              Почти вековая история модного дома Clothery начинается в довоенном Лондоне.<br/>
-              Его основатель Чезаре Феллини приходился потомком самому Маринони Дезенцано - портному при дворе короля Генриха
-              VIII Тюдора.
-          </p>
+        <p class="About-description about_upto480">
+          Почти вековая история модного дома Clothery начинается в довоенном Лондоне.<br/>
+          Его основатель Чезаре Феллини приходился потомком самому Маринони Дезенцано - портному при дворе короля Генриха
+          VIII Тюдора.
+        </p>
         <div class="About-figures" id="medievalPics">
            <figure>
                 <img src="./pics/Morignoni_Desenciano.jpg" id='Morignoni' class="about-pic" alt="portrait of young tailor Morignoni Desenciano">
@@ -18,7 +18,7 @@ export const About = {
                 <img src="./pics/Henry_8.jpeg" id='Henry' class="about-pic" alt="portrait of King Henry VIII">
                 <figcaption> Портрет Короля Генриха VIII, Лондон, 1528г.</figcaption>
            </figure>
-          <p class="About-description over_1201">
+          <p class="About-description about_over_1201">
             Почти вековая история модного дома Clothery начинается в довоенном Лондоне.<br/>
             Его основатель Чезаре Феллини приходился потомком самому Маринони Дезенцано - портному при дворе короля Генриха VIII Тюдора.<br/><br/>
             В 1930 году юный Чезаре, тогда ещё помощник закройщика, открывает небольшую мастерскую по ремонту одежды. 
@@ -37,7 +37,7 @@ export const About = {
             Тем не менее, заработав себе имя именно как армейский поставщик, он создаёт для потребностей армии
             дочерний филиал, который в дальнейшем выделится в отдельный бренд,  сменит хозяина и станет известен как <a href="https://aeronauticamilitare.eu/">Aeronautica Militare</a>.
           </p>
-          <p class="About-description upto480">В 1930 году юный Чезаре, тогда ещё помощник закройщика, открывает небольшую мастерскую по ремонту одежды.
+          <p class="About-description about_upto480">В 1930 году юный Чезаре, тогда ещё помощник закройщика, открывает небольшую мастерскую по ремонту одежды.
             Поначалу дела шли неважно. Волею случая, его клиенткой становится Виктория Хьюз, жена офицера королевской
             гвардии.
             Вскоре мастерская Чезаре начинает сотрудничать с армией Её Величества.
@@ -62,7 +62,7 @@ export const About = {
                 <img src="./pics/British_Indian_Army.png" id='Indians' class="about-pic" alt="three British Indian Army officers">
                 <figcaption>Выпускники Академии, 1930-е гг, Лондон</figcaption>
           </figure>
-          <p class="About-description upto480">Вторым витком развития стало
+          <p class="About-description about_upto480">Вторым витком развития стало
             появление коллекции от Чезаре на Неделе Моды в Лондоне в 1940 году.<br/><br/>
             Начало Второй Мировой войны могло бы вновь вернуть бренд к "военным истокам", но
             Чезаре решает не оставлять гражданскую моду, ибо войны рано или поздно заканчиваются.
