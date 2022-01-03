@@ -799,8 +799,47 @@ footer{
 }
 /*для планш гориз */
 @media screen and (min-width:768px) and (max-width: 1200px)  {
-    .over_1201{
+    .upto480{
         display:none;
+    }
+
+    .Contacts-whole-container{ /* весь контейнер */
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .Contacts-figures {   /*Див с 2мя Figures*/
+        margin-top:10px;
+        display:flex;
+        flex-direction:row;
+        width:fit-content;
+        margin-left:15px;
+    }
+
+    .Contacts-figures figure{ /*фигура = картинка+подпись*/
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height:400px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .contacts-pic{ /*сама картинка*/
+        object-fit:contain;
+        height:85%;
+    }
+    .over_1201{
+        width:100%;
+        display:flex;
+        flex-direction: column;
+             flex-grow:2;
+    }
+
+    .Contacts-description p{
+        margin-bottom:5px;
+        margin-right:5px;
     }
 }
 
