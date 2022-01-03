@@ -757,7 +757,7 @@ footer{
 /*=====================Contacts раздел========================*/
 /*для ПеКА*/
 @media screen and (min-width: 1201px) {
-    .upto480{
+    .upto480,.vertTabl{
         display:none;
     }
 
@@ -799,7 +799,7 @@ footer{
 }
 /*для планш гориз */
 @media screen and (min-width:768px) and (max-width: 1200px)  {
-    .upto480{
+    .upto480,.vertTabl{
         display:none;
     }
 
@@ -842,17 +842,53 @@ footer{
         margin-right:5px;
     }
 }
-
 /*для планш верт*/
 @media screen and (min-width:481px) and (max-width: 767px) {
-    .over_1201{
+    .over_1201,.upto480{
         display:none;
     }
-}
 
+    .Contacts-whole-container{ /* весь контейнер */
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .Contacts-figures {   /*Див с 2мя Figures*/
+        margin-top:10px;
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+        flex-wrap:wrap;
+        width:fit-content;
+    }
+
+    .Contacts-figures figure{ /*фигура = картинка+подпись*/
+        display: flex;
+        flex-direction: column;
+        width:50%;
+        height:400px;
+        align-items: center;
+        margin: 5px 0 10px 0;
+    }
+
+    .contacts-pic{ /*сама картинка*/
+        object-fit:contain;
+        height:90%;
+    }
+    .Contacts-description{
+        margin-top:20px;
+    }
+
+    .Contacts-description p{
+        margin-bottom:10px;
+        text-align: center;
+    }
+
+}
 /*для мобилок*/
 @media screen and (max-width: 480px) {
-    .over_1201{
+    .over_1201,.vertTabl{
         display:none;
     }
 
@@ -884,35 +920,12 @@ footer{
     }
     .Contacts-description{
         width:90%;
-        /*display:flex;*/
-        /*flex-direction: column;*/
     }
-
 
     .Contacts-description p{
         margin-bottom:10px;
         text-align: center;
     }
-}
-
-.Contacts-whole-container{
-
-}
-
-.Contacts-figures{
-
-}
-
-.Contacts-figures figure{
-
-}
-
-.Contacts-figures img{
-
-}
-
-.Contacts-description{
-
 }
 
 .Contacts-figures figcaption{

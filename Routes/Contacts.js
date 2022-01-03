@@ -1,6 +1,10 @@
 export const Contacts = {
     template:`<div class="Contacts-whole-container">
-
+              <p class="Contacts-description vertTabl">Официальный представитель Clothery, Inc. в России: 
+                  "ООО Клоузери Раша", ОГРН 3899 9898 1239 1239, <br>
+                  Юридический и фактический адрес: <br>г.Москва, Хрущёвский Вал, 11Б, БЦ Лакшери Голд Плаза, офис 211<br>
+             </p>
+                
               <div class="Contacts-figures">
                   <p class="Contacts-description upto480">Официальный представитель Clothery, Inc. в России: 
                   "ООО Клоузери Раша", ОГРН 3899 9898 1239 1239, <br>
@@ -28,12 +32,13 @@ export const Contacts = {
                   "ООО Клоузери Раша", ОГРН 3899 9898 1239 1239, <br>
                   Юридический и фактический адрес: <br>г.Москва, Хрущёвский Вал, 11Б, БЦ Лакшери Голд Плаза, офис 211<br>
                   </p>
-                  <p>Отдел продаж и обслуживания физических лиц: <br>
-                  +7-495-190-48-33, <br>
-                  email: shop@clothery.com<br></p>
                   <p>Отдел по работе с юридическими лицами:<br>
                   +7-495-190-48-93, <br>
                   email: b2b@clothery.com<br></p>
+                  <p>Отдел продаж и обслуживания физических лиц: <br>
+                  +7-495-190-48-33, <br>
+                  email: shop@clothery.com<br></p>
+
               </div>
               
               </div>    
