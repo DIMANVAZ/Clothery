@@ -757,6 +757,9 @@ footer{
 /*=====================Contacts раздел========================*/
 /*для ПеКА*/
 @media screen and (min-width: 1201px) {
+    .upto480{
+        display:none;
+    }
 
     .Contacts-whole-container{ /* весь контейнер */
         display:flex;
@@ -784,7 +787,7 @@ footer{
         object-fit:contain;
         height:85%;
     }
-    .Contacts-description{
+    .over_1201{
         width:100%;
         display:flex;
         flex-direction: column;
@@ -814,21 +817,47 @@ footer{
         display:none;
     }
 
-
-    .About-figures{
-
-    }
-    .About-figures img {
-
+    .Contacts-whole-container{ /* весь контейнер */
+        display:flex;
+        flex-direction:column;
+        align-items:center;
     }
 
-    .About-figures figure{
+    .Contacts-figures {   /*Див с 2мя Figures*/
+        margin-top:10px;
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+        flex-wrap:wrap;
+        width:fit-content;
+    }
 
+    .Contacts-figures figure{ /*фигура = картинка+подпись*/
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 5px 0 10px 0;
+    }
+
+    .contacts-pic{ /*сама картинка*/
+        object-fit:contain;
+        width:90%;
+    }
+    .Contacts-description{
+        width:90%;
+        /*display:flex;*/
+        /*flex-direction: column;*/
+    }
+
+
+    .Contacts-description p{
+        margin-bottom:10px;
+        text-align: center;
     }
 }
 
 .Contacts-whole-container{
-    margin:0 10px;
+
 }
 
 .Contacts-figures{
@@ -848,6 +877,7 @@ footer{
 }
 
 .Contacts-figures figcaption{
+    text-align: center;
     font-style:italic;
 }
 
