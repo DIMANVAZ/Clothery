@@ -23,7 +23,7 @@ export const Contacts = {
                     </figcaption>
               </figure>
 
-              <div class="Contacts-description over_1201">
+              <div class="Contacts-description">
                   <p class="over_1201">Официальный представитель Clothery, Inc. в России: <br>
                   "ООО Клоузери Раша", ОГРН 3899 9898 1239 1239, <br>
                   Юридический и фактический адрес: <br>г.Москва, Хрущёвский Вал, 11Б, БЦ Лакшери Голд Плаза, офис 211<br>
