@@ -628,12 +628,12 @@ footer{
 /*=====================about раздел========================*/
 /*для ПеКА*/
 @media screen and (min-width: 1201px) {
-    .about_over_1201{
+    .About-description.about_over_1201{
         padding-right:30px;
         /*padding-top:10px;*/
     }
 
-    .about_upto480{
+    .About-description.about_upto480{
         display:none;
     }
 
@@ -667,8 +667,14 @@ footer{
 }
 /*для планш гориз */
 @media screen and (min-width:768px) and (max-width: 1200px)  {
-    .About-description.about_over_1201{
+    .About-description.about_over_1201,
+    .About-description.about_upto480
+    {
         display:none;
+    }
+
+    .About-description.about_horizTabl{
+        width:95%;
     }
 
     .About-whole-container{ /* весь контейнер */
@@ -680,28 +686,34 @@ footer{
     .About-figures {   /*Див с 2мя Figures*/
         flex-wrap: wrap;
         margin-top: 10px;
+        margin-bottom: 10px;
         display: flex;
         flex-direction: row;
+        justify-content: center;
     }
 
     .About-figures figure{ /*фигура = картинка+подпись*/
         display: flex;
         flex-direction: column;
         align-items: center;
-        height:600px;
-        width:50%;
+        height:500px;
+        width:46%;
+        margin: 0 auto;
     }
 
     .about-pic{ /*сама картинка*/
-        object-fit:contain;
-        height:90%;
+        object-fit: contain;
+        height: 90%;
+        width: 100%;
+        object-position: bottom;
     }
 
 }
 
 /*для планш верт*/
 @media screen and (min-width:481px) and (max-width: 767px) {
-    .about_over_1201{
+    .About-description.about_over_1201,
+    .About-description.about_horizTabl{
         display:none;
     }
     .About-whole-container{ /* весь контейнер */
