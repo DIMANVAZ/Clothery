@@ -628,14 +628,14 @@ footer{
 /*=====================about раздел========================*/
 /*для ПеКА*/
 @media screen and (min-width: 1201px) {
-    .About-description.about_over_1201{
-        padding-right:30px;
-        /*padding-top:10px;*/
-    }
-
     .About-description.about_upto480,
     .About-description.about_horizTabl{
         display:none;
+    }
+
+    #medievalPics .about_over_1201{
+        padding-right:30px;
+        /*background-color:slateblue;*/
     }
 
     .About-whole-container{ /* весь контейнер */
@@ -648,21 +648,42 @@ footer{
         margin-top: 10px;
         display: flex;
         flex-direction: row;
-        width: 100%;
+        width: 90%;
+        /*background-color:greenyellow;*/
     }
 
-    .About-figures figure{ /*фигура = картинка+подпись*/
+    #medievalPics figure{ /*фигура = картинка+подпись*/
         display: flex;
         flex-direction: column;
         align-items: center;
         height:600px;
         margin-right:15px;
-    }
+        /*background-color:greenyellow;*/
 
-    .about-pic{ /*сама картинка*/
+    }
+    #medievalPics img{
         object-fit:contain;
         height:90%;
     }
+
+        #twentys_pics figure{
+            /*background-color:red;*/
+            height:500px;
+            width:35vw;
+        }
+        #twentys_pics img{ /*сама картинка*/
+            /*border:2px solid fuchsia;*/
+            width:100%;
+            height:90%;
+            object-fit:contain;
+            object-position: top;
+        }
+        #twentys_pics .about_over_1201{
+            width:30vw;
+            padding-left:10px;
+            /*background-color:slateblue;*/
+            text-align: left;
+        }
 
 }
 /*для планш гориз */
@@ -802,17 +823,6 @@ footer{
     }
 }
 /*-------------общее-------------*/
-.About-whole-container{ /* весь контейнер */
-    border:2px solid red;
-}
-
-.About-figures { /* ящик с 2-мя фигурами */
-    border:2px solid blue;
-}
-
-.About-figures figure{ /* фигура - фото и подпись */
-    border:2px solid greenyellow;
-}
 
 .About-figures figcaption{
     font-style:italic;
