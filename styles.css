@@ -630,7 +630,7 @@ footer{
 @media screen and (min-width: 1201px) {
     .about_over_1201{
         padding-right:30px;
-        padding-top:10px;
+        /*padding-top:10px;*/
     }
 
     .about_upto480{
@@ -674,7 +674,9 @@ footer{
 
 /*для планш верт*/
 @media screen and (min-width:481px) and (max-width: 767px) {
-
+    .about_over_1201{
+        display:none;
+    }
     .About-whole-container{ /* весь контейнер */
         display:flex;
         flex-direction:column;
@@ -685,25 +687,31 @@ footer{
         width:100%;
         display:flex;
         flex-direction:row;
-        align-items:center;
+        flex-wrap: wrap;
+        /*align-items:center;*/
         margin-bottom:15px;
+        height:fit-content;
+        justify-content:center;
     }
 
     .About-figures figure{
-        width:50%;
+        /*width:50%;*/
         align-items: center;
         margin-bottom:10px;
         display: flex;
         flex-direction: column;
+        height:fit-content;
     }
 
     .About-figures img {
-        width:90%
+        /*width:90%*/
+        height:250px;
+
     }
 
     .About-description{
-        width:90%;
-        font-size:0.9rem;
+        width:95%;
+        font-size:0.8rem;
     }
 
     .About-figures figcaption{
