@@ -11,7 +11,7 @@ export const Contacts = {
                   Юридический и фактический адрес: <br>г.Москва, Хрущёвский Вал, 11Б, БЦ Лакшери Голд Плаза, офис 211<br>
                   </p>
                 <figure> 
-                    <img src="./pics/Gen_dir.jpg" class="contacts-pic" alt="CEO portrait">
+                    <img src="./pics/Gen_dir.jpg" class="contacts-pic" alt="portrait of CEO man">
                     <figcaption>
                     Генеральный директор <br> 
                     Фишмансон Савва Ааронович <br> 
@@ -19,7 +19,7 @@ export const Contacts = {
                     </figcaption>
                 </figure> 
                 <figure> 
-                    <img src="./pics/Customer_service.jpg" class="contacts-pic" alt="Customer service portrait">
+                    <img src="./pics/Customer_service.jpg" class="contacts-pic" alt="portrait of woman from customer service">
                     <figcaption>
                     Менеджер по работе с клиентами <br> 
                     Либкина Берта Моисеевна <br>

@@ -1,4 +1,3 @@
-// рефакторить КартРОУТ - чтобы выводило по размерам + рефекторить Карт, чтобы удаляло по размеру
 // массив cart = [{item:{},size:S,amount:1}},{item:{},size:M,amount:4}} ]
 export const CartRoute = {
     props:['items',`cart`],
@@ -14,7 +13,7 @@ export const CartRoute = {
           <div class="row pic-name-container">
             <router-link :to="'/item/' + position.item.id">
               <div class=""> {{ position?.item.name?.slice(9) }} <br>
-                <img :src="position.item?.media?.images[0].image160pxUrl" alt="160">
+                <img :src="position.item?.media?.images[0].image160pxUrl" alt="image of item">
               </div>
             </router-link>
           </div>
@@ -54,9 +53,6 @@ export const CartRoute = {
       </dialog>
       </div>`,
     methods:{
-        hideThis(){
-            event.target.style = "display:none;"
-        },
         showDialog(){
             let dialog = document.querySelector('dialog');
             //dialog.show();
@@ -70,9 +66,6 @@ export const CartRoute = {
         refresh(position){
             position.amount = +event.target.value
         }
-    },
-    data(){
-        return {}
     },
     computed:{
         totalItems(){

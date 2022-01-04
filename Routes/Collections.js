@@ -35,7 +35,7 @@ export const Collections = {
                     <div v-for="item in sortCollections" class="collections-section-vFor">
                         <h4>{{ item.name?.slice(9) }}</h4>
                             <router-link :to="'/item/' + item.id">
-                        <img :src="item?.media?.images[0].image400pxUrl" alt="400" style="max-width:100%;height:auto">
+                        <img :src="item?.media?.images[0].image400pxUrl" alt="image of item" style="max-width:100%;height:auto">
                             </router-link>
                         <p>Цена:{{item.defaultDisplayedPriceFormatted}}</p>
                             <router-link :to="'/item/' + item.id">
@@ -50,7 +50,7 @@ export const Collections = {
                     <div v-for="item in sortCollections" class="collections-section-vFor">
                         <h4>{{ item.name?.slice(9) }}</h4>
                             <router-link :to="'/item/' + item.id">
-                        <img :src="item?.media?.images[0].image400pxUrl" alt="400" style="max-width:100%;height:auto">
+                        <img :src="item?.media?.images[0].image400pxUrl" alt="image of item" style="max-width:100%;height:auto">
                             </router-link>
                         <p>Цена:{{item.defaultDisplayedPriceFormatted}}</p>
                             <router-link :to="'/item/' + item.id">
@@ -84,12 +84,9 @@ export const Collections = {
                 this.finalItems = respObj.items;
             }
         }
-
     },
     created(){
         this.fetchItems()
-    },
-    mounted() {
     },
     computed:{
         sortCollections(){

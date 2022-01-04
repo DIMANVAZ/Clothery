@@ -1,5 +1,4 @@
-import {Styler} from "../Classes/Styler.js"
-let styler = new Styler();
+//import {Styler} from "../Classes/Styler.js"
 
 export const About = {
     template:
@@ -101,26 +100,5 @@ export const About = {
             сменит хозяина и станет известен как <a href="https://aeronauticamilitare.eu/">Aeronautica Militare</a>.</p>
         </div>
 
-    </div>`,
-    data(){
-        return{
-
-        }
-    },
-    mounted(){
-
-    },
-    created(){
-
-    },
-    methods:{
-
-    },
-    computed:{
-
-    },
-    watch:{
-
-    }
-
+    </div>`
 }

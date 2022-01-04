@@ -144,14 +144,14 @@ export const Item = {
                     )
                 }
             })
-            console.log('orderedList = ',orderedList)
+
             return orderedList //массив вида [{item:{},size:S,amount:1}, {item:{},size:M,amount:3}]
         },
             //назначение большого рисунка
         dynamicBigImage(i=0){
             let BI = document.getElementById("big-image");
             if(BI){
-                console.log(`BI.src = ${this.item?.media?.images[i]?.image800pxUrl}`)
+
                 BI.src = `${this.item?.media?.images[i]?.image800pxUrl}`
             } else return `${this.item?.media?.images[i]?.image800pxUrl}`
         },
@@ -169,9 +169,8 @@ export const Item = {
         }
     },
     mounted(){
-        //console.log(this.$route.params, '= this route params')
 
-        this.$nextTick(() => { //что такое НекстТик ?
+        this.$nextTick(() => {
             this.init()
         });
         let preSelect= document.querySelector('select');
@@ -181,24 +180,3 @@ export const Item = {
     computed:{
     }
 }
-
-// 1) 160px
-// <div v-for="(pic,i) in item?.media?.images" >
-//     <img :src="pic.image160pxUrl" alt="160" style="border:1px solid var(&#45;&#45;divide-line)">
-//     </div>
-// 2) 400px
-// <div v-for="(pic,i) in item?.media?.images" >
-//     <img :src="pic.image400pxUrl" alt="400" style="border:1px solid var(&#45;&#45;divide-line)">
-//     </div>
-// 3) 800px
-// <div v-for="(pic,i) in item?.media?.images" >
-//     <img :src="pic.image800pxUrl" alt="800px" style="border:1px solid var(&#45;&#45;divide-line)">
-//     </div>
-// 4) 1500px
-// <div v-for="(pic,i) in item?.media?.images" >
-//     <img :src="pic.image1500pxUrl" alt="1500px" style="border:1px solid var(&#45;&#45;divide-line)">
-//     </div>
-// 4) orig
-// <div v-for="(pic,i) in item?.media?.images" >
-//     <img :src="pic.imageOriginalUrl" alt="medium Product Photo" style="border:1px solid var(&#45;&#45;divide-line)">
-//     </div>
