@@ -633,7 +633,8 @@ footer{
         /*padding-top:10px;*/
     }
 
-    .About-description.about_upto480{
+    .About-description.about_upto480,
+    .About-description.about_horizTabl{
         display:none;
     }
 
@@ -644,11 +645,10 @@ footer{
     }
 
     .About-figures {   /*Див с 2мя Figures*/
-        margin-top:10px;
-        display:flex;
-        flex-direction:row;
-        width:fit-content;
-        margin-left:15px;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
     }
 
     .About-figures figure{ /*фигура = картинка+подпись*/
@@ -973,7 +973,8 @@ footer{
 }
 /*для мобилок*/
 @media screen and (max-width: 480px) {
-    .Contacts-description.cont_vertTabl{
+    .Contacts-description.cont_vertTabl,
+    .Contacts-description .cont_over_1201{
         display:none;
     }
 
