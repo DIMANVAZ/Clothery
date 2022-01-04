@@ -8,6 +8,8 @@ import {CartRoute} from "./Routes/CartRoute.js";
 import {Collections} from "./Routes/Collections.js";
 import {Contacts} from "./Routes/Contacts.js";
 import {Item} from "./Routes/Item.js";
+// import {Carousel} from './Routes/Carousel.js'
+
 
 const routes = [
     { path: '/', name:'Home', component: Home },
@@ -16,6 +18,8 @@ const routes = [
     { path: '/collections', name:'Collections',component: Collections },
     { path: '/contacts', name:'Contacts',component: Contacts },
     { path: '/item/:xxx', name:"Item",component: Item },
+    // { path: '/carousel', name: 'Carousel', component: Carousel }
+
 ];
 const router = VueRouter.createRouter({
     history: VueRouter.createWebHashHistory(),
@@ -31,6 +35,7 @@ const app = Vue.createApp({
     },
     created(){
         this.fetcher();
+
     },
     methods:{
         getMainColor(item){
@@ -43,29 +48,32 @@ const app = Vue.createApp({
             try{
                 let respObject = await getAPIdata().then(response => response.json());
                 this.items = respObject.items;
-                console.log('this.items = ',this.items) // Proxy {[]}
+//console.table(this.items)
             } catch(e){ console.error(`Error from App.vue/created(): `,e)}
         },
+
     },
     computed:{
     },
     mounted(){
+    },
+    watch:{
     }
 })
       app.use(router);
       app.mount('#app');
 
  //---------- эта штука показывает эвент-таргеты---------------------
+
+
 document.onclick = function(){
-    console.log(event.target)
+    //console.log(event.target)
+
 }
 
-function checkBoxToCart(){
-   let allChB = document.querySelectorAll('.size-checkbox');
-   allChB.forEach(chb => {
-       console.log(chb.value)
-   })
-}
+
+
+
 
 
 

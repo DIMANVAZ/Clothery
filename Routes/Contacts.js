@@ -1,24 +1,48 @@
 export const Contacts = {
-    template:`<div class="Contacts contacts-component">
-
-              Официальный представитель Clothery, Inc. в России: <br>
-              "ООО Клоузери Раша", ОГРН 3899 9898 1239 1239, <br>
-              Юридический и фактический адрес: г.Москва, Хрущёвский Вал, 11Б, БЦ Лакшери Голд Плаза, офис 211<br>
-              <div id="key_figures">
+    template:`<div class="Contacts-whole-container">
+              <p class="Contacts-description cont_vertTabl">Официальный представитель Clothery, Inc. в России: 
+                  "ООО Клоузери Раша", ОГРН 3899 9898 1239 1239, <br>
+                  Юридический и фактический адрес: <br>г.Москва, Хрущёвский Вал, 11Б, БЦ Лакшери Голд Плаза, офис 211<br>
+             </p>
+                
+              <div class="Contacts-figures">
+                  <p class="Contacts-description cont_upto480">Официальный представитель Clothery, Inc. в России: 
+                  "ООО Клоузери Раша", <wbr> ОГРН 3899 9898 1239 1239, <br>
+                  Юридический и фактический адрес: <br>г.Москва, Хрущёвский Вал, 11Б, БЦ Лакшери Голд Плаза, офис 211<br>
+                  </p>
                 <figure> 
-                    <img src="./pics/Gen_dir.jpg" alt="CEO portrait" style="max-width:100%">
-                    <figcaption>Генеральный директор Фишмансон Савва Ааронович</figcaption>
+                    <img src="./pics/Gen_dir.jpg" class="contacts-pic" alt="portrait of CEO man">
+                    <figcaption>
+                    Генеральный директор <br> 
+                    Фишмансон Савва Ааронович <br> 
+                    email: ceo_rus@clothery.com
+                    </figcaption>
                 </figure> 
                 <figure> 
-                    <img src="./pics/Customer_service.jpg" alt="Customer service portrait" style="max-width:100%">
-                    <figcaption>Менеджер по работе с клиентами Либкина Берта Моисеевна</figcaption>
+                    <img src="./pics/Customer_service.jpg" class="contacts-pic" alt="portrait of woman from customer service">
+                    <figcaption>
+                    Менеджер по работе с клиентами <br> 
+                    Либкина Берта Моисеевна <br>
+                    email: customer_rus@clothery.com
+                    </figcaption>
               </figure>
+         
+              <div class="Contacts-description">
+              
+                  <p class="cont_over_1201">Официальный представитель Clothery, Inc. в России: <br>
+                  "ООО Клоузери Раша", ОГРН 3899 9898 1239 1239, <br>
+                  Юридический и фактический адрес: <br>г.Москва, Хрущёвский Вал, 11Б, БЦ Лакшери Голд Плаза, офис 211<br>
+                  </p>
+                  <p>Отдел по работе с юридическими лицами:<br>
+                  +7-495-190-48-93, <br>
+                  email: b2b@clothery.com<br></p>
+                  <p>Отдел продаж и обслуживания физических лиц: <br>
+                  +7-495-190-48-33, <br>
+                  email: shop@clothery.com<br></p>
+
+              </div>
+              
               </div>    
- 
-              Отдел продаж и обслуживания физических лиц: <br>
-              +7-495-190-48-33, email shop@clothery.com<br>
-              Отдел по работе с юридическими лицами:<br>
-              +7-495-190-48-93, email b2b@clothery.com<br>
-             
-              </div>`
+
+         </div>`
 }

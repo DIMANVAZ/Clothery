@@ -1,83 +1,74 @@
 export class Cart{
-    cartBox = []; //товары по типу {name:"any", count:1, price:111}
+    cartBox = this.getFromLS() || []; //массив объектов [{item:{},size:S,amount:1}},{item:{},size:M,amount:4}} ]
 
-    //добавить +1 товар типа {name:"dd",price:999}
-    //если есть такое имя - накрутим его счётчик, а если нету - добавим
-    addToCart(item = {name:"проверка", price:999}){
-        let added = false;
-        this.cartBox.find(nextEl => {
-            if(nextEl.name === item.name){
-                    console.log(`we increase count of ${nextEl.name}`);
-                nextEl.count++;
-                nextEl.price = nextEl.price * nextEl.count;
-                added = true;
-            }
-        })
-        if(!added){
-            item.count = 1;
-            this.cartBox.push(item);
-                console.log(`added new: ${item.name}`)
+    addToCart(orderedList = [{item:{id:"default"}, size:"RR", amount:99}]){
+        if(_.isEmpty(this.cartBox)){ // для лодаша, подключенного через <script>
+            this.cartBox = orderedList
         }
-    };
-
-    //убавить на 1 позицию данного товара
-    removeOne(item){
-        this.cartBox.find(nextEl => {
-            if(nextEl.name === item.name && nextEl.count >= 1){
-                    console.log(`we decrease count of ${nextEl.name}`);
-                nextEl.count--;
-            }
-        })
+        else{
+            orderedList.forEach(order => { //для очередного входящего
+                let match = false;         //флаг)) по умолчанию совпадений нет
+                this.cartBox.find(yetItem => { //Чтобы не городить двойной цикл - поиск функцией
+                    if (yetItem.item.id === order.item.id && yetItem.size === order.size){
+                        yetItem.amount += order.amount
+                        match = true  //...было дело, значит ))
+                    }
+                })
+                if(!match){ // а раз не нашлось совпадений - пушим
+                    this.cartBox.push(order)
+                }
+            })
+        }
+        console.log('this CartBox = ',this.cartBox)
     }
 
-    //полностью удалить позицию вообще
-    fullyRemove(item){
-        this.cartBox = this.cartBox.filter(elem => elem.name !== item.name);
-            console.log(`we fully removed ${item.name}`)
-    };
 
-    //сложить счётчики у всех товаров в корзине
+    //сложить счётчики у всех товаров в корзине. ЙЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕ
     totalItems(){
-        return this.cartBox.reduce((sum,item) =>{
-            sum += item.count;
-            return sum
+        return this.cartBox.reduce((initial, cartString) => {
+            return initial + cartString.amount
         },0)
     };
 
-    //сложить цены у всех товаров в корзине
+    //сложить цены у всех товаров в корзине, перемножив сумму размеров в ordered на цену товара
     totalPrice(){
-        return this.cartBox.reduce((sum,item) =>{
-            sum += item.price;
-            return sum
+        return this.cartBox.reduce((initialPrice, cartString) => {
+            return initialPrice + cartString.item?.price * cartString.amount
         },0)
     };
 
-    showAllItems(){
-        let tab = document.createElement(`ul`) // посмотреть пример с таймТрекером
-        this.cartBox.forEach((item) =>{
-            //tab.innerHTML += `<li>item.name</li>` // что здесь не так ?!?!?
-            console.log(' showAllItems(): item name = ',item.name)
-        })
-        return tab;
+    //убавить на 1 позицию данного товара - продумать, как быть с галками
+    removeOneLine(i){
+        this.cartBox = this.cartBox.filter(el => el !== this.cartBox[i]);
+    };
+
+    saveToLS(){
+        localStorage.setItem('Clothery',JSON.stringify(this.cartBox));
+    }
+
+    getFromLS(){
+        //this.cartBox = JSON.parse(localStorage.getItem('Clothery'));
+        return JSON.parse(localStorage.getItem('Clothery'));
+    }
+
+    clearLS(){
+        //this.cartBox = []
+        localStorage.removeItem('Clothery')
     }
 
     //генератор промокода
-    promoCodeGen(){
-        let pCode = "";
-        this.cartBox.forEach(el => pCode += (el.name[0]+el.count+el.name[el.name.length-1]));
-        pCode += this.totalPrice();
-            console.log(this.cartBox)
-        return pCode;
-    }
-
+    // промокод 10% появляется только при сумме больше 10000,
+    // а при сумме больше 15000 он 15%
+    // и он не длиннее 8 букв. См также класс cart-route-dialog в CartRoute
+    promoCodeGen(initDiscount){
+        let rawCode = this.cartBox.reduce((initDiscount,value) => {
+            return '' + initDiscount + value.size[0] + value.amount
+        },initDiscount)
+        if(rawCode && this.totalPrice()){
+            return (rawCode + this.totalPrice()).slice(0,8)
+        } else return '15SSX2'
+    };
 }
 
-/*
-let c = new Cart();
-c.addToCart({name:"носки", price:333})
-c.addToCart({name:"носки", price:333})
-c.addToCart({name:"трусы", price:4944})
-console.log(c.totalItems())
-console.log(c.totalPrice())
-console.log(c.cartBox)
-console.log(c.promoCodeGen())*/
+/*let c = new Cart();
+*/

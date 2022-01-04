@@ -1,80 +1,182 @@
+import Swiper from 'https://unpkg.com/swiper@7/swiper-bundle.esm.browser.min.js'
+import {getAPIdata} from "../Classes/GetRemoteData.js";
+
 export const Item = {
     props:[`items`,`cart`], //это переданный нам массив объектов items.
                      // Здесь к нему можно обращаться this.items
     template:` 
-            <h2>{{item.name.slice(8)}}</h2>
-            <h3>Код товара: {{item.id}}</h3>
-            <p>Цена:{{item.defaultDisplayedPriceFormatted}}</p>
-            <p v-html="item.description"></p>
+        <div class="item-whole-container">
+        
+            <div class="item-all-images-container">
+            
+              <div class="item-all-SmallImages-box">
+                    
+                  <div v-for="(pic,i) in item?.media?.images" class="item-box-for-small-image">
+                      <img :src="pic.image160pxUrl" 
+                           alt="160" 
+                           :data="i" 
+                           @click="dynamicBigImage(i)" 
+                           class="item-images-smallImage">
+                  </div>
 
-            Доступные размеры:
-            <div v-for="(size,i) in item.options[0].choices">
-                <input type="checkbox" :id="size.text" :name="size.text" :value="size.text" class="size-checkbox">
-                <label for="size">{{ size.text }}</label>
-            </div>
- 
-            <button @click="cart.addToCart({name:item.name.slice(9), price:item?.price}), this.checkBoxToCart()" class="item-cart-button">Добавить в корзину</button>
-            <br>
-              --------------- все изображения (в px это высота) -------<br>
+              </div>                
+            
+              <div class="item-box-for-big-image">
+                   <img :src="dynamicBigImage() || setBigImage" 
+                   alt="800px-image-of-Cloth" 
+                   id="big-image" 
+                   class="item-images-bigImage">
+              </div>
 
-            1) 160px
-            <div v-for="(pic,i) in item?.media?.images" >
-                <img :src="pic.image160pxUrl" alt="160" style="border:1px solid var(--divide-line)">
-            </div>
-           
-            2) 400px
-            <div v-for="(pic,i) in item?.media?.images" >
-                <img :src="pic.image400pxUrl" alt="400" style="border:1px solid var(--divide-line)">
-            </div>
+              <div class="item-mobile-swiper swiper" ref="carousel">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div v-for="(pic) in item?.media?.images" class="swiper-slide">
+                    <img :src="pic.image800pxUrl"
+                         alt="800">
+                  </div>
+
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <!-- If we need scrollbar -->
+                <!-- <div class="swiper-scrollbar"></div>-->
+              </div>
+
+            </div> 
             
-            3) 800px
-            <div v-for="(pic,i) in item?.media?.images" >
-                <img :src="pic.image800pxUrl" alt="800px" style="border:1px solid var(--divide-line)">
+            <div class="item-infoAndOrder-box">
+                <h2 class="item-text-name">{{item?.name?.slice(8)}}</h2>
+                <p class="item-text-code">Код товара: {{item.id}}</p>
+                <p v-html="changeName(item.description)" class="item-text-fullDecription"></p>
+                <h3 class="item-text-price">Цена: {{item.defaultDisplayedPriceFormatted}}</h3>
+                
+                <div class="item-selectors-plus-buttons">
+                <h3 class="item-text-availableSizes">Доступные размеры:</h3>
+                    <fieldset class="item-selectors-fieldset">
+                        <div v-for="(size,i) in item.options[0]?.choices" class="item-selector-and-label">
+                            <label :for="size.text" class="item-selector-label">{{ size.text }}</label>
+                            <select :id="size.text" :name="size.text">
+                                <option v-for="i in 11" :value="i-1" class="item-size-amount-selector">{{ i-1 }}</option>
+                            </select>
+                        </div>
+                      <div v-if="!item.options[0]?.choices && item.name.slice(9) === 'Солнечные очки'" 
+                           class="item-selector-and-label only-for-glasses">
+                            <label for="One-Size" class="item-selector-label"> One-Size </label>
+                            <select id="One-Size" name="One-Size">
+                              <option v-for="i in 11" :value="i-1" class="item-size-amount-selector">{{ i-1 }}</option>
+                            </select>
+                      </div>
+                      
+                    </fieldset>
+                    <div 
+                         
+                         @click="cart.addToCart(orderedList()),
+                                 cart.saveToLS(),
+                                 ordered=true,
+                                 clearFlags()" 
+                         class="item-addToCart-button">
+                         Добавить в корзину
+                    </div>
+                    <router-link to="/cart">
+                         <div v-if="ordered" class="item-goToCart-button">В корзине >></div>
+                    </router-link>   
+                </div> 
+                <br>
             </div>
-            
-            4) 1500px
-            <div v-for="(pic,i) in item?.media?.images" >
-                <img :src="pic.image1500pxUrl" alt="1500px" style="border:1px solid var(--divide-line)">
-            </div>
-            
-            4) orig
-            <div v-for="(pic,i) in item?.media?.images" >
-                <img :src="pic.imageOriginalUrl" alt="medium Product Photo" style="border:1px solid var(--divide-line)">
-            </div>
+        
+        </div>
               `,
     data(){
         return{
-            dataParams:'initially Empty => ',
+            item:{},
+            ordered:false,
+            setBigImage:''
         }
     },
     created(){
+        this.giveMetTrueItem();
     },
     methods:{
-        selectItem(){
-            let match = {}
-            this.items.forEach(item => {
-                if(item.id === parseInt(this.$route.params.xxx)) {
-                    match = item;
+        init() {
+            const options = {
+                pagination: {
+                    el: '.swiper-pagination'
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
                 }
-            });
-            return match;
+            }
+            const carousel = new Swiper(this.$refs.carousel, options)
         },
-        checkBoxToCart(){
-            let checkedSizes = document.querySelectorAll('.size-checkbox');
-            checkedSizes.forEach(el => {
-                console.log(el?.checked) //выдаст false/true/false, например
+
+        //выбираем карточку товара из массива, ищем через id в роуте-парамс ЛИБО костылим, если к нам идут по прямой ссылке
+        async giveMetTrueItem(){
+            if(this.items.length > 0){
+                this.item = this.items.find(el => el.id  === +this.$route.params.xxx)
+                this.setBigImage = `${this.item?.media?.images[0]?.image800pxUrl}`
+            }
+            else{
+                const idParam = +window.location?.hash?.slice(7) || 0;
+                let respObj = await getAPIdata().then(response => response.json());
+                this.item = respObj.items.find(item => item.id === +idParam)
+                this.setBigImage = `${this.item?.media?.images[0]?.image800pxUrl}`
+            }
+        },
+            //работа с выбранными чекбоксами - а если размеров нет? как у очков
+        orderedList(){
+            let orderedList = []
+            let selects = document.querySelectorAll('select')
+
+            selects.forEach(el =>{ //чтобы нули не улетали в корзину
+                if(el.value !== '0'){
+                    orderedList.push(
+                        {item:this.item,
+                         size:el.id,
+                       amount:+el.value}
+                    )
+                }
             })
-            //надо выбрать только true и прописать их в передаваемые в корзину данные
+
+            return orderedList //массив вида [{item:{},size:S,amount:1}, {item:{},size:M,amount:3}]
+        },
+            //назначение большого рисунка
+        dynamicBigImage(i=0){
+            let BI = document.getElementById("big-image");
+            if(BI){
+
+                BI.src = `${this.item?.media?.images[i]?.image800pxUrl}`
+            } else return `${this.item?.media?.images[i]?.image800pxUrl}`
+        },
+            //сбросить значения флагов или селектора
+        clearFlags(){
+            let selects = document.querySelectorAll('select')
+            selects.forEach(el =>{
+                el.value = '0'
+            })
+        },
+            //заменить слово SurfRide на Clothery
+        changeName(smth){
+            if(typeof(smth) === 'string')
+            return smth.replace('SurfRide','Clothery')
         }
     },
     mounted(){
-        this.dataParams += this.$route.params.id;
-            console.log(this.$route.params) // {"id": "344134464"} сформированный в Collection через :to = item/item.id
+
+        this.$nextTick(() => {
+            this.init()
+        });
+        let preSelect= document.querySelector('select');
+        if(preSelect){preSelect.selectedIndex = 1}
 
     },
     computed:{
-        item(){
-            return this.selectItem()
-        },
     }
 }
