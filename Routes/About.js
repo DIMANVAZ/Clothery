@@ -35,7 +35,7 @@ export const About = {
             появление коллекции от Чезаре на Неделе Моды в Лондоне в 1940 году.<br/><br/>
           </p>
            <figure>
-                <img src="./pics/Henry_8.jpeg" class="about-pic" alt="portrait of King Henry VIII">
+                <img src="./pics/Henry_8_compressed.jpeg" class="about-pic" alt="portrait of King Henry VIII">
                 <figcaption> Портрет Короля Генриха VIII, Лондон, 1528г.</figcaption>
            </figure>
           
@@ -63,7 +63,7 @@ export const About = {
           </p>
           
           <figure class="20th_figure">
-                <img src="./pics/Chesare_Fellini_1930s.jpg" class="about-pic" alt="portrait of tailor Chesare Fellini">
+                <img src="./pics/Chesare_Fellini_1930s_comp.jpg" class="about-pic" alt="portrait of tailor Chesare Fellini">
                 <figcaption> Чезаре Феллини в мастерской, 1930-е гг, Лондон</figcaption>
             </figure>
           <p class="About-description about_upto480">Но в 1932 году открылась военная Академия Британской Индийской армии, и слушателям потребовалась униформа

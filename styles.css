@@ -719,14 +719,14 @@ footer{
         align-items: center;
         height:500px;
         width:46%;
-        margin: 0 auto;
+        margin: 10px auto;
     }
 
     .about-pic{ /*сама картинка*/
         object-fit: contain;
         height: 90%;
         width: 100%;
-        object-position: bottom;
+        object-position: top;
     }
 
 }
